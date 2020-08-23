@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scene/World/bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scene/Player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/World/GrassBackground.png" type="Texture" id=3]
 [ext_resource path="res://scene/World/grass.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scene/Enemies/Bat.tscn" type="PackedScene" id=5]
 
 [node name="world" type="Node2D"]
 
@@ -29,3 +30,6 @@ position = Vector2( 1.6437, 162.551 )
 
 [node name="grass2" parent="grass" instance=ExtResource( 4 )]
 position = Vector2( 20.4988, 163.249 )
+
+[node name="Bat" parent="." instance=ExtResource( 5 )]
+position = Vector2( 81.2541, 106.684 )
