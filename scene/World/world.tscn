@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scene/World/bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scene/Player/player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/Tilemap/color_tiles_red.tres" type="TileSet" id=8]
 [ext_resource path="res://script/world.gd" type="Script" id=9]
 [ext_resource path="res://icon.png" type="Texture" id=10]
+[ext_resource path="res://scene/World/GroundCrack.tscn" type="PackedScene" id=11]
 
 [node name="world" type="Node2D"]
 script = ExtResource( 9 )
@@ -36,6 +37,9 @@ current = true
 smoothing_enabled = true
 
 [node name="Ysort" type="YSort" parent="."]
+
+[node name="grass2" parent="Ysort" instance=ExtResource( 11 )]
+position = Vector2( 152.58, 36.8616 )
 
 [node name="player" parent="Ysort" instance=ExtResource( 2 )]
 position = Vector2( 155.24, 74.3031 )
