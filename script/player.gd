@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 #const PlayerHurtSound = preload("res://Player/PlayerHurtSound.tscn")
+signal collided
 
 export var ACCELERATION = 500
 export var MAX_SPEED = 80
@@ -59,13 +60,9 @@ func move_state(delta):
 #		animationTree.set("parameters/Roll/blend_position", input_vector)
 		animationState.travel("Run")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
-		print($".".global_position)
 	else:
 		animationState.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-		print($".".global_position)
-		
-		
 #
 	move()
 #
@@ -86,7 +83,11 @@ func attack_state():
 
 func move():
 	velocity = move_and_slide(velocity)
-
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision:
+			print("kolide")
+			emit_signal('collided', collision)
 #func roll_animation_finished():
 #	velocity = velocity * 0.8
 #	state = MOVE
@@ -106,3 +107,11 @@ func attack_animation_finished():
 
 #func _on_Hurtbox_invincibility_ended():
 #	blinkAnimationPlayer.play("Stop")
+
+
+
+
+func _on_CrackHit_body_entered(body):
+	print(body)
+	print("oke")
+	emit_signal('collided', body)
