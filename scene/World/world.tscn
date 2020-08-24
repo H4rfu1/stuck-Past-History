@@ -32,7 +32,7 @@ region_rect = Rect2( 0, 0, 320, 180 )
 region_filter_clip = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 155.24, 74.3031 )
+position = Vector2( 139.029, 74.3031 )
 current = true
 smoothing_enabled = true
 
@@ -42,7 +42,7 @@ smoothing_enabled = true
 position = Vector2( 152.58, 36.8616 )
 
 [node name="player" parent="Ysort" instance=ExtResource( 2 )]
-position = Vector2( 155.24, 74.3031 )
+position = Vector2( 139.029, 74.3031 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Ysort/player"]
 remote_path = NodePath("../../../Camera2D")
@@ -90,7 +90,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 10 )
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2( 15.1302, 150 )
+scale = Vector2( 0.3, 0.3 )
+normal = ExtResource( 10 )
+action = "ui_left"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2( 291.796, 130.768 )
+scale = Vector2( 0.3, 0.3 )
+normal = ExtResource( 10 )
+action = "ui_up"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2( 291.796, 154.003 )
+scale = Vector2( 0.3, 0.3 )
+normal = ExtResource( 10 )
+action = "ui_down"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2( 40.5272, 150 )
+scale = Vector2( 0.3, 0.3 )
+normal = ExtResource( 10 )
+action = "ui_right"
 [connection signal="collided" from="Ysort/player" to="." method="_on_player_collided"]
