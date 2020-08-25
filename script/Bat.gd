@@ -59,7 +59,9 @@ func _physics_process(delta):
 
 func accelerate_towards_point(point, delta):
 	var direction = global_position.direction_to(point)
+#	print(direction)
 	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
+	print(direction)
 	sprite.flip_h = velocity.x < 0
 
 func seek_player():
