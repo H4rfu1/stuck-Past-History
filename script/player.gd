@@ -99,7 +99,6 @@ func move():
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision:
-			print("kolide")
 			emit_signal('collided', collision)
 #func roll_animation_finished():
 #	velocity = velocity * 0.8
