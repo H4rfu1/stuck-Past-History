@@ -33,7 +33,7 @@ region_rect = Rect2( 0, 0, 320, 180 )
 region_filter_clip = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 139.029, 74.3031 )
+position = Vector2( 146.013, 160.199 )
 current = true
 smoothing_enabled = true
 
@@ -43,7 +43,7 @@ smoothing_enabled = true
 position = Vector2( 152.58, 36.8616 )
 
 [node name="player" parent="Ysort" instance=ExtResource( 2 )]
-position = Vector2( 139.029, 74.3031 )
+position = Vector2( 146.013, 160.199 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Ysort/player"]
 remote_path = NodePath("../../../Camera2D")
