@@ -30,6 +30,7 @@ onready var animationState  = animationTree.get("parameters/playback")
 
 func _ready():
 	state = pick_random_state([IDLE])
+	animationTree.active = true
 
 func _physics_process(delta):
 #	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
@@ -60,11 +61,13 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 func accelerate_towards_point(point, delta):
-	var direction = global_position.direction_to(point)
+	var direction = Vector2.ZERO
+	direction = global_position.direction_to(point)
 #	print(direction)
 	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
+	animationTree.set("parameters/Idle/blend_position", direction)
+	animationTree.set("parameters/Run/blend_position", direction)
 	print(direction)
-	sprite.flip_h = velocity.x < 0
 
 func seek_player():
 	if playerDetectionZone.can_see_player():

@@ -28,10 +28,6 @@ radius = 6.0
 [node name="Mob" type="KinematicBody2D"]
 collision_layer = 16
 script = ExtResource( 3 )
-ACCELERATION = null
-MAX_SPEED = null
-FRICTION = null
-WANDER_TARGET_RANGE = null
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -8 )
