@@ -123,3 +123,4 @@ action = "ui_right"
 position = Vector2( 29.3303, 154.333 )
 scale = Vector2( 0.25, 0.25 )
 [connection signal="collided" from="Ysort/player" to="." method="_on_player_collided"]
+
