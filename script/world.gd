@@ -29,12 +29,12 @@ func _player_on_artefact_zone():
 func _artefact_zone_checker():
 	var arteract_tiles_amount = artefact_tiles.size()
 	var green = 0
-	print("P")
 	for t in artefact_tiles:
 		t = Vector2(t[0], t[1])
 		var tile = $TileMap.get_cellv(t)
 		if (tile == 0):
 			$CanvasLayer/indicator.text = "Ulangi"
+			_artefact_zone_restore()
 			break #emit signal
 		elif (tile > 0 && tile <15):
 			green += 1
@@ -43,6 +43,10 @@ func _artefact_zone_checker():
 				break #emit signal
 	green = 0
 
+func _artefact_zone_restore():
+	for t in artefact_tiles:
+		t = Vector2(t[0], t[1])
+		$TileMap.set_cellv(t, 15)
 
 func _on_player_collided(collision):
 	if collision.collider is TileMap:

@@ -66,8 +66,8 @@ func accelerate_towards_point(point, delta):
 #	print(direction)
 	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 	animationTree.set("parameters/Idle/blend_position", direction)
-	animationTree.set("parameters/Run/blend_position", direction)
-	print(direction)
+	#animationTree.set("parameters/Run/blend_position", direction)
+	#print(direction)
 
 func seek_player():
 	if playerDetectionZone.can_see_player():
