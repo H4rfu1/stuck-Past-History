@@ -46,7 +46,7 @@ func _artefact_zone_checker():
 func _artefact_zone_restore():
 	for t in artefact_tiles:
 		t = Vector2(t[0], t[1])
-		$TileMap.set_cellv(t, 15)
+		$TileMap.set_cellv(t, 7)
 
 func _on_player_collided(collision):
 	if collision.collider is TileMap:
