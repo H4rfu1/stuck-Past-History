@@ -33,7 +33,7 @@ script = ExtResource( 3 )
 position = Vector2( 0, -8 )
 texture = ExtResource( 2 )
 hframes = 60
-frame = 19
+frame = 28
 
 [node name="Shadow Spriter" type="Sprite" parent="."]
 position = Vector2( 0, 4 )
@@ -46,7 +46,6 @@ shape = SubResource( 1 )
 
 [node name="AnimationTree" parent="." instance=ExtResource( 9 )]
 parameters/playback = SubResource( 2 )
-parameters/Attack/blend_position = Vector2( 0, -0.807514 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 4 )]
 collision_layer = 8
