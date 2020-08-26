@@ -585,7 +585,7 @@ cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 collision_layer = 64
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -65528, 15, 0, 1, 15, 0, 2, 15, 0, 3, 15, 0, 65537, 15, 0, 65539, 15, 0, 131073, 15, 0, 131075, 15, 0 )
+tile_data = PoolIntArray( -65528, 15, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 65537, 7, 0, 65539, 7, 0, 131073, 7, 0, 131075, 7, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 146.013, 160.199 )
