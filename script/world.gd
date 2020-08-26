@@ -2,51 +2,29 @@ extends Node2D
 
 var collision_pos = []
 
-var artefactzone = true
+var artefactzone = false setget setZoneState, getZoneState
 var artefact_tiles = [
 	[1,0], [2,0], [3,0],
 	[1,1], [3,1],
 	[1,2], [3,2] ]
+var artefact_player_pos = [2,3]
+
+func _ready():
+	$TileZone.hide()
 
 func _process(delta):
-	var cpos = $TileMap.world_to_map($Ysort/player.position)
+	var cpos = $TileZone.world_to_map($Ysort/player.position)
 	$CanvasLayer/Label.text = str(cpos)
-	var mpos = $TileMap.world_to_map(get_global_mouse_position())
+	var mpos = $TileZone.world_to_map(get_global_mouse_position())
 	$CanvasLayer/Label2.text = str(mpos)
-	if (artefactzone):
-		_player_on_artefact_zone()
-		_artefact_zone_checker()
-	#print($TileMap.get_cellv($TileMap.world_to_map(get_global_mouse_position())))
-
-func _player_on_artefact_zone():
-	var cpos = $TileMap.world_to_map($Ysort/player.position)
-	var tile = $TileMap.get_cellv(cpos)
-	yield(get_tree().create_timer(.2), "timeout")
-	if tile > 0:
-		$TileMap.set_cellv(cpos, tile-1)
-	#$TileMap.set_cellv(tile_pos, tile-1)
-
-func _artefact_zone_checker():
-	var arteract_tiles_amount = artefact_tiles.size()
-	var green = 0
-	for t in artefact_tiles:
-		t = Vector2(t[0], t[1])
-		var tile = $TileMap.get_cellv(t)
-		if (tile == 0):
-			$CanvasLayer/indicator.text = "Ulangi"
-			_artefact_zone_restore()
-			break #emit signal
-		elif (tile > 0 && tile <15):
-			green += 1
-			if (green == arteract_tiles_amount):
-				$CanvasLayer/indicator.text = "Menang"
-				break #emit signal
-	green = 0
-
-func _artefact_zone_restore():
-	for t in artefact_tiles:
-		t = Vector2(t[0], t[1])
-		$TileMap.set_cellv(t, 7)
+	
+	if( $TileZone.get_cellv(cpos) == 9):
+		setZoneState(true)
+		artefact_zone_blocker(cpos)
+		
+	if (getZoneState()):
+		player_on_artefact_zone()
+		artefact_zone_checker()
 
 func _on_player_collided(collision):
 	if collision.collider is TileMap:
@@ -54,5 +32,64 @@ func _on_player_collided(collision):
 		print(collision.normal)
 		tile_pos -= collision.normal  # Colliding tile
 		var tile = collision.collider.get_cellv(tile_pos)
-		if tile > 0:
-			$TileMap.set_cellv(tile_pos, tile-1)
+		if tile < 8 and tile > 0:
+			$TileZone.set_cellv(tile_pos, tile-1)
+#===============
+#Artefact things
+#===============
+func player_on_artefact_zone():
+	var cpos = $TileZone.world_to_map($Ysort/player.position)
+	var tile = $TileZone.get_cellv(cpos)
+	yield(get_tree().create_timer(.2), "timeout")
+	if tile < 8 and tile > 0:
+		$TileZone.set_cellv(cpos, tile-1)
+	elif tile == 9:
+		$TileZone.set_cellv(cpos, 8)
+
+func artefact_zone_checker():
+	var arteract_tiles_amount = artefact_tiles.size()
+	var green = 0
+	for t in artefact_tiles:
+		t = Vector2(t[0], t[1])
+		var tile = $TileZone.get_cellv(t)
+		if (tile == 0):
+			$CanvasLayer/indicator.text = "Ulangi"
+			artefact_zone_restore()
+			break #emit signal
+		elif (tile > 0 && tile <7):
+			green += 1
+			if (green == arteract_tiles_amount):
+				$CanvasLayer/indicator.text = "Menang"
+				break #emit signal
+	green = 0
+
+func artefact_zone_blocker(cpos):
+	$TileZone.show()
+	artefact_zone_restore()
+	var t = Vector2(artefact_player_pos[0],artefact_player_pos[1])
+	var cpos_str = cpos - Vector2(20, 20)
+	var cpos_end = cpos + Vector2(20, 20)
+	print()
+	for x in range (int(cpos_str.x) , int(cpos_end.x)):
+		for y in range (int(cpos_str.y) , int(cpos_end.y)):
+			t = Vector2(x, y)
+			var tile = $TileZone.get_cellv(t)
+			if ( tile == 9 ):
+				$TileZone.set_cellv(t, 8)
+
+func artefact_zone_restore():
+	var cpos = Vector2(artefact_player_pos[0],artefact_player_pos[1])
+	cpos = $TileZone.map_to_world(cpos)
+	$Ysort/player.position = cpos + Vector2(32, 32)
+	for t in artefact_tiles:
+		t = Vector2(t[0], t[1])
+		$TileZone.set_cellv(t, 7)
+
+#=================
+#Setter and Getter
+#=================
+func setZoneState(args: bool):
+	artefactzone = args
+
+func getZoneState():
+	return artefactzone
