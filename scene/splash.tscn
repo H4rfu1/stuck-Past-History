@@ -317,10 +317,10 @@ tracks/19/loop_wrap = true
 tracks/19/imported = false
 tracks/19/enabled = true
 tracks/19/keys = {
-"times": PoolRealArray( 2.5, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 2.1, 2.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 1.0 ]
+"values": [ 0.0, 0.0, 1.0 ]
 }
 tracks/20/type = "value"
 tracks/20/path = NodePath("ColorRect:color")
@@ -383,34 +383,31 @@ __meta__ = {
 }
 
 [node name="bear" type="Sprite" parent="tape"]
-position = Vector2( 358.978, 140.19 )
+position = Vector2( 355.981, 191.15 )
 texture = ExtResource( 3 )
 
 [node name="daun_r" type="Sprite" parent="tape"]
 position = Vector2( 350.018, 272.411 )
-rotation = 0.424977
-scale = Vector2( 0.923408, 0.986801 )
+scale = Vector2( 0.994885, 1.02413 )
 texture = ExtResource( 4 )
 offset = Vector2( 32.9329, -35.1185 )
 
 [node name="daun_l" type="Sprite" parent="tape"]
 position = Vector2( 368.55, 277.47 )
-rotation = -0.331613
-scale = Vector2( 0.95245, 1.04098 )
+scale = Vector2( 1.02362, 1.00243 )
 texture = ExtResource( 5 )
 offset = Vector2( -45.9501, -37.8392 )
 
 [node name="sunduk" type="Sprite" parent="tape"]
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 857.438, 186.172 )
+position = Vector2( 347.72, 205.089 )
 texture = ExtResource( 6 )
 
 [node name="overlay" type="Sprite" parent="tape"]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 335.978, 211.441 )
 texture = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="tape"]
+self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 229.0
 margin_top = 235.0
 margin_right = 475.0
@@ -418,6 +415,7 @@ margin_bottom = 307.0
 custom_fonts/font = SubResource( 1 )
 text = "TapeSoft"
 align = 1
+percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -427,7 +425,6 @@ anims/game_logo = SubResource( 2 )
 anims/tape_open = SubResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.756863, 0.815686, 0.847059, 1 )
@@ -445,9 +442,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -360.0
-margin_top = -240.0
-margin_right = 360.0
+margin_left = -169.5
+margin_top = 19.0
+margin_right = 169.5
 margin_bottom = 240.0
 texture = ExtResource( 9 )
 stretch_mode = 6

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/UI/button/blue.png" type="Texture" id=1]
 [ext_resource path="res://assets/UI/button/blue_mini_press.png" type="Texture" id=2]
@@ -13,17 +13,28 @@
 [ext_resource path="res://assets/UI/button/achievement_press.png" type="Texture" id=11]
 [ext_resource path="res://assets/UI/button/story.png" type="Texture" id=12]
 [ext_resource path="res://assets/UI/button/story_press.png" type="Texture" id=13]
+[ext_resource path="res://scene/transition.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scene/Menu/MenuController.gd" type="Script" id=15]
+[ext_resource path="res://scene/Window/dialog_window.res" type="PackedScene" id=16]
+[ext_resource path="res://scene/Window/setting_window.res" type="PackedScene" id=17]
+[ext_resource path="res://script/plugins/DBconnection.res" type="PackedScene" id=18]
 
 [node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DBconnection" parent="." instance=ExtResource( 18 )]
+
+[node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Background" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 1.0
@@ -72,6 +83,10 @@ stretch_mode = 3
 [node name="Label" type="Label" parent="VBoxContainer/btn_mesinw"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.12244
+margin_top = 1.12247
+margin_right = 1.12244
+margin_bottom = 1.12247
 custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Mesin Waktu"
@@ -170,3 +185,19 @@ stretch_mode = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="transition" parent="." instance=ExtResource( 14 )]
+visible = false
+
+[node name="setting_window" parent="." instance=ExtResource( 17 )]
+visible = false
+
+[node name="dialog_window" parent="." instance=ExtResource( 16 )]
+visible = false
+[connection signal="button_up" from="VBoxContainer/btn_main" to="." method="_on_press_Main"]
+[connection signal="button_up" from="VBoxContainer/btn_mesinw" to="." method="_on_press_MesinWaktu"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/btn_toko" to="." method="_on_press_Toko"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/btn_koleksi" to="." method="_on_press_Koleksi"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/btn_cerita" to="." method="_on_press_Cerita"]
+[connection signal="button_up" from="VBoxContainer2/HBoxContainer/btn_leaderboard" to="." method="_on_press_Leaderboard"]
+[connection signal="button_up" from="VBoxContainer2/HBoxContainer/btn_setting" to="." method="_on_press_Setting"]
