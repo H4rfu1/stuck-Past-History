@@ -153,13 +153,31 @@ func aktifkanTasRoket():
 	add_child(timerT) #to process
 	timerT.start() #to start
 	.set_collision_mask_bit( 0, false )
+	.set_collision_layer_bit( 7, false )
 
 func aktifkanJubahLenticular():
-	
-	pass
+	var timerJ = Timer.new()
+	timerJ.set_wait_time( 20 )
+	timerJ.connect("timeout",self,"_on_timerJ_timeout") 
+	#timeout is what says in docs, in signals
+	#self is who respond to the callback
+	#_on_timer_timeout is the callback, can have any name
+	add_child(timerJ) #to process
+	timerJ.start() #to start
+	.set_collision_layer_bit( 1, false )
 
 func aktifkanPenghentiWaktu():
-	pass
+	var timerP = Timer.new()
+	timerP.set_wait_time( 20 )
+	timerP.connect("timeout",self,"_on_timerP_timeout") 
+	#timeout is what says in docs, in signals
+	#self is who respond to the callback
+	#_on_timer_timeout is the callback, can have any name
+	add_child(timerP) #to process
+	timerP.start() #to start
+	.set_collision_layer_bit( 1, false )
+	.set_collision_layer_bit( 7, false )
+
 
 func aktifkanBajuAdat():
 	 .set_collision_layer_bit( 1, false )
@@ -168,3 +186,11 @@ func nonAktifkanBajuAdat():
 
 func _on_timerT_timeout():
 	.set_collision_mask_bit( 0, true )
+	.set_collision_layer_bit( 7, true )
+
+func _on_timerJ_timeout():
+	.set_collision_layer_bit( 1, true )
+
+func _on_timerP_timeout():
+	.set_collision_layer_bit( 1, true )
+	.set_collision_layer_bit( 7, true )
