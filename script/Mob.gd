@@ -103,3 +103,8 @@ func pick_random_state(state_list):
 func _on_Hurtbox_area_entered(area):
 	pass
 #	queue_free()
+
+
+func _on_Hitbox_body_entered(body):
+	var player = get_parent().get_node("player")
+	player.queue_free()

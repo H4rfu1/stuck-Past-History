@@ -10,13 +10,13 @@
 [ext_resource path="res://assets/Tilemap/color_tiles_red.tres" type="TileSet" id=8]
 [ext_resource path="res://script/world.gd" type="Script" id=9]
 [ext_resource path="res://assets/UI/joystick/key_arrowPress.png" type="Texture" id=10]
-[ext_resource path="res://scene/World/GroundCrack.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scene/UI/Joystick.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scene/Enemies/Mob.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/UI/joystick/key_arrow.png" type="Texture" id=14]
 [ext_resource path="res://scene/World/TreePalm.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scene/World/Stone2.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scene/World/Stone1.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scene/Enemies/trap.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -669,14 +669,16 @@ smoothing_enabled = true
 
 [node name="Ysort" type="YSort" parent="."]
 
-[node name="grass2" parent="Ysort" instance=ExtResource( 11 )]
-position = Vector2( 152.58, 36.8616 )
-
 [node name="player" parent="Ysort" instance=ExtResource( 2 )]
 position = Vector2( 359.281, 241.016 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Ysort/player"]
 remote_path = NodePath("../../../Camera2D")
+
+[node name="Trap" type="YSort" parent="Ysort"]
+
+[node name="grass3" parent="Ysort/Trap" instance=ExtResource( 18 )]
+position = Vector2( 159.909, 193.856 )
 
 [node name="Tree" type="YSort" parent="Ysort"]
 

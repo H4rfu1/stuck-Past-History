@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 #const PlayerHurtSound = preload("res://Player/PlayerHurtSound.tscn")
 signal collided
+var timer = 0
 
 export var ACCELERATION = 500
 export var MAX_SPEED = 80
@@ -28,6 +29,7 @@ onready var joystick = get_parent().get_parent().get_node("CanvasLayer/Joystick/
 #onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
 func _ready():
+#	.set_collision_layer_bit( 1, false )
 	pass
 #	randomize()
 #	#stats.connect("no_health", self, "queue_free")
@@ -45,6 +47,18 @@ func _physics_process(delta):
 #
 		ATTACK:
 			attack_state()
+	
+	if Input.is_action_pressed('tas_roket'):
+		aktifkanTasRoket()
+	
+	if Input.is_action_pressed('jubah_lenticular'):
+		aktifkanJubahLenticular()
+	
+	if Input.is_action_pressed('penghenti_waktu'):
+		aktifkanPenghentiWaktu()
+	
+	if Input.is_action_pressed('baju_adat'):
+		aktifkanBajuAdat()
 #
 func move_state(delta):
 	var input_vector = Vector2.ZERO
@@ -128,3 +142,29 @@ func _on_CrackHit_body_entered(body):
 	print(body)
 	print("oke")
 	emit_signal('collided', body)
+
+func aktifkanTasRoket():
+	var timerT = Timer.new()
+	timerT.set_wait_time( 10 )
+	timerT.connect("timeout",self,"_on_timerT_timeout") 
+	#timeout is what says in docs, in signals
+	#self is who respond to the callback
+	#_on_timer_timeout is the callback, can have any name
+	add_child(timerT) #to process
+	timerT.start() #to start
+	.set_collision_mask_bit( 0, false )
+
+func aktifkanJubahLenticular():
+	
+	pass
+
+func aktifkanPenghentiWaktu():
+	pass
+
+func aktifkanBajuAdat():
+	 .set_collision_layer_bit( 1, false )
+func nonAktifkanBajuAdat():
+	 .set_collision_layer_bit( 1, true )
+
+func _on_timerT_timeout():
+	.set_collision_mask_bit( 0, true )

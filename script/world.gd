@@ -1,6 +1,7 @@
 extends Node2D
 
 var collision_pos = []
+var player = .get_node("Ysort/player")
 
 var artefactzone = false setget setZoneState, getZoneState
 var artefact_tiles = [
@@ -60,6 +61,7 @@ func artefact_zone_checker():
 			green += 1
 			if (green == arteract_tiles_amount):
 				$CanvasLayer/indicator.text = "Menang"
+				
 				break #emit signal
 	green = 0
 
