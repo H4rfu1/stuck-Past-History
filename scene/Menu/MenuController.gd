@@ -21,6 +21,8 @@ func _starter():
 	if( get_node(".").name == "Toko"):
 		GlobalVar.toko
 		render_toko_btn(GlobalVar.get_toko())
+	elif ( get_node(".").name == "Main" ):
+		$Background/AnimationPlayer.play("main_page")
 
 #######################
 # Button Press Action #

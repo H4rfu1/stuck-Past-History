@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/UI/button/blue.png" type="Texture" id=1]
 [ext_resource path="res://assets/UI/button/blue_mini_press.png" type="Texture" id=2]
@@ -19,6 +19,86 @@
 [ext_resource path="res://scene/Window/setting_window.res" type="PackedScene" id=17]
 [ext_resource path="res://script/plugins/DBconnection.res" type="PackedScene" id=18]
 [ext_resource path="res://scene/Window/leaderboard_window.res" type="PackedScene" id=19]
+[ext_resource path="res://assets/UI/page/karakter_main.png" type="Texture" id=20]
+[ext_resource path="res://assets/UI/page/swirl.png" type="Texture" id=21]
+[ext_resource path="res://assets/UI/page/portal.png" type="Texture" id=22]
+
+[sub_resource type="Animation" id=1]
+resource_name = "main_page"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("swirl:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 496.807, 363.664 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("swirl:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("swirl:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.319746, 0.319746 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("portal:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 493.061, 359.918 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("portal:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("portal:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.245485, 0.245485 ), Vector2( 0.28, 0.28 ), Vector2( 0.245485, 0.245485 ), Vector2( 0.28, 0.28 ), Vector2( 0.245, 0.245 ), Vector2( 0.28, 0.28 ), Vector2( 0.245, 0.245 ), Vector2( 0.28, 0.28 ), Vector2( 0.245485, 0.245485 ) ]
+}
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -30,9 +110,34 @@ __meta__ = {
 
 [node name="DBconnection" parent="." instance=ExtResource( 18 )]
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
+anims/main_page = SubResource( 1 )
+
+[node name="swirl" type="Sprite" parent="Background"]
+position = Vector2( 496.807, 363.664 )
+scale = Vector2( 0.319746, 0.319746 )
+texture = ExtResource( 21 )
+
+[node name="portal" type="Sprite" parent="Background"]
+position = Vector2( 493.061, 359.918 )
+scale = Vector2( 0.245485, 0.245485 )
+texture = ExtResource( 22 )
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 64.0
+margin_right = -377.0
+texture = ExtResource( 20 )
+expand = true
+stretch_mode = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -116,6 +221,7 @@ stretch_mode = 3
 margin_left = 75.0
 margin_right = 226.0
 margin_bottom = 73.0
+disabled = true
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 2 )
@@ -137,6 +243,7 @@ __meta__ = {
 margin_left = 230.0
 margin_right = 301.0
 margin_bottom = 73.0
+disabled = true
 texture_normal = ExtResource( 12 )
 texture_pressed = ExtResource( 13 )
 texture_hover = ExtResource( 13 )
@@ -188,7 +295,6 @@ __meta__ = {
 }
 
 [node name="transition" parent="." instance=ExtResource( 14 )]
-visible = false
 
 [node name="setting_window" parent="." instance=ExtResource( 17 )]
 visible = false

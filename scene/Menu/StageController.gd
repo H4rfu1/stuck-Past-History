@@ -11,9 +11,12 @@ func goto_scene(target: String, anim = "fade")->void:
 		get_tree().change_scene("res://scene/Menu/"+target+".tscn")
 
 func _on_return_to_menu():
-	goto_scene("Main")
+	if( get_node(".").name == "StageSelector" ):
+		goto_scene("Main")
+	else:
+		goto_scene("StageSelector")
 func _on_ch1():
-	goto_scene("Ch/ch1")
+	goto_scene("Chapter/ch1")
 
 
 
