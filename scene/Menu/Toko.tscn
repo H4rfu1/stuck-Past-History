@@ -323,7 +323,6 @@ __meta__ = {
 }
 
 [node name="transition" parent="." instance=ExtResource( 11 )]
-visible = false
 [connection signal="button_up" from="Background/btn_group/btn_inventory" to="." method="_on_toko_inventory"]
 [connection signal="button_up" from="Background/btn_group/btn_powerup" to="." method="_on_toko_powerup"]
 [connection signal="button_up" from="Background/btn_group/btn_timemachine" to="." method="_on_toko_timemachine"]

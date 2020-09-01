@@ -10,7 +10,7 @@ func _on_btn_help_pressed():
 	$dialog_window.create(["???\nComing soon"])
 
 func _on_btn_credit_pressed():
-	$dialog_window.create(["Game ini dibuat oleh Kelompok TapeSoft \nOur Teams: \nHigh concept: M Amri Zaman \nArtist & Programmer: Hartawan Bahari M \nLever Designer & Programmer: M Fahrul Hafidz"])
+	$dialog_window.create(["Game ini dibuat oleh Kelompok Tapesoft, Universitas Jember \nOur Teams: \nHigh concept: M Amri Zaman \nMain programmer: M Fahrul Hafidz \nArtist & programmer: Hartawan Bahari M "])
 
 func _on_lisensi_pressed():
 	$dialog_window.create(["???\nComing soon"])
