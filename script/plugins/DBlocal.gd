@@ -1,5 +1,13 @@
 extends Node
 
+func _ready():
+	pass
+
+func unique():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	return str(rng.randi_range(1001, 9999))
+
 #################
 # DB Initiation #
 #################
@@ -9,7 +17,7 @@ var default_pemain = {
 		c    = 500,
 		slot = 1,
 		username = 'tamu',
-		uid  = '#'
+		uid  = '#'+unique()
 	} setget , get_pemain
 
 var upgrade_price = {
@@ -25,8 +33,8 @@ var upgrade_tier = {
 	} setget , get_u_tier
 
 var setting = {
-		control = 0,
-		sound = 0,
+		control = true,
+		sound = true,
 	}  setget , get_setting
 
 var koleksi = [
@@ -71,7 +79,6 @@ var inventory = [
 		[0, 0]
 	]  setget , get_inventory
 
-
 func get_pemain():
 	return default_pemain
 func get_u_price():
@@ -90,3 +97,26 @@ func get_item():
 	return item
 func get_inventory():
 	return inventory
+
+
+func path4(target: String)->String:
+	match target:
+		"pemain":
+			return "user://userdata.json"
+		"u_price":
+			return "user://upgrade_price.json"
+		"u_tier":
+			return "user://upgrade_tier.json"
+		"setting":
+			return "user://setting.json"
+		"koleksi":
+			return "user://koleksi.json"
+		"jilid":
+			return "user://jilid.json"
+		"stage":
+			return "user://stage.json"
+		"item":
+			return "user://item.json"
+		"inventory":
+			return "user://inventory.json"
+	return "null :("

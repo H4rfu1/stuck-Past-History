@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Stuck In Past History"
+config/name="Finding Legends"
 run/main_scene="res://scene/splash.tscn"
 boot_splash/image="res://assets/base.png"
 config/icon="res://icon.png"
