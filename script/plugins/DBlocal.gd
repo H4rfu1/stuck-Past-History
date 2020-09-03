@@ -1,0 +1,92 @@
+extends Node
+
+#################
+# DB Initiation #
+#################
+
+var default_pemain = {
+		v    = '0-beta1',#versi database
+		c    = 500,
+		slot = 1,
+		username = 'tamu',
+		uid  = '#'
+	} setget , get_pemain
+
+var upgrade_price = {
+		radar = [3000,6300,9600],
+		timecontroll = [3000,4800, 6900, 9300],
+		foglamp = [3000, 6300, 9600]
+	} setget , get_u_price
+
+var upgrade_tier = {
+		radar = 1,
+		timecontroll = 1,
+		foglamp = 1
+	} setget , get_u_tier
+
+var setting = {
+		control = 0,
+		sound = 0,
+	}  setget , get_setting
+
+var koleksi = [
+		# id, stageid, name, desc,own
+		[1, '1',   'Koleksi 1', 'Deskripsi koleksi', 0],
+		[2, '2',   'Koleksi 2', 'Deskripsi koleksi', 0],
+		[3, '3',   'Koleksi 3', 'Deskripsi koleksi', 0],
+		[4, '3-1', 'Koleksi 4', 'Deskripsi koleksi', 0],
+		[5, '3-2', 'Koleksi 5', 'Deskripsi koleksi', 0],
+		[6, '4',   'Koleksi 6', 'Deskripsi koleksi', 0]
+	]  setget , get_koleksi
+
+var jilid= [
+		# id, name, image
+		[1, 'Jilid satu', 'res://'],
+		[2, 'Jilid Dua', 'res://']
+	 ] setget , get_jilid
+
+var stage = [
+		# id, jilid, stageid, name, desc, score, datefinish
+		[1, 1, '1',   'StageName 1', 'desc', '0', '-'],
+		[2, 1, '2',   'StageName 1', 'desc', '0', '-'],
+		[3, 1, '3',   'StageName 1', 'desc', '0', '-'],
+		[4, 1, '3-1', 'StageName 1', 'desc', '0', '-'],
+		[5, 1, '3-2', 'StageName 1', 'desc', '0', '-'],
+		[6, 1, '4',   'StageName 1', 'desc', '0', '-']
+	]  setget , get_stage
+
+var item = [
+		# id , name, desc, price, image
+		[1, 'Ramuan Interatom', 'Saat diminum dapat membuat penggunanya menembus objek diantara partikel.\n Aktif selama 10 detik', 1500, 'res://'],
+		[2, 'Jubah Lenticular', 'Jubah yang mirip jas hujan tetapi dapat membiaskan cahaya sehingga penggunanya tampak tembus pandang.\n Aktif selama 20 detik', 800, 'res://'],
+		[3, 'Jam Penghenti Waktu', 'Jangan tanya sekarang pukul berapa, jam ini dapat menghentikan waktu selama 15 detik', 2200, 'res://'],
+		[4, 'Baju Adat A', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 0, 'res://'],
+		[5, 'Baju Adat B', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 0, 'res://'],
+		[6, 'Baju Adat C', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 0, 'res://']
+	]  setget , get_item
+
+var inventory = [
+		#itemid, amount
+		[0, 0],
+		[0, 0]
+	]  setget , get_inventory
+
+
+func get_pemain():
+	return default_pemain
+func get_u_price():
+	return upgrade_price
+func get_u_tier():
+	return upgrade_tier
+func get_setting():
+	return setting
+func get_koleksi():
+	return koleksi
+func get_jilid():
+	return jilid
+func get_stage():
+	return stage
+func get_item():
+	return item
+func get_inventory():
+	return inventory
