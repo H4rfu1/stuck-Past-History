@@ -26,7 +26,7 @@ func _on_return_to_menu():
 		goto_scene("StageSelector")
 
 func _on_ch1():
-	goto_scene("Chapter/ch1")
+	goto_scene("Chapter/Ch1")
 
 
 

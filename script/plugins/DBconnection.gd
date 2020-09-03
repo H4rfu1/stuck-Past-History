@@ -1,7 +1,7 @@
 extends HTTPRequest
 
 export var url = "https://gamedevtapesoft.000webhostapp.com/"
-var session_path = "user://session.json"
+var json_path = "user://json.json"
 
 var server_data
 var default_data = {
@@ -11,7 +11,7 @@ var default_data = {
 var data = {}
 
 func _ready():
-	readSession()
+	readJson()
 	pass
 
 func handleRequest(method: String, data : String):
@@ -27,34 +27,34 @@ func handleRequest(method: String, data : String):
 			var headers = ["Content-Type: application/x-www-form-urlencoded", "Content-Length: "+str(query.length())]
 			request(site, headers, false, HTTPClient.METHOD_POST, query)
 
-func readSession():
+func readJson():
 	var data
 	var file = File.new()
 
-	if not file.file_exists(session_path):
+	if not file.file_exists(json_path):
 		print('gaada yg di load bos')
-		createSession()
+		createJson()
 
-	file.open(session_path, File.READ)
+	file.open(json_path, File.READ)
 	data = JSON.parse(file.get_as_text())
 	file.close()
 	return data.result
 
-func pushSession(key : Array, value : Array):
+func pushJson(key : Array, value : Array):
 	var data
-	var session = readSession()
+	var json = readJson()
 	for n in range(len(key)):
-		session[key[n]] = value[n]
-	saveSession(session)
+		json[key[n]] = value[n]
+	saveJson(json)
 	return true
 
-func saveSession(data):
+func saveJson(data):
 	var file = File.new()
 	
-	file.open(session_path, File.WRITE)
+	file.open(json_path, File.WRITE)
 	file.store_line(JSON.print(data))
 	file.close()
 	return true
 
-func createSession():
+func createJson():
 	data = default_data.duplicate(true)

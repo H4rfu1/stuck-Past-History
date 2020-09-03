@@ -1,13 +1,10 @@
 extends Control
 
 var sound_state = true
+var control_state = true #indicate jostick
 
 func _ready():
 	pass # Replace with function body.
-
-
-func _on_btn_help_pressed():
-	$dialog_window.create(["???\nComing soon"])
 
 func _on_btn_credit_pressed():
 	$dialog_window.create(["Game ini dibuat oleh Kelompok Tapesoft, Universitas Jember \nOur Teams: \nHigh concept: M Amri Zaman \nMain programmer: M Fahrul Hafidz \nArtist & programmer: Hartawan Bahari M "])
@@ -26,6 +23,18 @@ func _on_btn_sound_pressed():
 		sound_btn.texture_pressed = load("res://assets/UI/button/sound_press.png")
 		sound_btn.texture_hover   = load("res://assets/UI/button/sound_press.png")
 	sound_state = !sound_state
+
+func _on_btn_control_pressed():
+	var control_btn = $window/contain/btn_group/btn_control
+	if(control_state):
+		control_btn.texture_normal  = load("res://assets/UI/button/joystick.png")
+		control_btn.texture_pressed = load("res://assets/UI/button/joystick_press.png")
+		control_btn.texture_hover   = load("res://assets/UI/button/joystick_press.png")
+	else:
+		control_btn.texture_normal  = load("res://assets/UI/button/arrow.png")
+		control_btn.texture_pressed = load("res://assets/UI/button/arrow_press.png")
+		control_btn.texture_hover   = load("res://assets/UI/button/arrow_press.png")
+	control_state = !control_state
 
 func _on_btn_close_pressed():
 	$".".visible = false
