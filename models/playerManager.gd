@@ -39,6 +39,26 @@ func player_change_name():
 	DB.pushJSON(["username"], [new_name], "pemain")
 	$window/username.text = new_name + get_player()["uid"]
 
+
+func get_setting_data():
+	_ready()
+	return get_setting()
+
+func get_control_type():
+	var data = get_setting_data()
+	return data['control']
+func toggle_control():
+	var type = get_control_type()
+	DB.pushJSON(["control"], [!type], "setting")
+
+func get_sound_type():
+	var data = get_setting_data()
+	return data['sound']
+func toggle_sound():
+	var type = get_sound_type()
+	DB.pushJSON(["sound"], [!type], "setting")
+
+
 func set_setting(args):
 	setting = args
 func get_setting():

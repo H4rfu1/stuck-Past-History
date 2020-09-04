@@ -14,7 +14,7 @@ func unique():
 
 var default_pemain = {
 		v    = '0-beta1',#versi database
-		c    = 500,
+		c    = 5000,
 		slot = 1,
 		username = 'tamu',
 		uid  = '#'+unique()
@@ -56,11 +56,11 @@ var jilid= [
 var stage = [
 		# id, jilid, stageid, name, desc, score, datefinish
 		[1, 1, '1',   'StageName 1', 'desc', '0', '-'],
-		[2, 1, '2',   'StageName 1', 'desc', '0', '-'],
-		[3, 1, '3',   'StageName 1', 'desc', '0', '-'],
-		[4, 1, '3-1', 'StageName 1', 'desc', '0', '-'],
-		[5, 1, '3-2', 'StageName 1', 'desc', '0', '-'],
-		[6, 1, '4',   'StageName 1', 'desc', '0', '-']
+		[2, 1, '2',   'StageName 2', 'desc', '0', '-'],
+		[3, 1, '3',   'StageName 3', 'desc', '0', '-'],
+		[4, 1, '3-1', 'StageName 31', 'desc', '0', '-'],
+		[5, 1, '3-2', 'StageName 32', 'desc', '0', '-'],
+		[6, 1, '4',   'StageName 4', 'desc', '0', '-']
 	]  setget , get_stage
 
 var item = [
