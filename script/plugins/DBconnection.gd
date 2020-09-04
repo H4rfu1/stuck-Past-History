@@ -57,11 +57,15 @@ func appendJSON(value , path):
 	var session     = readJSON(path)
 	for n in session:
 		if value[0] == n[0]:
-			n = value
+			n[0] = value[0]
+			if value[2] == '-':
+				n[1] -= value[1]
+			else:
+				n[1] += value[1]
 			added = true
 		new_session.append(n)
 	if(!added):
-		new_session.append(value)
+		new_session.append([value[0],value[1]])
 	saveJSON(new_session, path)
 	return true
 

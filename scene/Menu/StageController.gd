@@ -1,17 +1,32 @@
 extends Control
 
-var unlocked_equip = 1
+
+var item           = preload("res://models/itemManager.gd").new()
+var player         = preload('res://models/playerManager.gd').new()
+
+const shop_item     = preload("res://scene/UI/shop_item.res")
+
+var unlocked_equip = 1 setget set_unlockeq, get_unlockeq #slot item
+var state_equip_box = false setget set_stateeq, get_stateeq #true for unlocked
+var equip_id = 0
+var equip_slot = 0
 
 func _ready():
 	_starter()
+	
 	$transition/AnimationPlayer.play("fade_out")
 	for btn in get_tree().get_nodes_in_group(get_node(".").name):
 		btn.connect("pressed", self, "on_select_stage", [btn.name])
 
 func _starter():
+	set_unlockeq(player.get_slot())
 	if( get_node(".").name != "StageSelector" ):
 		_on_deselect_stage()
 		render_equip()
+		render_powerup()
+		equip_id = 0
+		equip_slot = 0
+		print(GlobalVar.equip)
 
 func goto_scene(target: String, anim = "fade")->void:
 	$transition/AnimationPlayer.play(anim+"_in")
@@ -52,21 +67,69 @@ func _on_deselect_stage():
 # Button Equip #
 ################
 func render_equip():
+	var equip = GlobalVar.get_equip()
+	var i = 1
 	for btn in get_tree().get_nodes_in_group("equip"):
+		var icon =btn.get_child(0)
+		if( equip[i] != 0 ):
+			var eq = item.get_item_byid(equip[i])
+			icon.texture = load(eq[4])
+		else:
+			if(get_unlockeq() >= i):
+				btn.get_child(0).set_texture(null)
+			else:
+				icon.texture = load("res://assets/UI/utility/locked.png")
+		i +=1
 		btn.connect("pressed", self, "open_equip", [btn.name])
+
+func render_powerup():
+	for child in $EquipBox/Card/equip/opsi_item.get_children():
+		child.free()
+	for power in item.get_all_item():
+		var obj = shop_item.instance()
+		obj.name = "power_"+str(power[1])
+		$EquipBox/Card/equip/opsi_item.add_child(obj)
+		var new_obj = "EquipBox/Card/equip/opsi_item/power_"+str(power[1])
+		if( power[0] in GlobalVar.get_equip()):
+			get_node(new_obj).hide()
+		var own = item.owned_item_id(power[0])
+		if own > 0:
+			get_node(new_obj+"/own").text = "Punya: "+ str(own)
+		else: 
+			get_node(new_obj).hide()
+		get_node(new_obj+"/cost").hide()
+		get_node(new_obj+"/icon").texture = load(power[4])
+		get_node(new_obj).connect("pressed", self, "select_powerup", [obj])
+
+func select_powerup(itm):
+	var obj = itm.name.split('_', false, 1)
+	obj = obj[1]
+	$EquipBox/Card/desc.bbcode_text = item.get_item_byname(obj)[2]
+	equip_id = item.get_item_byname(obj)[0]
+	
 
 func open_equip(slot):
 	$EquipBox.show()
 	$Deselect.show()
+	$EquipBox/Card/unlock/not_enough.hide()
 	slot = slot.split('_', false, 1)
 	slot = int(slot[1])
-	if slot <= unlocked_equip:
+	equip_slot = slot
+	if slot <= get_unlockeq():
+		set_stateeq(true)
+		print("oke siap equip")
+		$EquipBox/Card/desc.show()
+		$EquipBox/Card/desc.bbcode_text = ""
+		$EquipBox/Card/equip.show()
+		$EquipBox/Card/unlock.hide()
 		pass #equip window
 	else:
+		set_stateeq(false)
+		print("unlock dulu gan")
+		$EquipBox/Card/desc.hide()
+		$EquipBox/Card/equip.hide()
+		$EquipBox/Card/unlock.show()
 		pass #unlock window
-
-func _on_equip():
-	_on_deselect_stage()
 
 #################
 # Button Action #
@@ -78,5 +141,29 @@ func _on_btn_info():
 	$dialog_window.show()
 	$dialog_window.create(["Durasi permainan: "+str(durasi)+" menit \nPetunjuk: \n1.Gunakan tombol kendali untuk menggerakkan karakter\n2.Hindari interaksi dengan penduduk lokal agar tidak mengubah jejak sejarah\n3. Temukan artefak/ peninggalan sejarah disetiap permainan\n 4. Saat menemukan artefak/ peninggalan sejarah, potret objek tersebut dengan berlari menenuhi seluruh kotak yang tersedia\n5. Pastikan agar tidak terlalu lama pada berdiri pada kotak pengambilan foto"])
 
+func _on_confirm_equip():
+	if(get_stateeq()):
+		pass
+		var temp = GlobalVar.get_equip()
+		temp[equip_slot] = equip_id
+		GlobalVar.set_equip(temp)
+		_on_deselect_stage()
+		_starter()
+	else:
+		if(player.pay(5000)):
+			player.add_slot()
+			_on_deselect_stage()
+			_starter()
+		else:
+			$EquipBox/Card/unlock/not_enough.show()
 
 
+
+func set_unlockeq(args):
+	unlocked_equip = args
+func get_unlockeq():
+	return unlocked_equip
+func set_stateeq(args):
+	state_equip_box = args
+func get_stateeq():
+	return state_equip_box

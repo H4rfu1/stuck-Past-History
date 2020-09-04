@@ -21,16 +21,20 @@ func upgrade_timemachine(type):
 	DB.pushJSON([type], [tier+1], "u_tier")
 	print("Item: ", type, " upgraded to ", get_u_tier()[type])
 
+
 func get_all_item():
 	_ready()
 	return get_item()
-
-func get_item_byname(ids):
+func get_item_byname(name):
 	_ready()
 	for item in get_all_item():
-		if (item[1] == ids):
+		if (item[1] == name):
 			return item
-
+func get_item_byid(id):
+	_ready()
+	for item in get_all_item():
+		if (item[0] == id):
+			return item
 func owned_item_id(ids) -> int:
 	_ready()
 	var amount = 0
@@ -38,21 +42,31 @@ func owned_item_id(ids) -> int:
 		if (item[0] == ids):
 			amount = item[1]
 	return amount
-
 func add_item(index, amount):
 	_ready()
-	#print("index",index," amount", amount)
-	DB.appendJSON([index,amount], "inventory")
-	#DB.pushJSON([get_inventory().size()+1], [index,amount], "inventory")
+	DB.appendJSON([index,amount, "+"], "inventory")
+func remove_item(index,amount):
+	_ready()
+	DB.appendJSON([index,amount, "-"], "inventory")
 
-func remove_item():
-	pass
+func get_all_inventory_items():
+	_ready()
+	var inv = []
+	var data = get_inventory()
+	for i in data:
+		if i[0] == 0:
+			pass
+		else:
+			inv.append(i)
+	return inv
 
 func check_koleksi():
 	pass
 
 func add_koleksi():
 	pass
+
+
 
 
 ##########

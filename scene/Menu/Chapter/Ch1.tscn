@@ -453,7 +453,7 @@ bg_color = Color( 0.164706, 0.909804, 0.745098, 1 )
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxEmpty" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
@@ -901,13 +901,13 @@ __meta__ = {
 [node name="item_icon" type="TextureRect" parent="EquipedItem/HBoxContainer/slot_1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 22 )
 stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="amount" type="Label" parent="EquipedItem/HBoxContainer/slot_1"]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -938,13 +938,13 @@ __meta__ = {
 [node name="item_icon" type="TextureRect" parent="EquipedItem/HBoxContainer/slot_2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 22 )
 stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="amount" type="Label" parent="EquipedItem/HBoxContainer/slot_2"]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -975,13 +975,13 @@ __meta__ = {
 [node name="item_icon" type="TextureRect" parent="EquipedItem/HBoxContainer/slot_3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 22 )
 stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="amount" type="Label" parent="EquipedItem/HBoxContainer/slot_3"]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -999,13 +999,14 @@ __meta__ = {
 }
 
 [node name="Deselect" type="Button" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 2.36044
 margin_top = 2.81097
 margin_right = 450.36
 margin_bottom = 71.811
-custom_styles/hover = SubResource( 8 )
+custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
 custom_styles/focus = SubResource( 6 )
 custom_styles/disabled = SubResource( 7 )
@@ -1180,24 +1181,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="title" type="Label" parent="EquipBox/Card"]
+anchor_right = 1.0
+margin_top = 26.0
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 9 )
+text = "Kotak Perlengkapan"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="equip" type="ScrollContainer" parent="EquipBox/Card"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 16.0
 margin_top = 82.0
 margin_right = -13.0
-margin_bottom = -89.0
+margin_bottom = -179.0
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemList" type="GridContainer" parent="EquipBox/Card/equip"]
-margin_right = 336.0
-margin_bottom = 64.0
+[node name="opsi_item" type="GridContainer" parent="EquipBox/Card/equip"]
 columns = 5
 
-[node name="item_" type="TextureButton" parent="EquipBox/Card/equip/ItemList"]
+[node name="item_" type="TextureButton" parent="EquipBox/Card/equip/opsi_item"]
+visible = false
 margin_right = 64.0
 margin_bottom = 64.0
 texture_normal = ExtResource( 20 )
@@ -1205,7 +1218,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="item_icon" type="TextureRect" parent="EquipBox/Card/equip/ItemList/item_"]
+[node name="item_icon" type="TextureRect" parent="EquipBox/Card/equip/opsi_item/item_"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 22 )
@@ -1214,7 +1227,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="amount" type="Label" parent="EquipBox/Card/equip/ItemList/item_"]
+[node name="amount" type="Label" parent="EquipBox/Card/equip/opsi_item/item_"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -1231,142 +1244,55 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Equip2" type="TextureButton" parent="EquipBox/Card/equip/ItemList"]
-margin_left = 68.0
-margin_right = 132.0
-margin_bottom = 64.0
-texture_normal = ExtResource( 20 )
+[node name="unlock" type="Label" parent="EquipBox/Card"]
+visible = false
+margin_left = 16.0
+margin_top = 85.0
+margin_right = 354.0
+margin_bottom = 318.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Agar dapat menggunakan slot perlengkapan ini, perlu untuk melakukan perluasan kotak perlengkapan."
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="item_icon" type="TextureRect" parent="EquipBox/Card/equip/ItemList/Equip2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 22 )
-stretch_mode = 4
+[node name="unlock2" type="Label" parent="EquipBox/Card/unlock"]
+margin_top = 180.0
+margin_right = 338.0
+margin_bottom = 233.0
+custom_fonts/font = ExtResource( 12 )
+text = "Biaya:"
+align = 1
+valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="amount" type="Label" parent="EquipBox/Card/equip/ItemList/Equip2"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -38.6652
-margin_top = -37.3292
-margin_right = -5.66516
-margin_bottom = -0.329224
+[node name="not_enough" type="Label" parent="EquipBox/Card/unlock"]
+visible = false
+margin_top = 37.0
+margin_right = 338.0
+margin_bottom = 224.0
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Koin tidak cukup"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="unlock3" type="Label" parent="EquipBox/Card/unlock"]
+margin_top = 212.0
+margin_right = 338.0
+margin_bottom = 250.0
 custom_fonts/font = ExtResource( 9 )
-text = "0"
-align = 2
-valign = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Equip3" type="TextureButton" parent="EquipBox/Card/equip/ItemList"]
-margin_left = 136.0
-margin_right = 200.0
-margin_bottom = 64.0
-texture_normal = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="item_icon" type="TextureRect" parent="EquipBox/Card/equip/ItemList/Equip3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 22 )
-stretch_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="amount" type="Label" parent="EquipBox/Card/equip/ItemList/Equip3"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -38.6652
-margin_top = -37.3292
-margin_right = -5.66516
-margin_bottom = -0.329224
-custom_fonts/font = ExtResource( 9 )
-text = "0"
-align = 2
-valign = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Equip4" type="TextureButton" parent="EquipBox/Card/equip/ItemList"]
-margin_left = 204.0
-margin_right = 268.0
-margin_bottom = 64.0
-texture_normal = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="item_icon" type="TextureRect" parent="EquipBox/Card/equip/ItemList/Equip4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 22 )
-stretch_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="amount" type="Label" parent="EquipBox/Card/equip/ItemList/Equip4"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -38.6652
-margin_top = -37.3292
-margin_right = -5.66516
-margin_bottom = -0.329224
-custom_fonts/font = ExtResource( 9 )
-text = "0"
-align = 2
-valign = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Equip5" type="TextureButton" parent="EquipBox/Card/equip/ItemList"]
-margin_left = 272.0
-margin_right = 336.0
-margin_bottom = 64.0
-texture_normal = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="item_icon" type="TextureRect" parent="EquipBox/Card/equip/ItemList/Equip5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 22 )
-stretch_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="amount" type="Label" parent="EquipBox/Card/equip/ItemList/Equip5"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -38.6652
-margin_top = -37.3292
-margin_right = -5.66516
-margin_bottom = -0.329224
-custom_fonts/font = ExtResource( 9 )
-text = "0"
-align = 2
-valign = 2
+text = "5000"
+align = 1
+valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1387,8 +1313,19 @@ stretch_mode = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="desc" type="RichTextLabel" parent="EquipBox/Card"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 13.0
+margin_top = 52.0
+margin_right = -12.0
+margin_bottom = 115.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
 [connection signal="pressed" from="Deselect" to="." method="_on_deselect_stage"]
 [connection signal="button_up" from="StageInfo/Contain/Action/btn_info" to="." method="_on_btn_info"]
 [connection signal="button_up" from="StageInfo/Contain/Action/btn_start" to="." method="_on_btn_start"]
 [connection signal="button_up" from="btn_back" to="." method="_on_return_to_menu"]
-[connection signal="pressed" from="EquipBox/Card/btn_confirm_equip" to="." method="_on_equip"]
+[connection signal="pressed" from="EquipBox/Card/btn_confirm_equip" to="." method="_on_confirm_equip"]

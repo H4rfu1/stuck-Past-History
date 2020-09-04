@@ -173,6 +173,23 @@ func render_toko_item(type):
 			pass
 		"inventory":
 			var sample = get_node(template+"item_0")
+			for child in $Background/card/ScrollContainer/slot_inventory.get_children():
+				child.free()
+			for itm in item.get_all_inventory_items():
+				var obj = shop_item.instance()
+				var data_item = item.get_item_byid(itm[0])
+				obj.name = "item_"+str(data_item[1])
+				print(obj)
+				$Background/card/ScrollContainer/slot_inventory.add_child(obj)
+				var new_obj = "Background/card/ScrollContainer/slot_inventory/item_"+str(data_item[1])
+				var own = item.owned_item_id(itm[0])
+				if own > 0:
+					get_node(new_obj+"/own").text = "Punya: "+ str(own)
+				else: 
+					get_node(new_obj+"/own").hide()
+				get_node(new_obj+"/cost").hide()
+				get_node(new_obj+"/icon").texture = load(data_item[4])
+				get_node(new_obj).connect("pressed", self, "on_tap_toko_item", [obj])
 			pass
 	pass
 
@@ -184,6 +201,8 @@ func on_tap_toko_item(itm):
 	$PurchaseBox/Card/cost_static.text = ""
 	$PurchaseBox/Card/cost.text = ""
 	$PurchaseBox/Card/amount_input.value = 1
+	$PurchaseBox/Card/btn_confirm_buy.show()
+	$PurchaseBox/Card/cost.show()
 	var obj = itm.name.split('_', false, 1)
 	var type = obj[0]
 	var name = obj[1]
@@ -228,6 +247,9 @@ func on_tap_toko_item(itm):
 			set_shop_cart(["powerup", item.get_item_byname(name)[0], int(cost), amount])
 		"item":
 			$PurchaseBox/Card/head.text = name
+			$PurchaseBox/Card/btn_confirm_buy.hide()
+			$PurchaseBox/Card/cost.hide()
+			$PurchaseBox/Card/desc.bbcode_text = item.get_item_byname(name)[2]
 			pass
 	
 	#tampilin UI konfirmasi
