@@ -75,7 +75,6 @@ var item = [
 
 var inventory = [
 		#itemid, amount
-		[0, 0],
 		[0, 0]
 	]  setget , get_inventory
 

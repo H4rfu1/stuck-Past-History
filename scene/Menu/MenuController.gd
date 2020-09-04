@@ -183,7 +183,7 @@ func on_tap_toko_item(itm):
 	$PurchaseBox/Card/next.bbcode_text = ""
 	$PurchaseBox/Card/cost_static.text = ""
 	$PurchaseBox/Card/cost.text = ""
-	#$PurchaseBox/Card/amount_input.value = 0
+	$PurchaseBox/Card/amount_input.value = 1
 	var obj = itm.name.split('_', false, 1)
 	var type = obj[0]
 	var name = obj[1]
@@ -237,6 +237,8 @@ func on_tap_toko_item(itm):
 func _on_amount_increase(value):
 	var initial = $PurchaseBox/Card/cost_static.text
 	$PurchaseBox/Card/cost.text = str(int(initial)*value)
+	mod_shop_cart(value)
+	
 	
 
 ##########
@@ -256,6 +258,10 @@ func get_u_tier():
 	return u_tier
 func set_shop_cart(args):
 	shop_cart = args
+func mod_shop_cart(value):
+	var temp = shop_cart
+	temp[3] = value
+	shop_cart = temp
 func get_shop_cart():
 	return shop_cart
 

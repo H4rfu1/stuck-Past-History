@@ -52,9 +52,17 @@ func pushJSON(key : Array, value : Array, path):
 	return true
 
 func appendJSON(value , path):
-	var session = readJSON(path)
-	session.append(value)
-	saveJSON(session, path)
+	var added = false
+	var new_session = []
+	var session     = readJSON(path)
+	for n in session:
+		if value[0] == n[0]:
+			n = value
+			added = true
+		new_session.append(n)
+	if(!added):
+		new_session.append(value)
+	saveJSON(new_session, path)
 	return true
 
 func saveJSON(data, path):
