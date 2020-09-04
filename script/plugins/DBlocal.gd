@@ -21,15 +21,15 @@ var default_pemain = {
 	} setget , get_pemain
 
 var upgrade_price = {
-		radar = [3000,6300,9600],
-		timecontroll = [3000,4800, 6900, 9300],
-		foglamp = [3000, 6300, 9600]
+		radar = [[3000,6300,9600], ["Memberi petunjuk arah artefak dalam 3 detik dengan batas 3 kali penggunaan", "Memberi petunjuk arah artefak dalam 3 detik dengan batas 5 kali penggunaan", "Memberi petunjuk arah artefak dalam 3 detik dengan batas 7 kali penggunaan"]],
+		timecontrol = [[3000,4800, 6900, 9300], ["Menambah durasi penjelajahan waktu sebanyak +20 detik", "Menambah durasi penjelajahan waktu sebanyak +40 detik", "Menambah durasi penjelajahan waktu sebanyak +1 menit", "Menambah durasi penjelajahan waktu sebanyak +1 menit 20 detik"]],
+		foglamp = [[3000, 6300, 9600], ["Memperluas jangkauan membuka kabut dalam jarak sempit", "Memperluas jangkauan membuka kabut dalam jarak sedang", "Memperluas jangkauan membuka kabut dalam jarak luas", "Menghilangkan kabut penghalang pandangan"]]
 	} setget , get_u_price
 
 var upgrade_tier = {
-		radar = 1,
-		timecontroll = 1,
-		foglamp = 1
+		radar = 0,
+		timecontrol = 0,
+		foglamp = 0
 	} setget , get_u_tier
 
 var setting = {
@@ -65,12 +65,12 @@ var stage = [
 
 var item = [
 		# id , name, desc, price, image
-		[1, 'Ramuan Interatom', 'Saat diminum dapat membuat penggunanya menembus objek diantara partikel.\n Aktif selama 10 detik', 1500, 'res://'],
-		[2, 'Jubah Lenticular', 'Jubah yang mirip jas hujan tetapi dapat membiaskan cahaya sehingga penggunanya tampak tembus pandang.\n Aktif selama 20 detik', 800, 'res://'],
-		[3, 'Jam Penghenti Waktu', 'Jangan tanya sekarang pukul berapa, jam ini dapat menghentikan waktu selama 15 detik', 2200, 'res://'],
-		[4, 'Baju Adat A', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 0, 'res://'],
-		[5, 'Baju Adat B', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 0, 'res://'],
-		[6, 'Baju Adat C', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 0, 'res://']
+		[1, 'Ramuan Interatom', 'Saat diminum dapat membuat penggunanya menembus objek diantara partikel.\n Aktif selama 10 detik', 1500, 'res://assets/skeleton.png'],
+		[2, 'Jubah Lenticular', 'Jubah yang mirip jas hujan tetapi dapat membiaskan cahaya sehingga penggunanya tampak tembus pandang.\n Aktif selama 20 detik', 800, 'res://assets/skeleton.png'],
+		[3, 'Jam Penghenti Waktu', 'Jangan tanya sekarang pukul berapa, jam ini dapat menghentikan waktu selama 15 detik', 2200, 'res://assets/skeleton.png'],
+		[4, 'Baju Adat A', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 0, 'res://assets/skeleton.png'],
+		[5, 'Baju Adat B', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 0, 'res://assets/skeleton.png'],
+		[6, 'Baju Adat C', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 0, 'res://assets/skeleton.png']
 	]  setget , get_item
 
 var inventory = [

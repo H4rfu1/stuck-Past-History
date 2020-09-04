@@ -51,6 +51,12 @@ func pushJSON(key : Array, value : Array, path):
 	saveJSON(session, path)
 	return true
 
+func appendJSON(value , path):
+	var session = readJSON(path)
+	session.append(value)
+	saveJSON(session, path)
+	return true
+
 func saveJSON(data, path):
 	var file = File.new()
 	var target = local.path4(path)
