@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://assets/UI/page/latar_shop.jpg" type="Texture" id=1]
 [ext_resource path="res://script/plugins/DBconnection.res" type="PackedScene" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://assets/UI/button/confirm.png" type="Texture" id=23]
 [ext_resource path="res://assets/UI/utility/next_upgrade.png" type="Texture" id=24]
 [ext_resource path="res://scene/UI/shop_item.res" type="PackedScene" id=25]
+[ext_resource path="res://assets/UI/knowledge_coin.png" type="Texture" id=26]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.329412, 0.329412, 0.329412, 0.521569 )
@@ -52,25 +53,25 @@ corner_radius_bottom_left = 25
 
 [sub_resource type="Theme" id=9]
 
-[sub_resource type="DynamicFontData" id=14]
-font_path = "res://assets/Font/ARLRDBD_0.TTF"
-
-[sub_resource type="DynamicFont" id=15]
-size = 20
-outline_size = 2
-outline_color = Color( 0.2, 0.227451, 0.309804, 1 )
-font_data = SubResource( 14 )
-
 [sub_resource type="DynamicFontData" id=10]
 font_path = "res://assets/Font/ARLRDBD_0.TTF"
 
 [sub_resource type="DynamicFont" id=11]
+size = 20
+outline_size = 2
+outline_color = Color( 0.2, 0.227451, 0.309804, 1 )
+font_data = SubResource( 10 )
+
+[sub_resource type="DynamicFontData" id=12]
+font_path = "res://assets/Font/ARLRDBD_0.TTF"
+
+[sub_resource type="DynamicFont" id=13]
 size = 24
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = SubResource( 10 )
+font_data = SubResource( 12 )
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=14]
 bg_color = Color( 0.6, 0.6, 0.6, 0.376471 )
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -81,7 +82,7 @@ expand_margin_right = 19.0
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
 
-[sub_resource type="Theme" id=13]
+[sub_resource type="Theme" id=15]
 LineEdit/colors/clear_button_color = Color( 1, 1, 1, 1 )
 LineEdit/colors/clear_button_color_pressed = Color( 1, 1, 1, 1 )
 LineEdit/colors/cursor_color = Color( 1, 1, 1, 1 )
@@ -90,10 +91,10 @@ LineEdit/colors/font_color_selected = Color( 1, 1, 1, 1 )
 LineEdit/colors/font_color_uneditable = Color( 1, 1, 1, 1 )
 LineEdit/colors/selection_color = Color( 1, 1, 1, 1 )
 LineEdit/constants/minimum_spaces = 12
-LineEdit/fonts/font = SubResource( 11 )
+LineEdit/fonts/font = SubResource( 13 )
 LineEdit/icons/clear = null
 LineEdit/styles/focus = null
-LineEdit/styles/normal = SubResource( 12 )
+LineEdit/styles/normal = SubResource( 14 )
 LineEdit/styles/read_only = null
 SpinBox/icons/updown = null
 
@@ -554,8 +555,13 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
-margin_right = 30.0
-margin_bottom = 29.0
+margin_left = 3.08678
+margin_top = 1.03569
+margin_right = 30.0868
+margin_bottom = 26.0357
+texture = ExtResource( 26 )
+expand = true
+stretch_mode = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -623,7 +629,7 @@ anchor_right = 1.0
 margin_top = 21.0
 margin_right = -4.0
 margin_bottom = 72.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 11 )
 custom_constants/line_spacing = -5
 text = "Aksi"
 align = 1
@@ -747,7 +753,7 @@ margin_left = -76.0
 margin_top = -4.0
 margin_right = 76.0
 margin_bottom = 20.0
-theme = SubResource( 13 )
+theme = SubResource( 15 )
 min_value = 1.0
 max_value = 10.0
 value = 1.0

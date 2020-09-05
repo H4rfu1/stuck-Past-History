@@ -29,6 +29,10 @@ func pay(cost):
 		DB.pushJSON(["c"], [pmoney], "pemain")
 		return true
 
+func give_money(amount):
+	var pmoney = get_player_data()["c"]
+	DB.pushJSON(["c"], [pmoney+amount], "pemain")
+
 func add_slot():
 	var slot = get_player_data()["slot"]
 	DB.pushJSON(["slot"], [slot+1], "pemain")

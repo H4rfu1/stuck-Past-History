@@ -1157,6 +1157,7 @@ __meta__ = {
 visible = false
 
 [node name="EquipBox" type="Control" parent="."]
+visible = false
 margin_left = 39.5
 margin_top = 26.0
 margin_right = 79.5

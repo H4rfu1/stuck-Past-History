@@ -5,6 +5,8 @@ var player_data = preload('res://models/playerManager.gd').new()
 var collision_pos = []
 var player = .get_node("Ysort/player")
 
+var complete = false
+
 var artefactzone = false setget setZoneState, getZoneState
 var artefact_tiles = [
 	[1,0], [2,0], [3,0],
@@ -18,6 +20,7 @@ func _ready():
 
 func _starter():
 	adjust_control()
+	$CanvasLayer/game_result2.hide()
 
 func _process(delta):
 	var cpos = $TileZone.world_to_map($Ysort/player.position)
@@ -60,15 +63,14 @@ func artefact_zone_checker():
 		t = Vector2(t[0], t[1])
 		var tile = $TileZone.get_cellv(t)
 		if (tile == 0):
-			$CanvasLayer/indicator.text = "Ulangi"
 			artefact_zone_restore()
 			break #emit signal
 		elif (tile > 0 && tile <7):
 			green += 1
-			if (green == arteract_tiles_amount):
-				$CanvasLayer/indicator.text = "Menang"
-				
-				break #emit signal
+			if (green == arteract_tiles_amount && complete == false):
+				complete = true
+				#menang/waktu_habis/coba_lagi, score = 0, waktu = 0, uang = 0
+				$CanvasLayer/game_result2.create("menang", 9000, "0:11", 500)
 	green = 0
 
 func artefact_zone_blocker(cpos):

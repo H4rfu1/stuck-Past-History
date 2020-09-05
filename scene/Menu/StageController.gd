@@ -40,17 +40,16 @@ func _on_return_to_menu():
 	else:
 		goto_scene("StageSelector")
 
+###Select Jilid###
 func _on_ch1():
 	goto_scene("Chapter/Ch1")
 	GlobalVar.set_jilid(1)
 
 
-
-
-
 func on_select_stage(button):
 	var staged = button.split('_', false, 1)
 	staged     = staged[1]
+	GlobalVar.set_stage(staged)
 	staged     = stage.get_stage_bynumber(GlobalVar.get_jilid(), staged)
 	print(staged)
 	$StageInfo/Head/StageTitle.text = staged[3]

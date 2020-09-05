@@ -54,7 +54,7 @@ var jilid= [
 	 ] setget , get_jilid
 
 var stage = [
-		# id, jilid, stageid, name, desc, score, datefinish
+		# id, jilid, stageid, name, desc, score, done
 		[1, 1, '1',   'StageName 1', 'desc', '0', '-'],
 		[2, 1, '2',   'StageName 2', 'desc', '0', '-'],
 		[3, 1, '3',   'StageName 3', 'desc', '0', '-'],
@@ -77,6 +77,11 @@ var inventory = [
 		#itemid, amount
 		[0, 0]
 	]  setget , get_inventory
+
+#var stage_detail = [
+#		#jilid, stage_id, [spawn_pos], [[green_pos]]
+#		[0, 0]
+#	]  setget , get_stage_detail
 
 func get_pemain():
 	return default_pemain

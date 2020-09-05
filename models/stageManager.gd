@@ -34,7 +34,19 @@ func set_high_score(jilid, stage, score):
 		if (record[1] == jilid && record[2] == stage):
 			record[5] = score
 		clone.append(record)
+	DB.saveJSON(clone, "stage")
 	return true
+
+func set_complete_stage(jilid, stage):
+	_ready()
+	var clone = []
+	for record in get_stage_data():
+		if (record[1] == jilid && record[2] == stage):
+			record[6] = "berhasil"
+		clone.append(record)
+	DB.saveJSON(clone, "stage")
+	return true
+
 
 func set_stage(args):
 	stage = args

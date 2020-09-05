@@ -123,14 +123,16 @@ func _on_confirm_buy_pressed():
 		elif( cart[0] == "powerup"):
 			item.add_item(cart[1], cart[3])
 			
-	reload_money(cost)
+	reload_money()
 	render_toko_item(cart[0])
 	_on_cancel_purchase()
 	
 
 func reload_money(reduceval = 0):
+	data_initial()
 	var money = get_player()['c']
-	$Panel/money.text = str(money-reduceval)
+	$Panel/money.text = str(money)
+	#$Panel/money.text = str(money-reduceval)
 
 func render_toko_item(type):
 	data_initial()
