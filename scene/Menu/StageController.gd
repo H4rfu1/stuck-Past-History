@@ -106,6 +106,7 @@ func render_powerup():
 func select_powerup(itm):
 	var obj = itm.name.split('_', false, 1)
 	obj = obj[1]
+	$EquipBox/Card/itemname.text = item.get_item_byname(obj)[1]
 	$EquipBox/Card/desc.bbcode_text = item.get_item_byname(obj)[2]
 	equip_id = item.get_item_byname(obj)[0]
 	
@@ -120,6 +121,8 @@ func open_equip(slot):
 	if slot <= get_unlockeq():
 		set_stateeq(true)
 		print("oke siap equip")
+		$EquipBox/Card/itemname.show()
+		$EquipBox/Card/itemname.text = ""
 		$EquipBox/Card/desc.show()
 		$EquipBox/Card/desc.bbcode_text = ""
 		$EquipBox/Card/equip.show()
@@ -128,6 +131,7 @@ func open_equip(slot):
 	else:
 		set_stateeq(false)
 		print("unlock dulu gan")
+		$EquipBox/Card/itemname.hide()
 		$EquipBox/Card/desc.hide()
 		$EquipBox/Card/equip.hide()
 		$EquipBox/Card/unlock.show()

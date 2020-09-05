@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://script/player.gd" type="Script" id=1]
-[ext_resource path="res://assets/Player/Player.png" type="Texture" id=2]
+[ext_resource path="res://assets/Entities/player_default.png" type="Texture" id=2]
 [ext_resource path="res://scene/Hurtboxes + Hitboxes/Hitbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/Shadows/MediumShadow.png" type="Texture" id=4]
 [ext_resource path="res://scene/Player/AnimationPlayerPerson.tscn" type="PackedScene" id=5]
@@ -34,10 +34,17 @@ position = Vector2( 0, 3 )
 texture = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -8 )
+position = Vector2( 0, -19 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
-hframes = 60
-frame = 36
+hframes = 12
+
+[node name="Sprite_new" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -14 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+hframes = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -62,6 +69,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" parent="HitboxPivot/SwordHitbox" index="0"]
 shape = SubResource( 3 )
+disabled = true
 
 [node name="CrackCollision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3 )

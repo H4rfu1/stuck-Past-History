@@ -232,24 +232,27 @@ func on_tap_toko_item(itm):
 			else: 
 				text = get_u_price()[name][1][maxtier-1]
 				text2 = "Peningkatan maksimal"
+			$PurchaseBox/Card/desc/Label.text  = ''
 			$PurchaseBox/Card/desc.bbcode_text = "\n[center][color=#7a8b93]Semula:[/color][/center]\n\n"+text
 			$PurchaseBox/Card/next.bbcode_text = "[center][color=#15ab5c]Setelah ditingkatkan:[/color][/center]\n\n"+text2
 			$PurchaseBox/Card/cost.text = cost
 			set_shop_cart(["timemachine", name, int(cost), 1])
 		"power": #powerup
 			$PurchaseBox/Card/amount_input.show()
-			$PurchaseBox/Card/head.text = "Beli "+name
+			$PurchaseBox/Card/head.text = name
 			var cost = itm.get_child(1).text
-			$PurchaseBox/Card/desc.bbcode_text = item.get_item_byname(name)[2]
+			#$PurchaseBox/Card/desc/Label.text  = name 
+			$PurchaseBox/Card/desc.bbcode_text = "\n"+item.get_item_byname(name)[2]
 			$PurchaseBox/Card/cost_static.text = cost
 			$PurchaseBox/Card/cost.text = cost
 			var amount = $PurchaseBox/Card/amount_input.value
 			set_shop_cart(["powerup", item.get_item_byname(name)[0], int(cost), amount])
 		"item":
 			$PurchaseBox/Card/head.text = name
+			#$PurchaseBox/Card/desc/Label.text  = name 
 			$PurchaseBox/Card/btn_confirm_buy.hide()
 			$PurchaseBox/Card/cost.hide()
-			$PurchaseBox/Card/desc.bbcode_text = item.get_item_byname(name)[2]
+			$PurchaseBox/Card/desc.bbcode_text = "\n"+item.get_item_byname(name)[2]
 			pass
 	
 	#tampilin UI konfirmasi
