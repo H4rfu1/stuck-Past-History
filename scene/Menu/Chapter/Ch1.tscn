@@ -1016,7 +1016,6 @@ __meta__ = {
 }
 
 [node name="StageInfo" type="TextureRect" parent="."]
-visible = false
 margin_left = 433.36
 margin_top = 23.811
 margin_right = 706.36

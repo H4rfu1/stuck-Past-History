@@ -1,5 +1,7 @@
 extends Node2D
 
+var player_data = preload('res://models/playerManager.gd').new()
+
 var collision_pos = []
 var player = .get_node("Ysort/player")
 
@@ -12,6 +14,10 @@ var artefact_player_pos = [2,3]
 
 func _ready():
 	$TileZone.hide()
+	_starter()
+
+func _starter():
+	adjust_control()
 
 func _process(delta):
 	var cpos = $TileZone.world_to_map($Ysort/player.position)
@@ -86,6 +92,16 @@ func artefact_zone_restore():
 	for t in artefact_tiles:
 		t = Vector2(t[0], t[1])
 		$TileZone.set_cellv(t, 7)
+
+func adjust_control():
+	var type = player_data.get_control_type()
+	if(type): #keypad
+		$CanvasLayer/Joystick.hide()
+		$CanvasLayer/Keypad.show()
+	else:
+		$CanvasLayer/Joystick.show()
+		$CanvasLayer/Keypad.hide()
+
 
 #=================
 #Setter and Getter

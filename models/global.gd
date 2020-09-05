@@ -1,8 +1,8 @@
 extends Node
 
 var toko = "powerup" setget set_toko, get_toko
-var equip = [0,2,0,0] setget set_equip, get_equip
-
+var equip = [0,0,0,0] setget set_equip, get_equip
+var jilid = 0 setget set_jilid, get_jilid
 
 func set_toko(args):
 	toko = args
@@ -13,3 +13,8 @@ func set_equip(args):
 	equip = args
 func get_equip():
 	return equip
+
+func set_jilid(args):
+	jilid = args
+func get_jilid():
+	return jilid

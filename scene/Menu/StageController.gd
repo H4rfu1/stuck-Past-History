@@ -3,6 +3,7 @@ extends Control
 
 var item           = preload("res://models/itemManager.gd").new()
 var player         = preload('res://models/playerManager.gd').new()
+var stage          = preload('res://models/stageManager.gd').new()
 
 const shop_item     = preload("res://scene/UI/shop_item.res")
 
@@ -13,7 +14,6 @@ var equip_slot = 0
 
 func _ready():
 	_starter()
-	
 	$transition/AnimationPlayer.play("fade_out")
 	for btn in get_tree().get_nodes_in_group(get_node(".").name):
 		btn.connect("pressed", self, "on_select_stage", [btn.name])
@@ -42,19 +42,21 @@ func _on_return_to_menu():
 
 func _on_ch1():
 	goto_scene("Chapter/Ch1")
+	GlobalVar.set_jilid(1)
 
 
 
 
 
 func on_select_stage(button):
-	var stage = button.split('_', false, 1)
-	stage     = stage[1]
-
-	#$StageInfo/Head/StageTitle.text
-	$StageInfo/Head/StageNum.text = str(stage)
-	#$StageInfo/Head/StageDesc.text
-
+	var staged = button.split('_', false, 1)
+	staged     = staged[1]
+	staged     = stage.get_stage_bynumber(GlobalVar.get_jilid(), staged)
+	print(staged)
+	$StageInfo/Head/StageTitle.text = staged[3]
+	$StageInfo/Head/StageNum.text = str(staged[2])
+	$StageInfo/Head/StageDesc.text = staged[4]
+	$StageInfo/Contain/Poin.text = "Poin: "+str(staged[5])
 	$StageInfo.show()
 	$Deselect.show()
 
@@ -134,7 +136,7 @@ func open_equip(slot):
 #################
 # Button Action #
 #################
-func _on_btn_start():
+func _on_btn_start(): #Masuk ke Permainan#
 	goto_scene("Chapter/Ch1/1")
 func _on_btn_info():
 	var durasi = float(60/60)
