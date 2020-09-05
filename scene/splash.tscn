@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scene/splash.gd" type="Script" id=1]
 [ext_resource path="res://assets/Font/ARLRDBD_0.TTF" type="DynamicFontData" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://assets/Splash/overlay.png" type="Texture" id=7]
 [ext_resource path="res://scene/transition.tscn" type="PackedScene" id=8]
 [ext_resource path="res://logo.png" type="Texture" id=9]
+[ext_resource path="res://assets/Music and Sounds/Rumble Whoosh.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/Music and Sounds/stuck_flash_1.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/Music and Sounds/stuck_flash_2.wav" type="AudioStream" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 42
@@ -388,18 +391,18 @@ texture = ExtResource( 3 )
 
 [node name="daun_r" type="Sprite" parent="tape"]
 position = Vector2( 350.018, 272.411 )
-scale = Vector2( 0.994885, 1.02413 )
+scale = Vector2( 0.937087, 1.08562 )
 texture = ExtResource( 4 )
 offset = Vector2( 32.9329, -35.1185 )
 
 [node name="daun_l" type="Sprite" parent="tape"]
 position = Vector2( 368.55, 277.47 )
-scale = Vector2( 1.02362, 1.00243 )
+scale = Vector2( 0.964503, 1.11225 )
 texture = ExtResource( 5 )
 offset = Vector2( -45.9501, -37.8392 )
 
 [node name="sunduk" type="Sprite" parent="tape"]
-position = Vector2( 347.72, 205.089 )
+position = Vector2( 367.659, 204.349 )
 texture = ExtResource( 6 )
 
 [node name="overlay" type="Sprite" parent="tape"]
@@ -441,13 +444,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -169.5
-margin_top = 19.0
-margin_right = 169.5
+margin_left = -360.0
+margin_top = -240.0
+margin_right = 360.0
 margin_bottom = 240.0
 texture = ExtResource( 9 )
 stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="wave" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="flash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="flash2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
