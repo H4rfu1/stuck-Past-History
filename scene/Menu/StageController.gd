@@ -7,12 +7,21 @@ var stage          = preload('res://models/stageManager.gd').new()
 
 const shop_item     = preload("res://scene/UI/shop_item.res")
 
+const click_sound = preload("res://scene/Music and Sounds/click.tscn")
+const click_start = preload("res://scene/Music and Sounds/Start.tscn")
+
+onready var intro = get_node("/root/Intro")
+onready var audio_game = get_node("/root/GamePlay")
+
 var unlocked_equip = 1 setget set_unlockeq, get_unlockeq #slot item
 var state_equip_box = false setget set_stateeq, get_stateeq #true for unlocked
 var equip_id = 0
 var equip_slot = 0
 
 func _ready():
+	if (!intro.playing and audio_game.playing):
+		audio_game.stop()
+		intro.play()
 	_starter()
 	$transition/AnimationPlayer.play("fade_out")
 	for btn in get_tree().get_nodes_in_group(get_node(".").name):
@@ -35,6 +44,8 @@ func goto_scene(target: String, anim = "fade")->void:
 		get_tree().change_scene("res://scene/Menu/"+target+".tscn")
 
 func _on_return_to_menu():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	if( get_node(".").name == "StageSelector" ):
 		goto_scene("Main")
 	else:
@@ -42,11 +53,15 @@ func _on_return_to_menu():
 
 ###Select Jilid###
 func _on_ch1():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	goto_scene("Chapter/Ch1")
 	GlobalVar.set_jilid(1)
 
 
 func on_select_stage(button):
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	var staged = button.split('_', false, 1)
 	staged     = staged[1]
 	GlobalVar.set_stage(staged)
@@ -59,10 +74,15 @@ func on_select_stage(button):
 	$StageInfo.show()
 	$Deselect.show()
 
+var escape_awal = false
 func _on_deselect_stage():
+	if escape_awal:
+		var clickSound = click_sound.instance()
+		get_tree().current_scene.add_child(clickSound)
 	$Deselect.hide()
 	$StageInfo.hide()
 	$EquipBox.hide()
+	escape_awal = true
 
 ################
 # Button Equip #
@@ -103,6 +123,8 @@ func render_powerup():
 		get_node(new_obj).connect("pressed", self, "select_powerup", [obj])
 
 func select_powerup(itm):
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	var obj = itm.name.split('_', false, 1)
 	obj = obj[1]
 	$EquipBox/Card/itemname.text = item.get_item_byname(obj)[1]
@@ -139,14 +161,22 @@ func open_equip(slot):
 #################
 # Button Action #
 #################
+
 func _on_btn_start(): #Masuk ke Permainan#
+	intro.stop()
+	var clickStart = click_start.instance()
+	get_tree().current_scene.add_child(clickStart)
 	goto_scene("Chapter/Ch1/1")
 func _on_btn_info():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	var durasi = float(60/60)
 	$dialog_window.show()
 	$dialog_window.create(["Durasi permainan: "+str(durasi)+" menit \nPetunjuk: \n1.Gunakan tombol kendali untuk menggerakkan karakter\n2.Hindari interaksi dengan penduduk lokal agar tidak mengubah jejak sejarah\n3. Temukan artefak/ peninggalan sejarah disetiap permainan\n 4. Saat menemukan artefak/ peninggalan sejarah, potret objek tersebut dengan berlari menenuhi seluruh kotak yang tersedia\n5. Pastikan agar tidak terlalu lama pada berdiri pada kotak pengambilan foto"])
 
 func _on_confirm_equip():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	if(get_stateeq()):
 		pass
 		var temp = GlobalVar.get_equip()
@@ -161,7 +191,6 @@ func _on_confirm_equip():
 			_starter()
 		else:
 			$EquipBox/Card/unlock/not_enough.show()
-
 
 
 func set_unlockeq(args):

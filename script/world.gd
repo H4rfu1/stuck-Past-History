@@ -10,6 +10,8 @@ var complete = false
 export var TIME_PERIOD = 10
 var time = 0
 
+onready var audio_game = get_node("/root/GamePlay")
+
 var artefactzone = false setget setZoneState, getZoneState
 var artefact_tiles = [
 	[1,0], [2,0], [3,0],
@@ -18,6 +20,8 @@ var artefact_tiles = [
 var artefact_player_pos = [2,3]
 
 func _ready():
+	if !audio_game.playing:
+		audio_game.play()
 	$TileZone.hide()
 	_starter()
 

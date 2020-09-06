@@ -23,6 +23,8 @@ config/icon="res://icon.png"
 [autoload]
 
 GlobalVar="*res://models/global.gd"
+Intro="*res://scene/Music and Sounds/intro.tscn"
+GamePlay="*res://scene/Music and Sounds/GamePlay.tscn"
 
 [display]
 

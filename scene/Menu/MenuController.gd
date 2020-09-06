@@ -10,6 +10,8 @@ const shop_item     = preload("res://scene/UI/shop_item.res")
 var sound_state     = true
 var toko_active_btn = "timemachine" 
 
+const click_sound = preload("res://scene/Music and Sounds/click.tscn")
+
 var player setget set_player, get_player
 var u_price setget set_u_price, get_u_price
 var u_tier setget set_u_tier, get_u_tier
@@ -17,7 +19,13 @@ var u_tier setget set_u_tier, get_u_tier
 	#[type, id/ name, cost, amount]
 var shop_cart setget set_shop_cart, get_shop_cart
 
+onready var intro = get_node("/root/Intro")
+
+var escape_awal = false
+
 func _ready():
+	if(!Intro.playing):
+		intro.play()
 	_load_conf()
 	_starter()
 	pass
@@ -47,22 +55,38 @@ func _starter():
 # Button Press Action #
 #######################
 func _on_press_Main():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	goto_scene("StageSelector")
 func _on_press_MesinWaktu():
 	GlobalVar.set_toko("timemachine")
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	goto_scene("Toko")
 func _on_press_Toko():
 	GlobalVar.set_toko("powerup")
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	goto_scene("Toko")
 func _on_press_Koleksi():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	goto_scene("Koleksi")
 func _on_press_Cerita():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	goto_scene("Cerita")
 func _on_press_Leaderboard():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	$leaderboard_window.visible = true
 func _on_press_Setting():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	$setting_window.visible = true
 func _on_return_to_menu():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	goto_scene("Main")
 
 func goto_scene(target: String, anim = "wipe")->void:
@@ -97,16 +121,26 @@ func render_toko_btn(button):
 			child.show()
 
 func _on_toko_powerup():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	render_toko_btn("powerup")
 func _on_toko_timemachine():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	render_toko_btn("timemachine")
 func _on_toko_inventory():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	render_toko_btn("inventory")
 	#fetch json data from owned item as object
 
 func _on_cancel_purchase():
+	if escape_awal:
+		var clickSound = click_sound.instance()
+		get_tree().current_scene.add_child(clickSound)
 	$PurchaseBox.hide()
 	$Deselect.hide()
+	escape_awal = true
 
 func _on_confirm_buy_pressed():
 	var cart = get_shop_cart() #[type, id/ name, cost, amount]
@@ -196,6 +230,8 @@ func render_toko_item(type):
 	pass
 
 func on_tap_toko_item(itm):
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	$PurchaseBox/Card/upgrade_arrow.hide()
 	$PurchaseBox/Card/amount_input.hide()
 	$PurchaseBox/Card/desc.bbcode_text = ""
