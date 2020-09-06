@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/UI/page/latar_shop.jpg" type="Texture" id=1]
 [ext_resource path="res://script/plugins/DBconnection.res" type="PackedScene" id=2]
@@ -26,6 +26,9 @@
 [ext_resource path="res://assets/UI/utility/next_upgrade.png" type="Texture" id=24]
 [ext_resource path="res://scene/UI/shop_item.res" type="PackedScene" id=25]
 [ext_resource path="res://assets/UI/knowledge_coin.png" type="Texture" id=26]
+[ext_resource path="res://assets/img/upgrade_warp.png" type="Texture" id=27]
+[ext_resource path="res://assets/img/upgrade_radar.png" type="Texture" id=28]
+[ext_resource path="res://assets/img/upgrade_light.png" type="Texture" id=29]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.329412, 0.329412, 0.329412, 0.521569 )
@@ -113,6 +116,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
 expand = true
+stretch_mode = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -144,7 +148,6 @@ __meta__ = {
 }
 
 [node name="slot_timemachine" type="GridContainer" parent="Background/card/ScrollContainer"]
-visible = false
 margin_right = 200.0
 margin_bottom = 64.0
 custom_constants/vseparation = 25
@@ -208,7 +211,9 @@ texture_normal = ExtResource( 10 )
 [node name="icon" type="TextureRect" parent="Background/card/ScrollContainer/slot_timemachine/upgrade_radar"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 17 )
+texture = ExtResource( 28 )
+expand = true
+stretch_mode = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -258,7 +263,9 @@ texture_normal = ExtResource( 10 )
 [node name="icon" type="TextureRect" parent="Background/card/ScrollContainer/slot_timemachine/upgrade_timecontrol"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 17 )
+texture = ExtResource( 27 )
+expand = true
+stretch_mode = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -308,7 +315,9 @@ texture_normal = ExtResource( 10 )
 [node name="icon" type="TextureRect" parent="Background/card/ScrollContainer/slot_timemachine/upgrade_foglamp"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 17 )
+texture = ExtResource( 29 )
+expand = true
+stretch_mode = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -348,6 +357,7 @@ __meta__ = {
 }
 
 [node name="slot_powerup" type="GridContainer" parent="Background/card/ScrollContainer"]
+visible = false
 margin_right = 64.0
 margin_bottom = 64.0
 custom_constants/vseparation = 25
@@ -391,6 +401,12 @@ __meta__ = {
 }
 
 [node name="btn_group" type="Control" parent="Background"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -720.0
+margin_right = -720.0
+margin_bottom = -480.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -599,6 +615,7 @@ __meta__ = {
 }
 
 [node name="PurchaseBox" type="Control" parent="."]
+visible = false
 margin_left = 39.5
 margin_top = 26.0
 margin_right = 79.5
@@ -627,7 +644,7 @@ __meta__ = {
 [node name="head" type="Label" parent="PurchaseBox/Card"]
 anchor_right = 1.0
 margin_top = 21.0
-margin_right = -4.0
+margin_right = -40.0
 margin_bottom = 72.0
 custom_fonts/font = SubResource( 11 )
 custom_constants/line_spacing = -5

@@ -62,7 +62,6 @@ func toggle_sound():
 	var type = get_sound_type()
 	DB.pushJSON(["sound"], [!type], "setting")
 
-
 func set_setting(args):
 	setting = args
 func get_setting():

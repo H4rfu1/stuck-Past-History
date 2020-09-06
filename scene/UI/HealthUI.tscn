@@ -1,32 +1,131 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://script/UI.gd" type="Script" id=1]
-[ext_resource path="res://assets/UI/HeartUIEmpty.png" type="Texture" id=2]
-[ext_resource path="res://assets/UI/HeartUIFull.png" type="Texture" id=3]
+[ext_resource path="res://assets/UI/icon_heart.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/icon_heart_off.png" type="Texture" id=3]
+[ext_resource path="res://assets/UI/hud_player.png" type="Texture" id=4]
+[ext_resource path="res://assets/UI/icon_timer.png" type="Texture" id=5]
+[ext_resource path="res://assets/UI/hud_item.png" type="Texture" id=6]
+[ext_resource path="res://assets/UI/button/btn_pause_press.png" type="Texture" id=7]
+[ext_resource path="res://assets/UI/button/btn_pause.png" type="Texture" id=8]
+[ext_resource path="res://scene/UI/shop_item.res" type="PackedScene" id=9]
 
-[node name="HeallthUI" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.0
+margin_right = -3.0
+margin_bottom = -2.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HeartUIEmpty" type="TextureRect" parent="."]
-margin_right = 45.0
-margin_bottom = 12.0
-texture = ExtResource( 2 )
-stretch_mode = 2
+[node name="HUD_Player" type="TextureRect" parent="."]
+margin_left = -0.396851
+margin_top = -8.36535
+margin_right = 192.603
+margin_bottom = 74.6347
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HeartUIFull" type="TextureRect" parent="."]
-margin_right = 44.0
-margin_bottom = 11.0
+[node name="TimeIcon" type="TextureRect" parent="HUD_Player"]
+margin_left = 62.6031
+margin_top = 38.9685
+margin_right = 84.6031
+margin_bottom = 65.9685
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeartUIEmpty" type="TextureRect" parent="."]
+margin_left = 60.7149
+margin_top = 5.30342
+margin_right = 138.715
+margin_bottom = 29.3034
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HeartUIFull" type="TextureRect" parent="."]
+margin_left = 60.6031
+margin_top = 4.85669
+margin_right = 138.603
+margin_bottom = 28.8567
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HUD_Item" type="TextureRect" parent="."]
+anchor_top = 0.781
+anchor_right = 1.0
+anchor_bottom = 0.916
+margin_top = -18.099
+margin_bottom = 0.235962
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="equip" type="HBoxContainer" parent="HUD_Item"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="equip_0" parent="HUD_Item/equip" instance=ExtResource( 9 )]
+margin_left = 224.0
+margin_right = 288.0
+margin_bottom = 82.0
+stretch_mode = 5
+
+[node name="equip_1" parent="HUD_Item/equip" instance=ExtResource( 9 )]
+margin_left = 292.0
+margin_right = 356.0
+margin_bottom = 82.0
+stretch_mode = 5
+
+[node name="equip_2" parent="HUD_Item/equip" instance=ExtResource( 9 )]
+margin_left = 360.0
+margin_right = 424.0
+margin_bottom = 82.0
+stretch_mode = 5
+
+[node name="equip_3" parent="HUD_Item/equip" instance=ExtResource( 9 )]
+margin_left = 428.0
+margin_right = 492.0
+margin_bottom = 82.0
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -60.5122
+margin_top = 13.1313
+margin_right = -20.5122
+margin_bottom = -425.869
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pause" type="TouchScreenButton" parent="Control"]
+scale = Vector2( 0.470269, 0.470269 )
+normal = ExtResource( 8 )
+pressed = ExtResource( 7 )
+action = "pause"

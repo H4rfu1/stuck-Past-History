@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/synthesis.jpg-5dea28ddd2f87f6e1c7ebd5081960902.stex"
+path="res://.import/latar_synthesis.jpg-7afe7fd1f6851f0d11ab79be0bb5c123.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/page/synthesis.jpg"
-dest_files=[ "res://.import/synthesis.jpg-5dea28ddd2f87f6e1c7ebd5081960902.stex" ]
+source_file="res://assets/UI/page/latar_synthesis.jpg"
+dest_files=[ "res://.import/latar_synthesis.jpg-7afe7fd1f6851f0d11ab79be0bb5c123.stex" ]
 
 [params]
 

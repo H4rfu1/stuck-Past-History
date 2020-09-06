@@ -21,6 +21,9 @@ func upgrade_timemachine(type):
 	DB.pushJSON([type], [tier+1], "u_tier")
 	print("Item: ", type, " upgraded to ", get_u_tier()[type])
 
+func get_item_tier(name):
+	_ready()
+	return get_u_tier()[name]
 
 func get_all_item():
 	_ready()

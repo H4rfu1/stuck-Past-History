@@ -25,7 +25,7 @@ func get_high_score(jilid, number):
 	_ready()
 	for stage in get_stage_data():
 		if (stage[1] == jilid && stage[2] == number):
-			return stage
+			return stage[5]
 
 func set_high_score(jilid, stage, score):
 	_ready()
