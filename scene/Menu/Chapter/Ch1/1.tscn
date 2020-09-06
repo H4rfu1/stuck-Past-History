@@ -830,4 +830,17 @@ __meta__ = {
 
 [node name="game_result2" parent="CanvasLayer" instance=ExtResource( 11 )]
 visible = false
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer"]
+margin_left = 0.561234
+margin_top = 19.3625
+margin_right = 40.5612
+margin_bottom = 33.3625
+text = "TimeLabel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerStage" type="Timer" parent="."]
+one_shot = true
 [connection signal="collided" from="Ysort/player" to="." method="_on_player_collided"]

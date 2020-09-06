@@ -6,11 +6,12 @@ var stage          = load('res://models/stageManager.gd').new()
 func _ready():
 	pass # Replace with function body.
 
-func create(jenis, score = 0, waktu = 0, uang = 0):
+func create(jenis, score = 0, waktu = 0, uang = 0, memo=""):
 	get_node(".").show()
 	set_subject(jenis)
 	var jilid = GlobalVar.get_jilid()
 	var staged = GlobalVar.get_stage()
+	$Control/TextureRect/memo.text = memo
 	if(jenis == "menang"):
 		$Control/Score.text = str(score)
 		$Control/time.text = str(waktu)

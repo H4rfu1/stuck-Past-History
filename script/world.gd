@@ -23,15 +23,15 @@ func _ready():
 
 func _starter():
 	adjust_control()
-#	var timerStage = Timer.new()
-#	timerStage.set_wait_time( TIME_PERIOD )
-#	timerStage.connect("timeout",self,"_on_timerStage_timeout") 
-#	#timeout is what says in docs, in signals
-#	#self is who respond to the callback
-#	#_on_timer_timeout is the callback, can have any name
-#	add_child(timerStage) #to process
-#	timerStage.start() #to start
-#	$CanvasLayer/game_result2.hide()
+	var timerStage = $TimerStage
+	timerStage.set_wait_time( TIME_PERIOD )
+	timerStage.connect("timeout",self,"_on_timerStage_timeout") 
+	#timeout is what says in docs, in signals
+	#self is who respond to the callback
+	#_on_timer_timeout is the callback, can have any name
+	add_child(timerStage) #to process
+	timerStage.start() #to start
+	$CanvasLayer/game_result2.hide()
 
 
 func _process(delta):
@@ -39,15 +39,14 @@ func _process(delta):
 	$CanvasLayer/Label.text = str(cpos)
 	var mpos = $TileZone.world_to_map(get_global_mouse_position())
 	$CanvasLayer/Label2.text = str(mpos)
-	
-#	$CanvasLayer/timeStage.text = "berubah"
+	$CanvasLayer/TimeLabel.text = str(round($TimerStage.get_time_left()))
 	
 	time += delta
 	if time > TIME_PERIOD:
 		# Reset timer
 		$CanvasLayer/game_result2.create("waktu_habis", 9000, "0:11", 500)
 		time = 0
-#	$timeStage.text = "time :"
+	#$CanvasLayer/TimeLabel.text = "time :"
 	
 	if( $TileZone.get_cellv(cpos) == 9):
 		setZoneState(true)
