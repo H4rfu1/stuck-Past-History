@@ -3,8 +3,6 @@ extends CanvasLayer
 
 
 func _ready():
-	for i in get_parent().get_children():
-		print(i.name)
 	set_visible(false)
 	$setting_window/window/pause.show()
 	$setting_window/window/btn_close.hide()

@@ -23,7 +23,7 @@ font_data = ExtResource( 2 )
 resource_name = "game_logo"
 length = 2.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("logo:rect_position")
+tracks/0/path = NodePath("Control/logo:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -35,7 +35,7 @@ tracks/0/keys = {
 "values": [ Vector2( 190.5, 259 ), Vector2( 161.5, 109.5 ), Vector2( 157.75, 82.2852 ), Vector2( 151.5, 81.9727 ), Vector2( 151.5, 81.9727 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("logo:rect_rotation")
+tracks/1/path = NodePath("Control/logo:rect_rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -47,7 +47,7 @@ tracks/1/keys = {
 "values": [ 0.0, 0.0, 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("logo:modulate")
+tracks/2/path = NodePath("Control/logo:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -59,7 +59,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("logo:rect_size")
+tracks/3/path = NodePath("Control/logo:rect_size")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -71,7 +71,7 @@ tracks/3/keys = {
 "values": [ Vector2( 339, 221 ), Vector2( 397, 261 ), Vector2( 416.999, 278 ), Vector2( 720, 480 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("logo:rect_scale")
+tracks/4/path = NodePath("Control/logo:rect_scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -379,8 +379,14 @@ __meta__ = {
 }
 
 [node name="tape" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -240.0
+margin_right = 360.0
+margin_bottom = 240.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -391,18 +397,16 @@ texture = ExtResource( 3 )
 
 [node name="daun_r" type="Sprite" parent="tape"]
 position = Vector2( 350.018, 272.411 )
-scale = Vector2( 0.937087, 1.08562 )
 texture = ExtResource( 4 )
 offset = Vector2( 32.9329, -35.1185 )
 
 [node name="daun_l" type="Sprite" parent="tape"]
 position = Vector2( 368.55, 277.47 )
-scale = Vector2( 0.964503, 1.11225 )
 texture = ExtResource( 5 )
 offset = Vector2( -45.9501, -37.8392 )
 
 [node name="sunduk" type="Sprite" parent="tape"]
-position = Vector2( 367.659, 204.349 )
+position = Vector2( 347.72, 205.089 )
 texture = ExtResource( 6 )
 
 [node name="overlay" type="Sprite" parent="tape"]
@@ -435,24 +439,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="transition" parent="." instance=ExtResource( 8 )]
-margin_left = -61.0
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -360.0
+margin_right = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="logo" type="TextureRect" parent="."]
+[node name="logo" type="TextureRect" parent="Control"]
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -360.0
-margin_top = -240.0
-margin_right = 360.0
+margin_left = -169.5
+margin_top = 19.0
+margin_right = 169.5
 margin_bottom = 240.0
 texture = ExtResource( 9 )
 stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="transition" parent="." instance=ExtResource( 8 )]
+margin_left = -61.0
 
 [node name="wave" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
