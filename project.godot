@@ -26,6 +26,7 @@ GlobalVar="*res://models/global.gd"
 Intro="*res://scene/Music and Sounds/intro.tscn"
 GamePlay="*res://scene/Music and Sounds/GamePlay.tscn"
 Pause="*res://scene/UI/pause.tscn"
+PlayerStats="*res://models/PlayerStats.tscn"
 
 [display]
 

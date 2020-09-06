@@ -15,24 +15,24 @@ enum {
 	ATTACK
 }
 
+var stats = PlayerStats
+
 var state = MOVE
 var velocity = Vector2.ZERO
 var roll_vector = Vector2.DOWN
-#var stats = PlayerStats
+
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState  = animationTree.get("parameters/playback")
 onready var joystick = get_parent().get_parent().get_node("CanvasLayer/Joystick/joystickbutton")
-#onready var swordHitbox = $HitboxPivot/SwordHitbox
-#onready var hurtbox = $Hurtbox
+onready var hurtbox = $Hurtbox
 #onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
 func _ready():
-#	.set_collision_layer_bit( 1, false )
-	pass
+	stats.status = "ongoing"
 #	randomize()
-#	#stats.connect("no_health", self, "queue_free")
+	stats.connect("no_health", self, "ulangi_lagi")
 	animationTree.active = true
 #	swordHitbox.knockback_vector = roll_vector
 
@@ -194,3 +194,13 @@ func _on_timerJ_timeout():
 func _on_timerP_timeout():
 	.set_collision_layer_bit( 1, true )
 	.set_collision_layer_bit( 7, true )
+
+func _on_Hurtbox_area_entered(area):
+	stats.health -= area.damage
+	hurtbox.start_invincibility(0.6)
+
+func ulangi_lagi():
+	var result = get_parent().get_parent().get_node("CanvasLayer/game_result2")
+	result.create("coba_lagi", 9000, "0:11", 500)
+	stats.status = "mengulang"
+	

@@ -4,11 +4,13 @@ var player_data = preload('res://models/playerManager.gd').new()
 
 var collision_pos = []
 var player = .get_node("Ysort/player")
-var timeUI = .get_node("CanvasLayer/UI/Label")
 
 var complete = false
 export var TIME_PERIOD = 10
 var time = 0
+var stats = PlayerStats
+
+onready var timerStage = $TimerStage
 
 onready var audio_game = get_node("/root/GamePlay")
 
@@ -27,7 +29,6 @@ func _ready():
 
 func _starter():
 	adjust_control()
-	var timerStage = $TimerStage
 	timerStage.set_wait_time( TIME_PERIOD )
 	timerStage.connect("timeout",self,"_on_timerStage_timeout") 
 	#timeout is what says in docs, in signals
@@ -44,13 +45,8 @@ func _process(delta):
 	var mpos = $TileZone.world_to_map(get_global_mouse_position())
 	$CanvasLayer/Label2.text = str(mpos)
 	$CanvasLayer/TimeLabel.text = str(round($TimerStage.get_time_left()))
-	
-	time += delta
-	if time > TIME_PERIOD:
-		# Reset timer
-		$CanvasLayer/game_result2.create("waktu_habis", 9000, "0:11", 500)
-		time = 0
-	#$CanvasLayer/TimeLabel.text = "time :"
+	if !stats.status == "ongoing":
+		timerStage.paused = true
 	
 	if( $TileZone.get_cellv(cpos) == 9):
 		setZoneState(true)
