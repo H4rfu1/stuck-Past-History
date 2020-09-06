@@ -1,6 +1,5 @@
 extends Control
 
-
 var item           = preload("res://models/itemManager.gd").new()
 var player         = preload('res://models/playerManager.gd').new()
 var stage          = preload('res://models/stageManager.gd').new()
