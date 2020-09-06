@@ -649,6 +649,7 @@ points = PoolVector2Array( 64, 96, 0, 96, 0, 32, 64, 32 )
 
 [node name="world" type="Node2D"]
 script = ExtResource( 9 )
+TIME_PERIOD = 5
 
 [node name="TileBase" type="TileMap" parent="."]
 tile_set = SubResource( 40 )
@@ -763,6 +764,17 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
+visible = false
+margin_left = 275.584
+margin_top = 14.3789
+margin_right = 318.584
+margin_bottom = 28.3789
+text = "Mouse:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="timeStage" type="Label" parent="CanvasLayer"]
 visible = false
 margin_left = 275.584
 margin_top = 14.3789

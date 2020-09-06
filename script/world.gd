@@ -4,8 +4,11 @@ var player_data = preload('res://models/playerManager.gd').new()
 
 var collision_pos = []
 var player = .get_node("Ysort/player")
+var timeUI = .get_node("CanvasLayer/UI/Label")
 
 var complete = false
+export var TIME_PERIOD = 10
+var time = 0
 
 var artefactzone = false setget setZoneState, getZoneState
 var artefact_tiles = [
@@ -20,13 +23,31 @@ func _ready():
 
 func _starter():
 	adjust_control()
-	$CanvasLayer/game_result2.hide()
+#	var timerStage = Timer.new()
+#	timerStage.set_wait_time( TIME_PERIOD )
+#	timerStage.connect("timeout",self,"_on_timerStage_timeout") 
+#	#timeout is what says in docs, in signals
+#	#self is who respond to the callback
+#	#_on_timer_timeout is the callback, can have any name
+#	add_child(timerStage) #to process
+#	timerStage.start() #to start
+#	$CanvasLayer/game_result2.hide()
+
 
 func _process(delta):
 	var cpos = $TileZone.world_to_map($Ysort/player.position)
 	$CanvasLayer/Label.text = str(cpos)
 	var mpos = $TileZone.world_to_map(get_global_mouse_position())
 	$CanvasLayer/Label2.text = str(mpos)
+	
+#	$CanvasLayer/timeStage.text = "berubah"
+	
+	time += delta
+	if time > TIME_PERIOD:
+		# Reset timer
+		$CanvasLayer/game_result2.create("waktu_habis", 9000, "0:11", 500)
+		time = 0
+#	$timeStage.text = "time :"
 	
 	if( $TileZone.get_cellv(cpos) == 9):
 		setZoneState(true)
@@ -113,3 +134,9 @@ func setZoneState(args: bool):
 
 func getZoneState():
 	return artefactzone
+
+#=================
+#Timer
+#=================
+func _on_timerStage_timeout():
+	$CanvasLayer/game_result2.create("waktu_habis", 9000, "0:11", 500)
