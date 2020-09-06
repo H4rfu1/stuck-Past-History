@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var player         = preload('res://models/playerManager.gd').new()
 var stage          = load('res://models/stageManager.gd').new()

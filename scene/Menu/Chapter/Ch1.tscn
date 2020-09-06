@@ -1007,7 +1007,6 @@ __meta__ = {
 }
 
 [node name="Deselect" type="Button" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 2.36044
@@ -1024,6 +1023,7 @@ __meta__ = {
 }
 
 [node name="StageInfo" type="TextureRect" parent="."]
+visible = false
 anchor_left = 0.791
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1170,8 +1170,11 @@ visible = false
 
 [node name="EquipBox" type="Control" parent="."]
 visible = false
-anchor_right = 1.0
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+margin_left = -10.0
+margin_right = 2.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

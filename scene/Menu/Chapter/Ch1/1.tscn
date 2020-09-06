@@ -824,7 +824,12 @@ pressed = ExtResource( 10 )
 action = "ui_right"
 
 [node name="game_result2" parent="CanvasLayer" instance=ExtResource( 11 )]
-visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -360.0
+margin_right = -360.0
+margin_bottom = -480.0
 
 [node name="TimeLabel" type="Label" parent="CanvasLayer"]
 margin_left = 88.1848
