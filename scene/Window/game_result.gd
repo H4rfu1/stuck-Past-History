@@ -20,7 +20,7 @@ func create(jenis, score = 0, waktu = 0, uang = 0, memo=""):
 		print(jilid)
 		print(stage)
 		print(score)
-		if(stage.get_high_score(jilid, staged) < score):
+		if(int(stage.get_high_score(jilid, staged)) < score):
 			stage.set_high_score(jilid, staged, score)
 		stage.set_complete_stage(jilid, staged)
 	else:
@@ -40,4 +40,5 @@ func set_subject(type):
 
 
 func _btn_oke():
-	get_tree().change_scene("res://scene/Menu/Chapter/Ch"+str(GlobalVar.get_jilid())+".tscn")
+	get_tree().change_scene("res://scene/Menu/Synthesis.tscn")
+	#get_tree().change_scene("res://scene/Menu/Chapter/Ch"+str(GlobalVar.get_jilid())+".tscn")

@@ -23,8 +23,6 @@
 [ext_resource path="res://assets/UI/page/swirl.jpg" type="Texture" id=21]
 [ext_resource path="res://assets/UI/page/portal.png" type="Texture" id=22]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "main_page"
 length = 4.0
@@ -223,7 +221,6 @@ stretch_mode = 3
 margin_left = 75.0
 margin_right = 226.0
 margin_bottom = 73.0
-disabled = true
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 2 )
