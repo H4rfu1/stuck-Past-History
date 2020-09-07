@@ -663,6 +663,7 @@ font_data = SubResource( 41 )
 
 [node name="world" type="Node2D"]
 script = ExtResource( 9 )
+TIME_PERIOD = 1
 
 [node name="TileBase" type="TileMap" parent="."]
 tile_set = SubResource( 40 )

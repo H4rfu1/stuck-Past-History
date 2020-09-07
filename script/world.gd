@@ -28,6 +28,9 @@ var artefact_player_pos = [2,3]
 #	print(object)
 #	print(from)
 func _ready():
+	stats.status = "ongoing"
+	$"Ysort/player".set_physics_process(true)
+	stats.set_health(3)
 	$TileZone.hide()
 	GlobalVar.init_limit_equip()
 	_starter()
@@ -94,7 +97,7 @@ func artefact_zone_checker():
 	for t in artefact_tiles:
 		t = Vector2(t[0], t[1])
 		var tile = $TileZone.get_cellv(t)
-		if (tile == 0):
+		if (tile == 0) && stats.status=="ongoing":
 			artefact_zone_restore()
 			break #emit signal
 		elif (tile > 0 && tile <7):
@@ -109,6 +112,8 @@ func artefact_zone_checker():
 				var score  = (50*health)+(10*time)
 				var coin   = (arteract_tiles_amount*15*time)+(50*health)
 				$CanvasLayer/game_result2.create("menang", score, rtime, 500)
+				$Ysort/player.set_physics_process(false)
+				stats.status = "menang"
 	green = 0
 
 func artefact_zone_blocker(cpos):
@@ -183,3 +188,5 @@ func getZoneState():
 #=================
 func _on_timerStage_timeout():
 	$CanvasLayer/game_result2.create("waktu_habis", 9000, "0:11", 500)
+	$Ysort/player.set_physics_process(false)
+	stats.status = "timeout"

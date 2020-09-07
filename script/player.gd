@@ -204,4 +204,5 @@ func ulangi_lagi():
 	var result = get_parent().get_parent().get_node("CanvasLayer/game_result2")
 	result.create("coba_lagi", 0, "", 0)
 	stats.status = "mengulang"
+	$".".set_physics_process(false)
 	
