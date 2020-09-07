@@ -3,7 +3,6 @@
 [ext_resource path="res://assets/Music and Sounds/171697__nenadsimic__menu-selection-click (1).wav" type="AudioStream" id=1]
 [ext_resource path="res://script/sound.gd" type="Script" id=2]
 
-
 [node name="click" type="AudioStreamPlayer"]
 stream = ExtResource( 1 )
 autoplay = true

@@ -3,11 +3,16 @@ extends Node2D
 var player_data = preload('res://models/playerManager.gd').new()
 var use_equip   = preload('res://script/UseEquip.gd').new()
 
+#audio
+const timeout = preload("res://scene/Music and Sounds/gong.tscn")
+const win = preload("res://scene/Music and Sounds/win.tscn")
+
 var collision_pos = []
 var player = .get_node("Ysort/player")
 
 var complete = false
 export var TIME_PERIOD = 60
+export var health = 3
 var time = 0
 var stats = PlayerStats
 
@@ -28,9 +33,19 @@ var artefact_player_pos = [2,3]
 #	print(object)
 #	print(from)
 func _ready():
+	var audio = "not played"
 	stats.status = "ongoing"
+	
+	#set phycical to true
 	$"Ysort/player".set_physics_process(true)
-	stats.set_health(3)
+	var mob = get_node("Ysort/Mob")
+	for node in mob.get_children():
+		node.get_node("Hitbox").set_collision_mask_bit( 2, true)
+		node.set_physics_process(true)
+	
+	
+	#set player health
+	stats.set_health(health)
 	$TileZone.hide()
 	GlobalVar.init_limit_equip()
 	_starter()
@@ -100,10 +115,14 @@ func artefact_zone_checker():
 		if (tile == 0) && stats.status=="ongoing":
 			artefact_zone_restore()
 			break #emit signal
-		elif (tile > 0 && tile <7):
+		elif (tile > 0 && tile <7  && stats.status=="ongoing"):
 			green += 1
 			if (green == arteract_tiles_amount && complete == false):
 				complete = true
+				stats.status = "menang"
+				var Win = win.instance()
+				get_tree().current_scene.add_child(Win)
+				print("won")
 				timerStage.paused = true
 				#menang/waktu_habis/coba_lagi, score = 0, waktu = 0, uang = 0
 				var rtime  = $CanvasLayer/TimeLabel.text
@@ -111,9 +130,10 @@ func artefact_zone_checker():
 				var health = PlayerStats.get_heath()
 				var score  = (50*health)+(10*time)
 				var coin   = (arteract_tiles_amount*15*time)+(50*health)
+				
 				$CanvasLayer/game_result2.create("menang", score, rtime, 500)
 				$Ysort/player.set_physics_process(false)
-				stats.status = "menang"
+				
 	green = 0
 
 func artefact_zone_blocker(cpos):
@@ -187,6 +207,8 @@ func getZoneState():
 #Timer
 #=================
 func _on_timerStage_timeout():
+	var Timeout = timeout.instance()
+	get_tree().current_scene.add_child(Timeout)
 	$CanvasLayer/game_result2.create("waktu_habis", 9000, "0:11", 500)
 	$Ysort/player.set_physics_process(false)
 	stats.status = "timeout"

@@ -663,7 +663,6 @@ font_data = SubResource( 41 )
 
 [node name="world" type="Node2D"]
 script = ExtResource( 9 )
-TIME_PERIOD = 1
 
 [node name="TileBase" type="TileMap" parent="."]
 tile_set = SubResource( 40 )
@@ -754,10 +753,12 @@ position = Vector2( 322.441, -42.4264 )
 [node name="StaticBody2D2" parent="Ysort/Stone" instance=ExtResource( 16 )]
 position = Vector2( -59.397, 165.463 )
 
-[node name="Mob" parent="Ysort" instance=ExtResource( 13 )]
+[node name="Mob" type="YSort" parent="Ysort"]
+
+[node name="Mob" parent="Ysort/Mob" instance=ExtResource( 13 )]
 position = Vector2( 57.7665, 176.117 )
 
-[node name="Mob2" parent="Ysort" instance=ExtResource( 13 )]
+[node name="Mob2" parent="Ysort/Mob" instance=ExtResource( 13 )]
 position = Vector2( 252.566, 187.879 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

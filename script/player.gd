@@ -4,6 +4,8 @@ extends KinematicBody2D
 signal collided
 var timer = 0
 
+const fail = preload("res://scene/Music and Sounds/fail.tscn")
+
 export var ACCELERATION = 500
 export var MAX_SPEED = 80
 export var ROLL_SPEED = 120
@@ -201,8 +203,16 @@ func _on_Hurtbox_area_entered(area):
 	hurtbox.start_invincibility(0.6)
 
 func ulangi_lagi():
+	var Fail = fail.instance()
+	get_tree().current_scene.add_child(Fail)
 	var result = get_parent().get_parent().get_node("CanvasLayer/game_result2")
 	result.create("coba_lagi", 0, "", 0)
 	stats.status = "mengulang"
 	$".".set_physics_process(false)
+	var mob = get_parent().get_node("Mob")
+	for node in mob.get_children():
+		node.get_node("Hitbox").set_collision_mask_bit( 2, false)
+		node.set_physics_process(false)
+	
+	
 	

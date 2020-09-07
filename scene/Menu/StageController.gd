@@ -9,6 +9,7 @@ const shop_item     = preload("res://scene/UI/shop_item.res")
 const click_sound = preload("res://scene/Music and Sounds/click.tscn")
 const click_start = preload("res://scene/Music and Sounds/Start.tscn")
 
+
 onready var intro = get_node("/root/Intro")
 onready var audio_game = get_node("/root/GamePlay")
 
