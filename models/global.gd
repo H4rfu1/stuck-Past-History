@@ -5,6 +5,7 @@ var equip = [0,0,0,0] setget set_equip, get_equip
 var limit_equip = [0,0,0,0] setget set_lim_equip, get_lim_equip
 var jilid = 1 setget set_jilid, get_jilid
 var stage = "1" setget set_stage, get_stage
+var audio = true setget set_audio, get_audio
 
 var item = load("res://models/itemManager.gd").new()
 
@@ -52,3 +53,8 @@ func set_stage(args):
 	stage = args
 func get_stage():
 	return stage
+
+func set_audio(args):
+	audio = args
+func get_audio():
+	return audio
