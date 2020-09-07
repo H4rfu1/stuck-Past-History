@@ -7,14 +7,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": false,
-"name": "noCrack",
-"speed": 1.0
-}, {
 "frames": [  ],
 "loop": false,
 "name": "Crack",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "noCrack",
 "speed": 1.0
 } ]
 
@@ -36,6 +36,7 @@ offset = Vector2( -8, -8 )
 [node name="Hitbox" parent="." instance=ExtResource( 2 )]
 collision_mask = 4
 script = ExtResource( 4 )
+enemyTipe = "trap"
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 2 )

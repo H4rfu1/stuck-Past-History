@@ -5,6 +5,8 @@ signal collided
 var timer = 0
 
 const fail = preload("res://scene/Music and Sounds/fail.tscn")
+const trap_hurt = preload("res://scene/Music and Sounds/sound_trap.tscn")
+const mob_hurt = preload("res://scene/Music and Sounds/sound_mob.tscn")
 
 export var ACCELERATION = 500
 export var MAX_SPEED = 80
@@ -200,6 +202,12 @@ func _on_timerP_timeout():
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
+	if(area.enemyTipe == "mob"):
+		var mob = mob_hurt.instance()
+		get_tree().current_scene.add_child(mob)
+	else:
+		var trap = trap_hurt.instance()
+		get_tree().current_scene.add_child(trap)
 	hurtbox.start_invincibility(0.6)
 
 func ulangi_lagi():
@@ -209,9 +217,9 @@ func ulangi_lagi():
 	result.create("coba_lagi", 0, "", 0)
 	stats.status = "mengulang"
 	$".".set_physics_process(false)
+	$".".hurtbox.set_collision_layer_bit( 2, false)
 	var mob = get_parent().get_node("Mob")
 	for node in mob.get_children():
-		node.get_node("Hitbox").set_collision_mask_bit( 2, false)
 		node.set_physics_process(false)
 	
 	

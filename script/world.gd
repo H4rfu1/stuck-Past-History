@@ -38,9 +38,9 @@ func _ready():
 	
 	#set phycical to true
 	$"Ysort/player".set_physics_process(true)
+	$"Ysort/player".set_collision_layer_bit( 2, true)
 	var mob = get_node("Ysort/Mob")
 	for node in mob.get_children():
-		node.get_node("Hitbox").set_collision_mask_bit( 2, true)
 		node.set_physics_process(true)
 	
 	
