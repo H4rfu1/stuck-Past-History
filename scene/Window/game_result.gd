@@ -20,7 +20,7 @@ func create(jenis, score = 0, waktu = 0, uang = 0, memo=""):
 		print(jilid)
 		print(stage)
 		print(score)
-		if(stage.get_high_score(jilid, staged) < score):
+		if(int(stage.get_high_score(jilid, staged)) < score):
 			stage.set_high_score(jilid, staged, score)
 		stage.set_complete_stage(jilid, staged)
 	else:

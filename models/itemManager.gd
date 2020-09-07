@@ -69,7 +69,7 @@ func get_all_koleksi():
 func convert_jilid_stage_to_id(jilid,stage):
 	_ready()
 	for record in get_all_koleksi():
-		if (record[1] == stage && record[6] == jilid):
+		if (record[1] == str(stage) && record[6] == int(jilid)):
 			return record[0]
 func check_koleksi(id):
 	var koleksi = get_koleksi_byid(id)

@@ -1,6 +1,8 @@
 extends Control
 
 var item           = preload("res://models/itemManager.gd").new()
+const click_sound = preload("res://scene/Music and Sounds/click.tscn")
+var sound_state     = true
 
 var id
 
@@ -16,9 +18,11 @@ func _play(ids):
 	$AnimationPlayer.play("generate")
 
 func _Ok_pressed():
+	var clickSound = click_sound.instance()
 	get_tree().change_scene("res://scene/Menu/Chapter/Ch"+str(GlobalVar.get_jilid())+".tscn")
 
 
 func _on_info():
+	var clickSound = click_sound.instance()
 	var koleksi = item.get_koleksi_byid(id)
 	$dialog_window.create([koleksi[2]+"\n"+koleksi[3]])
