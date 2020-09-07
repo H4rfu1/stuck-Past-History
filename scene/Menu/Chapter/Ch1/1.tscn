@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://scene/World/bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scene/Player/player.tscn" type="PackedScene" id=2]
@@ -18,7 +18,9 @@
 [ext_resource path="res://scene/World/Stone2.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scene/World/Stone1.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scene/Enemies/trap.tscn" type="PackedScene" id=18]
-[ext_resource path="res://assets/skeleton.png" type="Texture" id=19]
+[ext_resource path="res://assets/UI/button/btn_pause.png" type="Texture" id=19]
+[ext_resource path="res://assets/UI/button/btn_pause_press.png" type="Texture" id=20]
+[ext_resource path="res://script/UseEquip.gd" type="Script" id=21]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -649,6 +651,15 @@ points = PoolVector2Array( 64, 96, 0, 96, 0, 32, 64, 32 )
 12/shapes = [  ]
 12/z_index = 0
 
+[sub_resource type="DynamicFontData" id=41]
+font_path = "res://assets/Font/ARLRDBD_0.TTF"
+
+[sub_resource type="DynamicFont" id=42]
+size = 15
+outline_size = 2
+outline_color = Color( 0.2, 0.227451, 0.309804, 1 )
+font_data = SubResource( 41 )
+
 [node name="world" type="Node2D"]
 script = ExtResource( 9 )
 
@@ -745,10 +756,10 @@ position = Vector2( 57.7665, 176.117 )
 position = Vector2( 252.566, 187.879 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 21 )
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 6 )]
-anchor_right = 1.0
-anchor_bottom = 1.0
 margin_right = 0.0
 margin_bottom = 0.0
 
@@ -774,16 +785,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="indicator" type="Label" parent="CanvasLayer"]
-margin_left = 132.512
-margin_top = 164.265
-margin_right = 189.512
-margin_bottom = 178.265
-text = "Indicator"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Joystick" parent="CanvasLayer" instance=ExtResource( 12 )]
 position = Vector2( 101.33, 382.333 )
 
@@ -802,7 +803,7 @@ pressed = ExtResource( 10 )
 action = "ui_left"
 
 [node name="Up" type="TouchScreenButton" parent="CanvasLayer/Keypad"]
-position = Vector2( 660, 320 )
+position = Vector2( 660, 315 )
 rotation = 1.5708
 normal = ExtResource( 14 )
 pressed = ExtResource( 10 )
@@ -816,35 +817,37 @@ pressed = ExtResource( 10 )
 action = "ui_down"
 
 [node name="Left" type="TouchScreenButton" parent="CanvasLayer/Keypad"]
-position = Vector2( 160, 360 )
+position = Vector2( 165, 360 )
 scale = Vector2( -1, 1 )
 normal = ExtResource( 14 )
 pressed = ExtResource( 10 )
 action = "ui_right"
 
-[node name="Item" type="Control" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="game_result2" parent="CanvasLayer" instance=ExtResource( 11 )]
-visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -360.0
+margin_right = -360.0
+margin_bottom = -480.0
 
 [node name="TimeLabel" type="Label" parent="CanvasLayer"]
-margin_left = 0.561234
-margin_top = 19.3625
-margin_right = 40.5612
-margin_bottom = 33.3625
+margin_left = 88.1848
+margin_top = 34.4066
+margin_right = 163.185
+margin_bottom = 53.4066
+custom_fonts/font = SubResource( 42 )
 text = "TimeLabel"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Pause" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2( 640, 20 )
+visible = false
+position = Vector2( 661.852, 14.1421 )
+scale = Vector2( 0.470269, 0.470269 )
 normal = ExtResource( 19 )
+pressed = ExtResource( 20 )
 action = "pause"
 
 [node name="TimerStage" type="Timer" parent="."]

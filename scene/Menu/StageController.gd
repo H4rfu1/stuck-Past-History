@@ -96,6 +96,7 @@ func render_equip():
 			icon.texture = load(eq[4])
 		else:
 			if(get_unlockeq() >= i):
+				btn.texture_normal = load("res://assets/UI/window/item_frame.png")
 				btn.get_child(0).set_texture(null)
 			else:
 				icon.texture = load("res://assets/UI/utility/locked.png")
@@ -110,7 +111,7 @@ func render_powerup():
 		obj.name = "power_"+str(power[1])
 		$EquipBox/Card/equip/opsi_item.add_child(obj)
 		var new_obj = "EquipBox/Card/equip/opsi_item/power_"+str(power[1])
-		if( power[0] in GlobalVar.get_equip()):
+		if( power[0] in GlobalVar.get_equip()): #kalau gaada itemnya
 			get_node(new_obj).hide()
 		var own = item.owned_item_id(power[0])
 		if own > 0:

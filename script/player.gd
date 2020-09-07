@@ -201,6 +201,6 @@ func _on_Hurtbox_area_entered(area):
 
 func ulangi_lagi():
 	var result = get_parent().get_parent().get_node("CanvasLayer/game_result2")
-	result.create("coba_lagi", 9000, "0:11", 500)
+	result.create("coba_lagi", 0, "", 0)
 	stats.status = "mengulang"
 	

@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var player         = preload('res://models/playerManager.gd').new()
 var stage          = load('res://models/stageManager.gd').new()
@@ -20,7 +20,8 @@ func create(jenis, score = 0, waktu = 0, uang = 0, memo=""):
 		print(jilid)
 		print(stage)
 		print(score)
-		stage.set_high_score(jilid, staged, score)
+		if(stage.get_high_score(jilid, staged) < score):
+			stage.set_high_score(jilid, staged, score)
 		stage.set_complete_stage(jilid, staged)
 	else:
 		$Control/Score.text = str(score)

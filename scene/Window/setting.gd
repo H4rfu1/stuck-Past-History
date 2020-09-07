@@ -17,6 +17,7 @@ func _ready():
 	$window/name.text = get_player()["username"]
 	$window/username.text = get_player()["username"] + get_player()["uid"]
 	icon_state()
+	$window/pause.hide()
 
 func _on_btn_credit_pressed():
 	$dialog_window.create(["Game ini dibuat oleh Kelompok Tapesoft, Universitas Jember \nOur Teams: \nHigh concept: M Amri Zaman \nMain programmer: M Fahrul Hafidz \nArtist & programmer: Hartawan Bahari M "])
@@ -34,25 +35,39 @@ func _on_btn_control_pressed():
 	icon_state()
 
 func icon_state():
-	var sound_btn = $window/contain/btn_group/btn_sound
-	var control_btn = $window/contain/btn_group/btn_control
+	var sound_btn         = $window/contain/btn_group/btn_sound
+	var control_btn       = $window/contain/btn_group/btn_control
+	var sound_btn_pause   = $window/pause/btn_group2/btn_sound
+	var control_btn_pause = $window/pause/btn_group2/btn_control
 	print("sound",get_sound(), "controll", get_control())
 	if(get_sound()):
 		sound_btn.texture_normal  = load("res://assets/UI/button/sound.png")
 		sound_btn.texture_pressed = load("res://assets/UI/button/sound_press.png")
 		sound_btn.texture_hover   = load("res://assets/UI/button/sound_press.png")
+		sound_btn_pause.texture_normal  = load("res://assets/UI/button/sound.png")
+		sound_btn_pause.texture_pressed = load("res://assets/UI/button/sound_press.png")
+		sound_btn_pause.texture_hover   = load("res://assets/UI/button/sound_press.png")
 	else:
 		sound_btn.texture_normal  = load("res://assets/UI/button/sound_mute.png")
 		sound_btn.texture_pressed = load("res://assets/UI/button/sound_mute_press.png")
 		sound_btn.texture_hover   = load("res://assets/UI/button/sound_mute_press.png")
+		sound_btn_pause.texture_normal  = load("res://assets/UI/button/sound_mute.png")
+		sound_btn_pause.texture_pressed = load("res://assets/UI/button/sound_mute_press.png")
+		sound_btn_pause.texture_hover   = load("res://assets/UI/button/sound_mute_press.png")
 	if(get_control()):
 		control_btn.texture_normal  = load("res://assets/UI/button/arrow.png")
 		control_btn.texture_pressed = load("res://assets/UI/button/arrow_press.png")
 		control_btn.texture_hover   = load("res://assets/UI/button/arrow_press.png")
+		control_btn_pause.texture_normal  = load("res://assets/UI/button/arrow.png")
+		control_btn_pause.texture_pressed = load("res://assets/UI/button/arrow_press.png")
+		control_btn_pause.texture_hover   = load("res://assets/UI/button/arrow_press.png")
 	else:
 		control_btn.texture_normal  = load("res://assets/UI/button/joystick.png")
 		control_btn.texture_pressed = load("res://assets/UI/button/joystick_press.png")
 		control_btn.texture_hover   = load("res://assets/UI/button/joystick_press.png")
+		control_btn_pause.texture_normal  = load("res://assets/UI/button/joystick.png")
+		control_btn_pause.texture_pressed = load("res://assets/UI/button/joystick_press.png")
+		control_btn_pause.texture_hover   = load("res://assets/UI/button/joystick_press.png")
 
 func _on_btn_close_pressed():
 	$".".visible = false

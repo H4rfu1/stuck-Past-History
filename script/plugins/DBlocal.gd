@@ -65,12 +65,12 @@ var stage = [
 
 var item = [
 		# id , name, desc, price, image
-		[1, 'Ramuan Interatom', 'Saat diminum dapat membuat penggunanya menembus objek diantara partikel.\n Aktif selama 10 detik', 1500, 'res://assets/skeleton.png'],
-		[2, 'Jubah Lenticular', 'Jubah yang mirip jas hujan tetapi dapat membiaskan cahaya sehingga penggunanya tampak tembus pandang.\n Aktif selama 20 detik', 800, 'res://assets/skeleton.png'],
-		[3, 'Jam Penghenti Waktu', 'Jangan tanya sekarang pukul berapa, jam ini dapat menghentikan waktu selama 15 detik', 2200, 'res://assets/skeleton.png'],
-		[4, 'Baju Adat A', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 0, 'res://assets/skeleton.png'],
-		[5, 'Baju Adat B', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 0, 'res://assets/skeleton.png'],
-		[6, 'Baju Adat C', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 0, 'res://assets/skeleton.png']
+		[1, 'Ramuan Interatom', 'Saat diminum dapat membuat penggunanya menembus objek diantara partikel.\n Aktif selama 10 detik', 1500, 'res://assets/img/item_atomic.png'],
+		[2, 'Jubah Lenticular', 'Jubah yang mirip jas hujan tetapi dapat membiaskan cahaya sehingga penggunanya tampak tembus pandang.\n Aktif selama 20 detik', 800, 'res://assets/img/item_coat.png'],
+		[3, 'Jam Penghenti Waktu', 'Jangan tanya sekarang pukul berapa, jam ini dapat menghentikan waktu selama 15 detik', 2200, 'res://assets/img/item_time.png'],
+		[4, 'Baju Adat A', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 1000, 'res://assets/skeleton.png'],
+		[5, 'Baju Adat B', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 1000, 'res://assets/skeleton.png'],
+		[6, 'Baju Adat C', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 1000, 'res://assets/skeleton.png']
 	]  setget , get_item
 
 var inventory = [

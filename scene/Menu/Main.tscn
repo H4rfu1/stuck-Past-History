@@ -20,8 +20,10 @@
 [ext_resource path="res://script/plugins/DBconnection.res" type="PackedScene" id=18]
 [ext_resource path="res://scene/Window/leaderboard_window.res" type="PackedScene" id=19]
 [ext_resource path="res://assets/UI/page/karakter_main.png" type="Texture" id=20]
-[ext_resource path="res://assets/UI/page/swirl.png" type="Texture" id=21]
+[ext_resource path="res://assets/UI/page/swirl.jpg" type="Texture" id=21]
 [ext_resource path="res://assets/UI/page/portal.png" type="Texture" id=22]
+
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "main_page"
@@ -137,7 +139,7 @@ margin_top = 64.0
 margin_right = -377.0
 texture = ExtResource( 20 )
 expand = true
-stretch_mode = 7
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }

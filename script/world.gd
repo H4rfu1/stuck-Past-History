@@ -1,12 +1,13 @@
 extends Node2D
 
 var player_data = preload('res://models/playerManager.gd').new()
+var use_equip   = preload('res://script/UseEquip.gd').new()
 
 var collision_pos = []
 var player = .get_node("Ysort/player")
 
 var complete = false
-export var TIME_PERIOD = 10
+export var TIME_PERIOD = 60
 var time = 0
 var stats = PlayerStats
 
@@ -22,29 +23,35 @@ var artefact_tiles = [
 var artefact_player_pos = [2,3]
 
 func _ready():
-	if !audio_game.playing:
-		audio_game.play()
 	$TileZone.hide()
+	GlobalVar.init_limit_equip()
 	_starter()
+	
 
 func _starter():
 	adjust_control()
 	timerStage.set_wait_time( TIME_PERIOD )
 	timerStage.connect("timeout",self,"_on_timerStage_timeout") 
-	#timeout is what says in docs, in signals
-	#self is who respond to the callback
-	#_on_timer_timeout is the callback, can have any name
 	add_child(timerStage) #to process
 	timerStage.start() #to start
 	$CanvasLayer/game_result2.hide()
+	render_equip()
 
+func normalize_time(raw):
+	raw = round(raw)
+	if(raw >= 60):
+		var minutes = int(raw)/60
+		var seconds = int(raw) - 60
+		return str(minutes)+"m "+str(seconds)+"d"
+	return str(raw)+"d"
 
 func _process(delta):
+	adjust_control()
 	var cpos = $TileZone.world_to_map($Ysort/player.position)
 	$CanvasLayer/Label.text = str(cpos)
 	var mpos = $TileZone.world_to_map(get_global_mouse_position())
 	$CanvasLayer/Label2.text = str(mpos)
-	$CanvasLayer/TimeLabel.text = str(round($TimerStage.get_time_left()))
+	$CanvasLayer/TimeLabel.text = normalize_time($TimerStage.get_time_left())
 	if !stats.status == "ongoing":
 		timerStage.paused = true
 	
@@ -89,8 +96,14 @@ func artefact_zone_checker():
 			green += 1
 			if (green == arteract_tiles_amount && complete == false):
 				complete = true
+				timerStage.paused = true
 				#menang/waktu_habis/coba_lagi, score = 0, waktu = 0, uang = 0
-				$CanvasLayer/game_result2.create("menang", 9000, "0:11", 500)
+				var rtime  = $CanvasLayer/TimeLabel.text
+				var time   = int(rtime)
+				var health = PlayerStats.get_heath()
+				var score  = (50*health)+(10*time)
+				var coin   = (arteract_tiles_amount*15*time)+(50*health)
+				$CanvasLayer/game_result2.create("menang", score, rtime, 500)
 	green = 0
 
 func artefact_zone_blocker(cpos):
@@ -116,6 +129,8 @@ func artefact_zone_restore():
 		$TileZone.set_cellv(t, 7)
 
 func adjust_control():
+	if !audio_game.playing:
+		audio_game.play()
 	var type = player_data.get_control_type()
 	if(type): #keypad
 		$CanvasLayer/Joystick.hide()
@@ -124,6 +139,30 @@ func adjust_control():
 		$CanvasLayer/Joystick.show()
 		$CanvasLayer/Keypad.hide()
 
+#================
+#Equip
+#================
+func render_equip():
+	var item = load("res://models/itemManager.gd").new()
+	var equip = GlobalVar.get_equip()
+	var i = 0
+	for btn in $CanvasLayer/UI/HUD_Item/equip.get_children():
+		if(equip[i] == 0):
+			btn.hide()
+		else:
+			btn.get_child(1).hide()
+			var icon = item.get_item_byid(equip[i])[4]
+			var amount = "Punya: "+ str(GlobalVar.get_lim_equip()[i])
+			if(i == 0):
+				icon = "res://assets/img/upgrade_radar.png"
+				if (equip[0] == 0):
+					btn.hide()
+				amount = "Batas: "+ str(GlobalVar.get_lim_equip()[0])
+			btn.get_child(0).texture = load(icon)
+			btn.get_child(2).text = amount
+			
+		i +=1
+	use_equip._run_connector()
 
 #=================
 #Setter and Getter
