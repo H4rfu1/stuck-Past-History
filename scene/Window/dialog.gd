@@ -3,6 +3,7 @@ extends Control
 onready var label = get_node("window/Label")
 var message setget set_msg, get_msg
 var page setget set_page, get_page
+const click_sound = preload("res://scene/Music and Sounds/click.tscn")
 
 func _ready():
 	pass
@@ -30,6 +31,8 @@ func _on_Timer_timeout():
 	label.set_visible_characters(label.visible_characters +1)
 
 func _on_btn_skip_pressed():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	if(label.visible_characters > len(label.text)):
 		message = get_msg()
 		set_page(get_page()+1)
@@ -44,4 +47,6 @@ func _on_btn_skip_pressed():
 	
 
 func _on_btn_close_pressed():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	$".".visible = false

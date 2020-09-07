@@ -9,6 +9,8 @@ var control_state setget set_control, get_control # True indicate jostick
 var player setget set_player, get_player
 var setting setget set_setting, get_setting
 
+const click_sound = preload("res://scene/Music and Sounds/click.tscn")
+
 func _ready():
 	set_setting(DB.readJSON("setting"))
 	set_player (DB.readJSON("pemain"))
@@ -20,16 +22,23 @@ func _ready():
 	$window/pause.hide()
 
 func _on_btn_credit_pressed():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	$dialog_window.create(["Game ini dibuat oleh Kelompok Tapesoft, Universitas Jember \nOur Teams: \nHigh concept: M Amri Zaman \nMain programmer: M Fahrul Hafidz \nArtist & programmer: Hartawan Bahari M "])
 
 func _on_lisensi_pressed():
 	$dialog_window.create(["???\nComing soon"])
-
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 func _on_btn_sound_pressed():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	var bol = get_sound()
 	set_sound(!bol)
 	icon_state()
 func _on_btn_control_pressed():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	var bol = get_control()
 	set_control(!bol)
 	icon_state()
@@ -70,10 +79,14 @@ func icon_state():
 		control_btn_pause.texture_hover   = load("res://assets/UI/button/joystick_press.png")
 
 func _on_btn_close_pressed():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	$".".visible = false
 
 
 func _on_change_name():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	var new_name = $window/name.text
 	DB.pushJSON(["username"], [new_name], "pemain")
 	$window/username.text = new_name + get_player()["uid"]

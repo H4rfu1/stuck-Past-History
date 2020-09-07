@@ -2,6 +2,7 @@ extends Control
 
 var player         = preload('res://models/playerManager.gd').new()
 var stage          = load('res://models/stageManager.gd').new()
+const click_sound = preload("res://scene/Music and Sounds/click.tscn")
 
 func _ready():
 	pass # Replace with function body.
@@ -40,5 +41,7 @@ func set_subject(type):
 
 
 func _btn_oke():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
 	get_tree().change_scene("res://scene/Menu/Synthesis.tscn")
 	#get_tree().change_scene("res://scene/Menu/Chapter/Ch"+str(GlobalVar.get_jilid())+".tscn")
