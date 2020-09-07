@@ -703,6 +703,7 @@ current = true
 smoothing_enabled = true
 
 [node name="Direction" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 22 )
 
 [node name="Ysort" type="YSort" parent="."]

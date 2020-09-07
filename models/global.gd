@@ -6,6 +6,7 @@ var limit_equip = [0,0,0,0] setget set_lim_equip, get_lim_equip
 var jilid = 1 setget set_jilid, get_jilid
 var stage = "1" setget set_stage, get_stage
 var audio = true setget set_audio, get_audio
+var radar_duration = 3 setget set_radar, get_radar
 
 var item = load("res://models/itemManager.gd").new()
 
@@ -58,3 +59,8 @@ func set_audio(args):
 	audio = args
 func get_audio():
 	return audio
+
+func set_radar(args):
+	radar_duration = args
+func get_radar():
+	return radar_duration

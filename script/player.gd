@@ -13,6 +13,8 @@ export var MAX_SPEED = 80
 export var ROLL_SPEED = 120
 export var FRICTION = 500
 
+onready var direction = get_parent().get_parent().get_node("Direction")
+
 enum {
 	MOVE,
 	ROLL,
@@ -64,6 +66,9 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed('baju_adat'):
 		aktifkanBajuAdat()
+	
+	if Input.is_action_pressed('radar'):
+		aktifkanRadar()
 #
 func move_state(delta):
 	var input_vector = Vector2.ZERO
@@ -183,6 +188,16 @@ func aktifkanPenghentiWaktu():
 	.set_collision_layer_bit( 1, false )
 	.set_collision_layer_bit( 7, false )
 
+func aktifkanRadar():
+	var timerR = Timer.new()
+	timerR.set_wait_time( GlobalVar.get_radar() )
+	timerR.connect("timeout",self,"_on_timerR_timeout") 
+	#timeout is what says in docs, in signals
+	#self is who respond to the callback
+	#_on_timer_timeout is the callback, can have any name
+	add_child(timerR) #to process
+	timerR.start() #to start
+	direction.visible = true
 
 func aktifkanBajuAdat():
 	 .set_collision_layer_bit( 1, false )
@@ -195,6 +210,9 @@ func _on_timerT_timeout():
 
 func _on_timerJ_timeout():
 	.set_collision_layer_bit( 1, true )
+
+func _on_timerR_timeout():
+	direction.visible = false
 
 func _on_timerP_timeout():
 	.set_collision_layer_bit( 1, true )
