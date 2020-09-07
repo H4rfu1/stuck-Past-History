@@ -5,7 +5,6 @@ onready var sprite = $Sprite
 var target_position = null
 
 func _process(delta):
-	target_position = get_parent().position
 	var canvas = get_canvas_transform()
 	var top_left = -canvas.origin / canvas.get_scale()
 	var size = get_viewport_rect().size / canvas.get_scale()

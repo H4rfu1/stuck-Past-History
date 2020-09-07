@@ -21,18 +21,22 @@ var artefact_tiles = [
 	[1,1], [3,1],
 	[1,2], [3,2] ]
 var artefact_player_pos = [2,3]
-
+#func _draw():
+#	var object = get_node("Ysort/Stone/StaticBody2D").global_position
+#	var from =  get_node("Ysort/player").global_position
+#	draw_line(Vector2(322.44101, -42.426399), Vector2(500, 500), Color(255, 0, 0), 1)
+#	print(object)
+#	print(from)
 func _ready():
 	$TileZone.hide()
 	GlobalVar.init_limit_equip()
 	_starter()
-	
 
 func _starter():
 	adjust_control()
 	timerStage.set_wait_time( TIME_PERIOD )
 	timerStage.connect("timeout",self,"_on_timerStage_timeout") 
-	add_child(timerStage) #to process
+#	add_child(timerStage) #to process
 	timerStage.start() #to start
 	$CanvasLayer/game_result2.hide()
 	render_equip()
@@ -46,6 +50,7 @@ func normalize_time(raw):
 	return str(raw)+"d"
 
 func _process(delta):
+	update()
 	adjust_control()
 	var cpos = $TileZone.world_to_map($Ysort/player.position)
 	$CanvasLayer/Label.text = str(cpos)

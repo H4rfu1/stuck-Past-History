@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var item            = preload("res://models/itemManager.gd").new()
 
+
 func _ready():
 	var node = get_parent().get_node('CanvasLayer/UI/HUD_Item/equip')
 	for btn in node.get_children():
