@@ -8,7 +8,8 @@ const timeout = preload("res://scene/Music and Sounds/gong.tscn")
 const win = preload("res://scene/Music and Sounds/win.tscn")
 
 var collision_pos = []
-var player = .get_node("Ysort/player")
+onready var player = .get_node("Ysort/player")
+onready var mob = .get_node("Ysort/Mob")
 
 var complete = false
 export var TIME_PERIOD = 60
@@ -133,6 +134,8 @@ func artefact_zone_checker():
 				
 				$CanvasLayer/game_result2.create("menang", score, rtime, 500)
 				$Ysort/player.set_physics_process(false)
+				for node in mob.get_children():
+					node.set_physics_process(false)
 				
 	green = 0
 
@@ -212,3 +215,5 @@ func _on_timerStage_timeout():
 	$CanvasLayer/game_result2.create("waktu_habis", 9000, "0:11", 500)
 	$Ysort/player.set_physics_process(false)
 	stats.status = "timeout"
+	for node in mob.get_children():
+		node.set_physics_process(false)
