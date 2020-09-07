@@ -40,4 +40,5 @@ func set_subject(type):
 
 
 func _btn_oke():
-	get_tree().change_scene("res://scene/Menu/Chapter/Ch"+str(GlobalVar.get_jilid())+".tscn")
+	get_tree().change_scene("res://scene/Menu/Synthesis.tscn")
+	#get_tree().change_scene("res://scene/Menu/Chapter/Ch"+str(GlobalVar.get_jilid())+".tscn")

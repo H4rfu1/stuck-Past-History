@@ -38,13 +38,13 @@ var setting = {
 	}  setget , get_setting
 
 var koleksi = [
-		# id, stageid, name, desc,own
-		[1, '1',   'Koleksi 1', 'Deskripsi koleksi', 0],
-		[2, '2',   'Koleksi 2', 'Deskripsi koleksi', 0],
-		[3, '3',   'Koleksi 3', 'Deskripsi koleksi', 0],
-		[4, '3-1', 'Koleksi 4', 'Deskripsi koleksi', 0],
-		[5, '3-2', 'Koleksi 5', 'Deskripsi koleksi', 0],
-		[6, '4',   'Koleksi 6', 'Deskripsi koleksi', 0]
+		# id, stageid, name, desc, icon,own, jilid
+		[1, '1',   'Koleksi 1', 'Deskripsi koleksi', 'res://assets/img/koleksi/koleksi_singhasari.png', 0, 1],
+		[2, '2',   'Koleksi 2', 'Deskripsi koleksi', 'res://assets/skeleton.png', 0, 1],
+		[3, '3',   'Koleksi 3', 'Deskripsi koleksi', 'res://assets/skeleton.png', 0, 1],
+		[4, '3-1', 'Koleksi 4', 'Deskripsi koleksi', 'res://assets/skeleton.png', 0, 1],
+		[5, '3-2', 'Koleksi 5', 'Deskripsi koleksi', 'res://assets/skeleton.png', 0, 1],
+		[6, '4',   'Koleksi 6', 'Deskripsi koleksi', 'res://assets/skeleton.png', 0, 1]
 	]  setget , get_koleksi
 
 var jilid= [

@@ -63,13 +63,39 @@ func get_all_inventory_items():
 			inv.append(i)
 	return inv
 
-func check_koleksi():
-	pass
-
-func add_koleksi():
-	pass
-
-
+func get_all_koleksi():
+	_ready()
+	return get_koleksi()
+func convert_jilid_stage_to_id(jilid,stage):
+	_ready()
+	for record in get_all_koleksi():
+		if (record[1] == stage && record[6] == jilid):
+			return record[0]
+func check_koleksi(id):
+	var koleksi = get_koleksi_byid(id)
+	if(koleksi[5] == 1):
+		return true
+	else:
+		return false
+func add_koleksi(stage):
+	_ready()
+	var clone = []
+	for record in get_all_koleksi():
+		if (record[1] == stage):
+			record[5] = 1
+		clone.append(record)
+	DB.saveJSON(clone, "koleksi")
+	return true
+func get_koleksi_byid(id):
+	_ready()
+	for record in get_all_koleksi():
+		if (record[0] == id):
+			return record
+func get_koleksi_bystage(stage):
+	_ready()
+	for record in get_all_koleksi():
+		if (record[1] == stage):
+			return record
 
 
 ##########
