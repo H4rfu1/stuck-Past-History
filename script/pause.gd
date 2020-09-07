@@ -28,14 +28,10 @@ func set_visible(is_visible):
 
 
 func _on_Continue_pressed():
-	var clickSound = click_sound.instance()
-	get_tree().current_scene.add_child(clickSound)
 	get_tree().paused = false
 	set_visible(false)
 
 
 func _on_Menu_pressed():
-	var clickSound = click_sound.instance()
-	get_tree().current_scene.add_child(clickSound)
 	_on_Continue_pressed()
 	get_tree().change_scene("res://scene/Menu/Chapter/Ch"+str(GlobalVar.get_jilid())+".tscn")
