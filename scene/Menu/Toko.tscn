@@ -143,6 +143,7 @@ margin_left = 14.0
 margin_top = 52.0
 margin_right = -5.0
 margin_bottom = -18.0
+scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
 }

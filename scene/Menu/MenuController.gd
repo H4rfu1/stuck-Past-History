@@ -2,8 +2,8 @@ extends Control
 
 onready var DB      = load("res://script/plugins/DBconnection.gd").new()
 onready var Helper  = preload("res://script/plugins/DBhelper.gd").new()
-var local           = preload("res://script/plugins/DBlocal.gd").new()
-var item            = preload("res://models/itemManager.gd").new()
+var local           = load("res://script/plugins/DBlocal.gd").new()
+var item            = load("res://models/itemManager.gd").new()
 
 const shop_item     = preload("res://scene/UI/shop_item.res")
 
@@ -196,6 +196,8 @@ func render_toko_item(type):
 			for power in item.get_all_item():
 				var obj = shop_item.instance()
 				obj.name = "power_"+str(power[1])
+				if power[5] == 1:
+					obj.hide()
 				$Background/card/ScrollContainer/slot_powerup.add_child(obj)
 				var new_obj = "Background/card/ScrollContainer/slot_powerup/power_"+str(power[1])
 				var own = item.owned_item_id(power[0])
@@ -263,10 +265,10 @@ func on_tap_toko_item(itm):
 			var maxtier = (get_u_price()[name][0]).size()
 			if (tier == 0):
 				text = "Tidak memiliki fungsi khusus"
-				text2 = get_u_price()[name][1][tier+1]
+				text2 = get_u_price()[name][1][tier]
 			elif (tier <= maxtier-2):
-				text = get_u_price()[name][1][tier]
-				text2 = get_u_price()[name][1][tier+1]
+				text = get_u_price()[name][1][tier-1]
+				text2 = get_u_price()[name][1][tier]
 			else: 
 				text = get_u_price()[name][1][maxtier-1]
 				text2 = "Peningkatan maksimal"

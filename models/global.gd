@@ -8,6 +8,7 @@ var stage = "1" setget set_stage, get_stage
 var audio = true setget set_audio, get_audio
 var radar_duration = 3 setget set_radar, get_radar
 var baju_sekarang = "" setget set_baju, get_baju
+var gametime = 60 setget set_gametime, get_gametime
 
 var item = load("res://models/itemManager.gd").new()
 
@@ -70,3 +71,22 @@ func set_baju(args):
 	baju_sekarang = args
 func get_baju():
 	return baju_sekarang
+
+func init_gametime():
+	var warp = item.get_item_tier('timecontrol')
+	var time = gametime
+	if warp == 0:
+		return
+	elif warp == 1:
+		set_gametime(time+20)
+	elif warp == 2:
+		set_gametime(time+40)
+	elif warp == 3:
+		set_gametime(time+60)
+	else:
+		set_gametime(time+80)
+func set_gametime(args):
+	gametime = args
+func get_gametime():
+	init_gametime()
+	return gametime

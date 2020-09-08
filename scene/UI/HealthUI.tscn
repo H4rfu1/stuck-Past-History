@@ -68,11 +68,12 @@ __meta__ = {
 }
 
 [node name="HUD_Item" type="TextureRect" parent="."]
-anchor_top = 0.781
+anchor_top = 0.699
 anchor_right = 1.0
-anchor_bottom = 0.916
-margin_top = -18.099
-margin_bottom = 0.235962
+anchor_bottom = 0.846
+margin_left = 206.0
+margin_top = 0.178986
+margin_bottom = -0.234009
 texture = ExtResource( 6 )
 expand = true
 stretch_mode = 6
@@ -89,27 +90,27 @@ __meta__ = {
 }
 
 [node name="equip_0" parent="HUD_Item/equip" instance=ExtResource( 9 )]
-margin_left = 224.0
-margin_right = 288.0
-margin_bottom = 82.0
+margin_left = 121.0
+margin_right = 185.0
+margin_bottom = 70.0
 stretch_mode = 5
 
 [node name="equip_1" parent="HUD_Item/equip" instance=ExtResource( 9 )]
-margin_left = 292.0
-margin_right = 356.0
-margin_bottom = 82.0
+margin_left = 189.0
+margin_right = 253.0
+margin_bottom = 70.0
 stretch_mode = 5
 
 [node name="equip_2" parent="HUD_Item/equip" instance=ExtResource( 9 )]
-margin_left = 360.0
-margin_right = 424.0
-margin_bottom = 82.0
+margin_left = 257.0
+margin_right = 321.0
+margin_bottom = 70.0
 stretch_mode = 5
 
 [node name="equip_3" parent="HUD_Item/equip" instance=ExtResource( 9 )]
-margin_left = 428.0
-margin_right = 492.0
-margin_bottom = 82.0
+margin_left = 325.0
+margin_right = 389.0
+margin_bottom = 70.0
 stretch_mode = 5
 
 [node name="Control" type="Control" parent="."]

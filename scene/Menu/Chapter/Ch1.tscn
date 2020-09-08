@@ -1169,7 +1169,6 @@ __meta__ = {
 visible = false
 
 [node name="EquipBox" type="Control" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0

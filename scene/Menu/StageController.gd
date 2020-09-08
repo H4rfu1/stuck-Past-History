@@ -1,8 +1,8 @@
 extends Control
 
-var item           = preload("res://models/itemManager.gd").new()
-var player         = preload('res://models/playerManager.gd').new()
-var stage          = preload('res://models/stageManager.gd').new()
+var item           = load("res://models/itemManager.gd").new()
+var player         = load('res://models/playerManager.gd').new()
+var stage          = load('res://models/stageManager.gd').new()
 
 const shop_item     = preload("res://scene/UI/shop_item.res")
 
@@ -95,9 +95,10 @@ func render_equip():
 		if( equip[i] != 0 ):
 			var eq = item.get_item_byid(equip[i])
 			icon.texture = load(eq[4])
+			btn.texture_normal = load("res://assets/UI/window/item_frame.png")
 		else:
 			if(get_unlockeq() >= i):
-				btn.texture_normal = load("res://assets/UI/window/item_frame.png")
+				btn.texture_normal = load("res://assets/UI/window/item_null.png")
 				btn.get_child(0).set_texture(null)
 			else:
 				icon.texture = load("res://assets/UI/utility/locked.png")
@@ -110,6 +111,8 @@ func render_powerup():
 	for power in item.get_all_item():
 		var obj = shop_item.instance()
 		obj.name = "power_"+str(power[1])
+		if power[5] == 1:
+			obj.hide()
 		$EquipBox/Card/equip/opsi_item.add_child(obj)
 		var new_obj = "EquipBox/Card/equip/opsi_item/power_"+str(power[1])
 		if( power[0] in GlobalVar.get_equip()): #kalau gaada itemnya

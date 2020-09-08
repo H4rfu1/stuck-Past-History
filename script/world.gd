@@ -1,7 +1,7 @@
 extends Node2D
 
-var player_data = preload('res://models/playerManager.gd').new()
-var use_equip   = preload('res://script/UseEquip.gd').new()
+var player_data = load('res://models/playerManager.gd').new()
+var use_equip   = load('res://script/UseEquip.gd').new()
 
 #audio
 const timeout = preload("res://scene/Music and Sounds/gong.tscn")
@@ -12,12 +12,11 @@ onready var player = .get_node("Ysort/player")
 onready var mob = .get_node("Ysort/Mob")
 
 var complete = false
-export var TIME_PERIOD = 60
+var TIME_PERIOD = GlobalVar.get_gametime()
 export var health = 3
 export var tipe_baju = "jawa"
 var time = 0
 var stats = PlayerStats
-
 
 onready var timerStage = $TimerStage
 
@@ -181,7 +180,9 @@ func render_equip():
 	var item = load("res://models/itemManager.gd").new()
 	var equip = GlobalVar.get_equip()
 	var i = 0
+	var zero_equip = 0
 	for btn in $CanvasLayer/UI/HUD_Item/equip.get_children():
+		zero_equip +=equip[i]
 		if(equip[i] == 0):
 			btn.hide()
 		else:
@@ -195,9 +196,9 @@ func render_equip():
 				amount = "Batas: "+ str(GlobalVar.get_lim_equip()[0])
 			btn.get_child(0).texture = load(icon)
 			btn.get_child(2).text = amount
-			
 		i +=1
-	use_equip._run_connector()
+	if zero_equip == 0:
+		$CanvasLayer/UI/HUD_Item.hide()
 
 #=================
 #Setter and Getter

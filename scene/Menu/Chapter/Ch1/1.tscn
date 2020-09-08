@@ -764,6 +764,7 @@ position = Vector2( 252.566, 187.879 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
+layer = 5
 script = ExtResource( 21 )
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 6 )]
@@ -793,10 +794,9 @@ __meta__ = {
 }
 
 [node name="Joystick" parent="CanvasLayer" instance=ExtResource( 12 )]
-position = Vector2( 101.33, 382.333 )
+position = Vector2( 120.33, 355.333 )
 
 [node name="Keypad" type="Control" parent="CanvasLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -804,33 +804,34 @@ __meta__ = {
 }
 
 [node name="Right" type="TouchScreenButton" parent="CanvasLayer/Keypad"]
-position = Vector2( 34.212, 360 )
+position = Vector2( 44.6137, 329.035 )
 normal = ExtResource( 14 )
 pressed = ExtResource( 10 )
 action = "ui_left"
 
 [node name="Up" type="TouchScreenButton" parent="CanvasLayer/Keypad"]
-position = Vector2( 660, 315 )
+position = Vector2( 142.881, 280.057 )
 rotation = 1.5708
 normal = ExtResource( 14 )
 pressed = ExtResource( 10 )
 action = "ui_up"
 
 [node name="Down" type="TouchScreenButton" parent="CanvasLayer/Keypad"]
-position = Vector2( 611.913, 439.504 )
+position = Vector2( 94.4224, 427.642 )
 rotation = -1.5708
 normal = ExtResource( 14 )
 pressed = ExtResource( 10 )
 action = "ui_down"
 
 [node name="Left" type="TouchScreenButton" parent="CanvasLayer/Keypad"]
-position = Vector2( 165, 360 )
+position = Vector2( 192.883, 330.095 )
 scale = Vector2( -1, 1 )
 normal = ExtResource( 14 )
 pressed = ExtResource( 10 )
 action = "ui_right"
 
 [node name="game_result2" parent="CanvasLayer" instance=ExtResource( 11 )]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0

@@ -1,18 +1,12 @@
 extends CanvasLayer
 
-var item            = preload("res://models/itemManager.gd").new()
+var item            = load("res://models/itemManager.gd").new()
 
 
 func _ready():
 	var node = get_parent().get_node('CanvasLayer/UI/HUD_Item/equip')
 	for btn in node.get_children():
 		btn.connect("pressed", self, "activate_item", [btn])
-
-func _run_connector():
-	pass
-	#var node = get_parent().get_node('CanvasLayer/UI/HUD_Item/equip')
-	#for btn in node.get_children():
-	#	btn.connect("pressed", self, "activate_item", [btn])
 
 func activate_item(id_equip):
 	id_equip = id_equip.name.split('_', false, 1)
