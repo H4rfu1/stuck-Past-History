@@ -140,7 +140,7 @@ func _on_CrackHit_body_entered(body):
 	print("oke")
 	emit_signal('collided', body)
 
-func aktifkanTasRoket():
+func aktifkanTasRoket(): #interator
 	var timerT = Timer.new()
 	timerT.set_wait_time( 10 )
 	timerT.connect("timeout",self,"_on_timerT_timeout") 
@@ -156,6 +156,8 @@ func aktifkanJubahLenticular():
 	add_child(timerJ) #to process
 	timerJ.start() #to start
 	.set_collision_layer_bit( 1, false )
+	print(get_node(".").modulate)
+	.set_modulate(Color(1,1,1,0.5))
 
 func aktifkanPenghentiWaktu():
 	var timerP = Timer.new()
@@ -190,6 +192,7 @@ func _on_timerT_timeout():
 
 func _on_timerJ_timeout():
 	.set_collision_layer_bit( 1, true )
+	.set_modulate(Color(1,1,1,1))
 
 func _on_timerR_timeout():
 	direction.visible = false
@@ -197,6 +200,7 @@ func _on_timerR_timeout():
 func _on_timerP_timeout():
 	.set_collision_layer_bit( 1, true )
 	.set_collision_layer_bit( 7, true )
+	
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage

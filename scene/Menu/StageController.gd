@@ -111,6 +111,7 @@ func render_powerup():
 	for power in item.get_all_item():
 		var obj = shop_item.instance()
 		obj.name = "power_"+str(power[1])
+		print(obj.name)
 		if power[5] == 1:
 			obj.hide()
 		$EquipBox/Card/equip/opsi_item.add_child(obj)

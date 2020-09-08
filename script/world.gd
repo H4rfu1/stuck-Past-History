@@ -187,7 +187,6 @@ func render_equip():
 			btn.hide()
 		else:
 			#btn.texture_hover = load('res://assets/UI/window/item_null.png')
-			btn.get_child(1).hide()
 			var icon = item.get_item_byid(equip[i])[4]
 			var amount = "Punya: "+ str(GlobalVar.get_lim_equip()[i])
 			if(i == 0):
@@ -196,7 +195,7 @@ func render_equip():
 					btn.hide()
 				amount = "Batas: "+ str(GlobalVar.get_lim_equip()[0])
 			btn.get_child(0).texture = load(icon)
-			btn.get_child(2).text = amount
+			btn.get_child(1).text = amount
 		i +=1
 	if zero_equip == 0:
 		$CanvasLayer/UI/HUD_Item.hide()

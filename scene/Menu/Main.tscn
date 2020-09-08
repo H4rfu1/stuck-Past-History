@@ -150,20 +150,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="btn_off" type="TextureButton" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -336.0
-margin_top = 338.0
-margin_right = -265.0
-margin_bottom = -71.0
-texture_normal = ExtResource( 23 )
-texture_pressed = ExtResource( 24 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
@@ -275,13 +261,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="btn_off" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -336.0
+margin_top = 338.0
+margin_right = -265.0
+margin_bottom = -71.0
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -339.0
+margin_left = -260.0
 margin_top = 338.0
-margin_right = -37.0
+margin_right = -36.0
 margin_bottom = -70.0
 __meta__ = {
 "_edit_group_": true,
@@ -289,14 +289,14 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
-margin_right = 302.0
+margin_right = 224.0
 margin_bottom = 72.0
 grow_horizontal = 0
 alignment = 2
 
 [node name="btn_leaderboard" type="TextureButton" parent="VBoxContainer2/HBoxContainer"]
-margin_left = 156.0
-margin_right = 227.0
+margin_left = 78.0
+margin_right = 149.0
 margin_bottom = 72.0
 texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 11 )
@@ -305,8 +305,8 @@ texture_focused = ExtResource( 11 )
 stretch_mode = 3
 
 [node name="btn_setting" type="TextureButton" parent="VBoxContainer2/HBoxContainer"]
-margin_left = 231.0
-margin_right = 302.0
+margin_left = 153.0
+margin_right = 224.0
 margin_bottom = 72.0
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 7 )
@@ -400,12 +400,12 @@ custom_fonts/font = ExtResource( 28 )
 text = "Apakah yakin akan keluar dari aplikasi?"
 align = 1
 valign = 1
-[connection signal="pressed" from="btn_off" to="." method="_on_btn_off"]
 [connection signal="button_up" from="VBoxContainer/btn_main" to="." method="_on_press_Main"]
 [connection signal="button_up" from="VBoxContainer/btn_mesinw" to="." method="_on_press_MesinWaktu"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/btn_toko" to="." method="_on_press_Toko"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/btn_koleksi" to="." method="_on_press_Koleksi"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/btn_cerita" to="." method="_on_press_Cerita"]
+[connection signal="pressed" from="btn_off" to="." method="_on_btn_off"]
 [connection signal="button_up" from="VBoxContainer2/HBoxContainer/btn_leaderboard" to="." method="_on_press_Leaderboard"]
 [connection signal="button_up" from="VBoxContainer2/HBoxContainer/btn_setting" to="." method="_on_press_Setting"]
 [connection signal="pressed" from="off/window/btn_off_yes" to="." method="_on_accept_off"]

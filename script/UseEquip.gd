@@ -27,8 +27,7 @@ func activate_item(id_equip):
 			get_parent().get_node("Ysort/player").aktifkanPenghentiWaktu()
 		else:
 			print("Jam Penghenti Waktu aktif")
-			get_parent().get_node("Ysort/player").aktifkanBajuAdat()
-			use_baju_adat(item_id)
+			get_parent().get_node("Ysort/player").aktifkanBajuAdat(item_id)
 #		match item_id:
 #			1 :#or "Ramuan Interatom":
 #				print("Ramuan Interator aktif")
@@ -53,6 +52,7 @@ func activate_item(id_equip):
 
 func use_radar():
 	print("radar aktif")
+	get_parent().get_node("Ysort/player").aktifkanRadar()
 	pass
 
 func use_baju_adat(item_id):

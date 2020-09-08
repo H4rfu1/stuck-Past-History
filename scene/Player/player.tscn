@@ -9,25 +9,25 @@
 [ext_resource path="res://scene/Hurtboxes + Hitboxes/Hurtbox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/Effects/whiteColor.shader" type="Shader" id=8]
 
-[sub_resource type="ShaderMaterial" id=6]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 8 )
 shader_param/active = false
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 3.84011
 height = 3.39445
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 4.07436
 height = 5.0
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 3.7647
 height = 2.81458
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=6]
 radius = 7.23108
 
 [sub_resource type="Animation" id=7]
@@ -73,7 +73,7 @@ position = Vector2( 0, 3 )
 texture = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 6 )
+material = SubResource( 1 )
 position = Vector2( 0, -19 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
@@ -89,17 +89,17 @@ hframes = 12
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 rotation = -1.5708
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 5 )]
 
 [node name="AnimationTree" parent="." instance=ExtResource( 6 )]
-parameters/playback = SubResource( 2 )
+parameters/playback = SubResource( 3 )
 
 [node name="CrackCollision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="GroundCrack" parent="." instance=ExtResource( 3 )]
 collision_mask = 64
@@ -107,13 +107,13 @@ collision_mask = 64
 [node name="CollisionShape2D" parent="GroundCrack" index="0"]
 position = Vector2( 0, 5 )
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 7 )]
 collision_layer = 4
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Start = SubResource( 7 )

@@ -796,34 +796,40 @@ __meta__ = {
 position = Vector2( 120.33, 355.333 )
 
 [node name="Keypad" type="Control" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.166
+anchor_top = 0.742
+anchor_right = 0.166
+anchor_bottom = 0.742
+margin_left = -119.52
+margin_top = -99.16
+margin_right = 119.48
+margin_bottom = 123.84
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Right" type="TouchScreenButton" parent="CanvasLayer/Keypad"]
-position = Vector2( 44.6137, 329.035 )
+position = Vector2( 44.9488, 71.045 )
 normal = ExtResource( 14 )
 pressed = ExtResource( 10 )
 action = "ui_left"
 
 [node name="Up" type="TouchScreenButton" parent="CanvasLayer/Keypad"]
-position = Vector2( 142.881, 280.057 )
+position = Vector2( 143.216, 22.067 )
 rotation = 1.5708
 normal = ExtResource( 14 )
 pressed = ExtResource( 10 )
 action = "ui_up"
 
 [node name="Down" type="TouchScreenButton" parent="CanvasLayer/Keypad"]
-position = Vector2( 94.4224, 427.642 )
+position = Vector2( 94.7575, 169.652 )
 rotation = -1.5708
 normal = ExtResource( 14 )
 pressed = ExtResource( 10 )
 action = "ui_down"
 
 [node name="Left" type="TouchScreenButton" parent="CanvasLayer/Keypad"]
-position = Vector2( 192.883, 330.095 )
+position = Vector2( 193.218, 72.105 )
 scale = Vector2( -1, 1 )
 normal = ExtResource( 14 )
 pressed = ExtResource( 10 )

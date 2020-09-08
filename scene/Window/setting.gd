@@ -116,5 +116,6 @@ func get_sound():
 func set_control(args):
 	control_state = args
 	DB.pushJSON(["control"], [args], "setting")
+	print(args)
 func get_control():
 	return control_state
