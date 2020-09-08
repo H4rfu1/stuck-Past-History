@@ -36,7 +36,7 @@ onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
 func _ready():
 	stats.status = "ongoing"
-#	randomize()
+	randomize()
 	stats.connect("no_health", self, "ulangi_lagi")
 	animationTree.active = true
 

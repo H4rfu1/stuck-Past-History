@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/Shadows/SmallShadow.png" type="Texture" id=1]
 [ext_resource path="res://assets/Player/Player.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://scene/Player/AnimationTreePerson.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scene/Hurtboxes + Hitboxes/Hitbox.tscn" type="PackedScene" id=10]
 [ext_resource path="res://script/Hitbox.gd" type="Script" id=11]
+[ext_resource path="res://scene/Enemies/WanderController.tscn" type="PackedScene" id=12]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.22745
@@ -80,6 +81,8 @@ enemyTipe = "mob"
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 6 )
+
+[node name="WanderController" parent="." instance=ExtResource( 12 )]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
 [editable path="Hurtbox"]
