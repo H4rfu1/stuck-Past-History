@@ -150,6 +150,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="btn_off" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -336.0
+margin_top = 338.0
+margin_right = -265.0
+margin_bottom = -71.0
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
@@ -314,20 +328,6 @@ visible = false
 [node name="leaderboard_window" parent="." instance=ExtResource( 19 )]
 visible = false
 
-[node name="btn_off" type="TextureButton" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -336.0
-margin_top = 338.0
-margin_right = -265.0
-margin_bottom = -71.0
-texture_normal = ExtResource( 23 )
-texture_pressed = ExtResource( 24 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="off" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
@@ -400,6 +400,7 @@ custom_fonts/font = ExtResource( 28 )
 text = "Apakah yakin akan keluar dari aplikasi?"
 align = 1
 valign = 1
+[connection signal="pressed" from="btn_off" to="." method="_on_btn_off"]
 [connection signal="button_up" from="VBoxContainer/btn_main" to="." method="_on_press_Main"]
 [connection signal="button_up" from="VBoxContainer/btn_mesinw" to="." method="_on_press_MesinWaktu"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/btn_toko" to="." method="_on_press_Toko"]
@@ -407,6 +408,5 @@ valign = 1
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/btn_cerita" to="." method="_on_press_Cerita"]
 [connection signal="button_up" from="VBoxContainer2/HBoxContainer/btn_leaderboard" to="." method="_on_press_Leaderboard"]
 [connection signal="button_up" from="VBoxContainer2/HBoxContainer/btn_setting" to="." method="_on_press_Setting"]
-[connection signal="pressed" from="btn_off" to="." method="_on_btn_off"]
 [connection signal="pressed" from="off/window/btn_off_yes" to="." method="_on_accept_off"]
 [connection signal="pressed" from="off/window/btn_off_no" to="." method="_on_cancel_off"]

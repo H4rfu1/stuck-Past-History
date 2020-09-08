@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://script/UI.gd" type="Script" id=1]
 [ext_resource path="res://assets/UI/icon_heart.png" type="Texture" id=2]
@@ -9,8 +9,7 @@
 [ext_resource path="res://assets/UI/button/btn_pause_press.png" type="Texture" id=7]
 [ext_resource path="res://assets/UI/button/btn_pause.png" type="Texture" id=8]
 [ext_resource path="res://scene/UI/shop_item.res" type="PackedScene" id=9]
-
-
+[ext_resource path="res://scene/UI/equip_item.res" type="PackedScene" id=12]
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
@@ -69,51 +68,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HUD_Item" type="TextureRect" parent="."]
-anchor_top = 0.699
-anchor_right = 1.0
-anchor_bottom = 0.846
-margin_left = 206.0
-margin_top = 0.178986
-margin_bottom = -0.234009
+[node name="HUD_Item" type="Sprite" parent="."]
+position = Vector2( 426.184, 394.032 )
 texture = ExtResource( 6 )
-expand = true
-stretch_mode = 6
+
+[node name="equip" type="Control" parent="HUD_Item"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -246.0
+margin_top = -56.0
+margin_right = -246.0
+margin_bottom = -56.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="equip" type="HBoxContainer" parent="HUD_Item"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="equip_0" parent="HUD_Item/equip" instance=ExtResource( 12 )]
+position = Vector2( -221.67, -40.3958 )
 
-[node name="equip_0" parent="HUD_Item/equip" instance=ExtResource( 9 )]
-margin_left = 121.0
-margin_right = 185.0
-margin_bottom = 70.0
-stretch_mode = 5
+[node name="equip_1" parent="HUD_Item/equip" instance=ExtResource( 12 )]
+position = Vector2( -150.029, -40.0814 )
 
-[node name="equip_1" parent="HUD_Item/equip" instance=ExtResource( 9 )]
-margin_left = 189.0
-margin_right = 253.0
-margin_bottom = 70.0
-stretch_mode = 5
+[node name="equip_2" parent="HUD_Item/equip" instance=ExtResource( 12 )]
+position = Vector2( -79.1424, -40.349 )
 
-[node name="equip_2" parent="HUD_Item/equip" instance=ExtResource( 9 )]
-margin_left = 257.0
-margin_right = 321.0
-margin_bottom = 70.0
-stretch_mode = 5
-
-[node name="equip_3" parent="HUD_Item/equip" instance=ExtResource( 9 )]
-margin_left = 325.0
-margin_right = 389.0
-margin_bottom = 70.0
-stretch_mode = 5
+[node name="equip_3" parent="HUD_Item/equip" instance=ExtResource( 12 )]
+position = Vector2( -6.82288, -39.9791 )
 
 [node name="Control" type="Control" parent="."]
 anchor_left = 1.0
@@ -132,3 +114,35 @@ scale = Vector2( 0.470269, 0.470269 )
 normal = ExtResource( 8 )
 pressed = ExtResource( 7 )
 action = "pause"
+
+[node name="equip_0" parent="Control" instance=ExtResource( 9 )]
+visible = false
+margin_left = -329.488
+margin_top = 321.869
+margin_right = -265.488
+margin_bottom = 391.869
+stretch_mode = 5
+
+[node name="equip_1" parent="Control" instance=ExtResource( 9 )]
+visible = false
+margin_left = -261.488
+margin_top = 321.869
+margin_right = -197.488
+margin_bottom = 391.869
+stretch_mode = 5
+
+[node name="equip_2" parent="Control" instance=ExtResource( 9 )]
+visible = false
+margin_left = -193.488
+margin_top = 321.869
+margin_right = -129.488
+margin_bottom = 391.869
+stretch_mode = 5
+
+[node name="equip_3" parent="Control" instance=ExtResource( 9 )]
+visible = false
+margin_left = -125.488
+margin_top = 321.869
+margin_right = -61.4878
+margin_bottom = 391.869
+stretch_mode = 5

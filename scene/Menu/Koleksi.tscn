@@ -16,6 +16,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -252.0
+margin_top = -95.0
+margin_right = 262.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pg_1" type="Control" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/pg_1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Background" type="TextureRect" parent="."]
 anchor_top = 0.284
 anchor_right = 1.0
@@ -72,45 +99,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="transition" type="Control" parent="." instance=ExtResource( 4 )]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = -480.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Control" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="pg_1" type="Control" parent="Control"]
-anchor_left = 0.215
-anchor_top = 0.306
-anchor_right = 0.785
-anchor_bottom = 0.833
-margin_left = -8.6
-margin_top = -12.24
-margin_right = -9.00001
-margin_bottom = -12.2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/pg_1"]
-anchor_left = 0.024
-anchor_right = 1.012
-anchor_bottom = 1.04
-margin_left = 0.16
-margin_right = 0.0799561
-margin_bottom = -0.120026
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="transition" parent="." instance=ExtResource( 4 )]
 [connection signal="pressed" from="btn_back" to="." method="_on_return_to_menu"]
 [connection signal="pressed" from="right" to="." method="_on_right_pressed"]
 [connection signal="pressed" from="left" to="." method="_on_left_pressed"]
