@@ -10,6 +10,8 @@
 [ext_resource path="res://assets/UI/button/btn_pause.png" type="Texture" id=8]
 [ext_resource path="res://scene/UI/shop_item.res" type="PackedScene" id=9]
 
+
+
 [node name="HUD" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0

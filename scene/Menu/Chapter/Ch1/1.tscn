@@ -764,7 +764,6 @@ position = Vector2( 252.566, 187.879 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
-layer = 5
 script = ExtResource( 21 )
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 6 )]

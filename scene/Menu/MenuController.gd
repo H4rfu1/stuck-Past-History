@@ -44,6 +44,7 @@ func _starter():
 	$transition/AnimationPlayer.play("wipe_out")
 	if( get_node(".").name == "Toko"):
 		GlobalVar.toko
+		$CraftingMenu.hide()
 		_on_cancel_purchase()
 		render_toko_btn(GlobalVar.get_toko())
 		data_initial()
@@ -94,12 +95,16 @@ func goto_scene(target: String, anim = "wipe")->void:
 	var transition = yield($transition/AnimationPlayer, "animation_finished")
 	if(transition == "wipe_in"):
 		get_tree().change_scene("res://scene/Menu/"+target+".tscn")
-
+func animation_finished():
+	pass
+func trasition_finished():
+	pass
 #######################
 #  Specific Function  #
 #######################
 func render_toko_btn(button):
 	#load("res://res://assets/UI/window/btn_nav_inactive.png")
+	$Background/card/btn_rakit.hide()
 	for child in $Background/btn_group.get_children():
 		var ipos = get_node("Background/btn_group/"+str(child.name)+"/Icon").rect_position
 		get_node("Background/btn_group/"+str(child.name)+"/Icon").rect_position.y = -10
@@ -210,6 +215,7 @@ func render_toko_item(type):
 				get_node(new_obj).connect("pressed", self, "on_tap_toko_item", [obj])
 			pass
 		"inventory":
+			$Background/card/btn_rakit.show()
 			var sample = get_node(template+"item_0")
 			for child in $Background/card/ScrollContainer/slot_inventory.get_children():
 				child.free()
@@ -330,13 +336,13 @@ func mod_shop_cart(value):
 func get_shop_cart():
 	return shop_cart
 
+func _open_crafting():
+	$CraftingMenu.show()
 
+func _on_btn_off():
+	$off.show()
 
-
-
-
-
-
-
-
-
+func _on_cancel_off():
+	$off.hide()
+func _on_accept_off():
+	get_tree().quit()

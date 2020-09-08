@@ -15,7 +15,7 @@ func create(jenis, score = 0, waktu = 0, uang = 0, memo=""):
 	$Control/TextureRect/memo.text = memo
 	if(jenis == "menang"):
 		$Control/Score.text = str(score)
-		$Control/time.text = str(waktu)
+		$Control/time.text = "Sisa Waktu "+str(waktu)
 		$Control/money.text = "+"+str(uang)
 		player.give_money(uang)
 		print(jilid)

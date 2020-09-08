@@ -186,6 +186,7 @@ func render_equip():
 		if(equip[i] == 0):
 			btn.hide()
 		else:
+			#btn.texture_hover = load('res://assets/UI/window/item_null.png')
 			btn.get_child(1).hide()
 			var icon = item.get_item_byid(equip[i])[4]
 			var amount = "Punya: "+ str(GlobalVar.get_lim_equip()[i])
