@@ -3,6 +3,7 @@ extends Node
 export(int) var max_health = 3 setget set_max_health
 var health = max_health setget set_health
 var status = "ongoing"
+var baju = "" setget set_baju, get_baju
 
 signal no_health
 signal health_changed(value)
@@ -24,3 +25,9 @@ func get_heath():
 
 func _ready():
 	self.health = max_health
+
+func set_baju(args):
+	baju = args
+func get_baju():
+	return baju
+

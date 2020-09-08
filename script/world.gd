@@ -14,8 +14,10 @@ onready var mob = .get_node("Ysort/Mob")
 var complete = false
 export var TIME_PERIOD = 60
 export var health = 3
+export var tipe_baju = "jawa"
 var time = 0
 var stats = PlayerStats
+
 
 onready var timerStage = $TimerStage
 
@@ -36,7 +38,7 @@ var artefact_player_pos = [2,3]
 func _ready():
 	var audio = "not played"
 	stats.status = "ongoing"
-	
+	GlobalVar.set_baju(tipe_baju)
 	#set phycical to true
 	$"Ysort/player".set_physics_process(true)
 	$"Ysort/player".set_collision_layer_bit( 2, true)

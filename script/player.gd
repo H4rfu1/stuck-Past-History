@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-#const PlayerHurtSound = preload("res://Player/PlayerHurtSound.tscn")
 signal collided
 var timer = 0
 
@@ -33,14 +32,13 @@ onready var animationTree = $AnimationTree
 onready var animationState  = animationTree.get("parameters/playback")
 onready var joystick = get_parent().get_parent().get_node("CanvasLayer/Joystick/joystickbutton")
 onready var hurtbox = $Hurtbox
-#onready var blinkAnimationPlayer = $BlinkAnimationPlayer
+onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
 func _ready():
 	stats.status = "ongoing"
 #	randomize()
 	stats.connect("no_health", self, "ulangi_lagi")
 	animationTree.active = true
-#	swordHitbox.knockback_vector = roll_vector
 
 
 func _physics_process(delta):
@@ -65,7 +63,7 @@ func _physics_process(delta):
 		aktifkanPenghentiWaktu()
 	
 	if Input.is_action_pressed('baju_adat'):
-		aktifkanBajuAdat()
+		aktifkanBajuAdat("jawa")
 	
 	if Input.is_action_pressed('radar'):
 		aktifkanRadar()
@@ -100,15 +98,7 @@ func move_state(delta):
 			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		else:
 			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-#
 	move()
-#
-#	if Input.is_action_just_pressed("roll"):
-#		state = ROLL
-#
-	if Input.is_action_just_pressed("attack"):
-		state = ATTACK
-#
 #func roll_state():
 #	velocity = roll_vector * ROLL_SPEED
 #	animationState.travel("Roll")
@@ -139,14 +129,11 @@ func attack_animation_finished():
 #	#var playerHurtSound = PlayerHurtSound.instance()
 #	#get_tree().current_scene.add_child(playerHurtSound)
 
-#func _on_Hurtbox_invincibility_started():
-#	blinkAnimationPlayer.play("Start")
+func _on_Hurtbox_invincibility_started():
+	blinkAnimationPlayer.play("Start")
 
-#func _on_Hurtbox_invincibility_ended():
-#	blinkAnimationPlayer.play("Stop")
-
-
-
+func _on_Hurtbox_invincibility_ended():
+	blinkAnimationPlayer.play("Stop")
 
 func _on_CrackHit_body_entered(body):
 	print(body)
@@ -199,8 +186,13 @@ func aktifkanRadar():
 	timerR.start() #to start
 	direction.visible = true
 
-func aktifkanBajuAdat():
-	 .set_collision_layer_bit( 1, false )
+func aktifkanBajuAdat(asal):
+	PlayerStats.set_baju(asal)
+	if PlayerStats.get_baju() == GlobalVar.get_baju():
+		print("baju sesuai")
+		.set_collision_layer_bit( 1, false )
+	else:
+		print("baju tak sesuai")
 func nonAktifkanBajuAdat():
 	 .set_collision_layer_bit( 1, true )
 
@@ -239,6 +231,4 @@ func ulangi_lagi():
 	var mob = get_parent().get_node("Mob")
 	for node in mob.get_children():
 		node.set_physics_process(false)
-	
-	
-	
+
