@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/koleksi_candisurawana.png-69cc82c59be4bfe9a4ff6c7902c56d71.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/img/koleksi/koleksi_candisurawana.png"
+dest_files=[ "res://.import/koleksi_candisurawana.png-69cc82c59be4bfe9a4ff6c7902c56d71.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

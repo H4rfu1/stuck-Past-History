@@ -40,17 +40,17 @@ var setting = {
 var koleksi = [
 		# id, stageid, name, desc, icon, own, jilid
 		[1, '1',   'Candi Brahu', 'Dibangun sekitar abad ke-15 M, Candi ini dibuat oleh Mpu Sendok yang memakai kultur Buddha. Bangunan ini berfungsi sebagai tempat pembakaran jenazah dari raja-raja Majapahit.', 
-		'res://assets/skeleton.png', 0, 1],
+		'res://assets/img/koleksi/koleksi_candibrahhu.png', 0, 1],
 		[2, '2',   'Prasasti Singhasari', 'Prasasti ini ditulis untuk mengenang pembangunan sebuah caitya atau sebuah bangunan/monumen untuk penghormatan para brahmana dan raja Krtanagara yang telah gugur saat terjadinya pemberontakan Jayakatwang di kerajaan Singhasari.', 
 		'res://assets/img/koleksi/koleksi_singhasari.png', 0, 1],
 		[3, '3',   'Candi Tikus', 'Candi Tikus adalah sebuah peninggalan dari kerajaan yang bercorak hindu yang terletak di Kompleks Trowulan, Kabupaten Mojokerto, Jawa Timur. Nama ‘Tikus’ hanya merupakan sebutan yang digunakan masyarakat setempat. Konon, pada saat ditemukan, tempat Candi tersebut berada merupakan sarang tikus.', 
-		'res://assets/skeleton.png', 0, 1],
-		[4, '3-1', 'Kitab Sutasoma', 'Kitab Negarakertagama berkisah mengenai sejarah para raja Nusantara, baik raja Singasari maupun raja Majapahit.', 
-		'res://assets/skeleton.png', 0, 1],
-		[5, '3-2', 'Kitab Negarakertagama', 'Kitab Sutasoma ini berisi tentang kisah perjalanan Sutasoma, anak raja yang memilih keluar dari kerajaan untuk belajar menjadi pendeta Buddha. Dalam kitab ini juga, asal dari semboyan Negara Kesatuan Republik Indonesia, yaitu “Bhinneka Tunggal Ika, Tan Hana Dharma Mangrawa”.', 
-		'res://assets/skeleton.png', 0, 1],
+		'res://assets/img/koleksi/koleksi_canditikus.png', 0, 1],
+		[4, '3-1', 'Kitab Sutasoma', 'Kitab Sutasoma ini berisi tentang kisah perjalanan Sutasoma, anak raja yang memilih keluar dari kerajaan untuk belajar menjadi pendeta Buddha. Dalam kitab ini juga, asal dari semboyan Negara Kesatuan Republik Indonesia, yaitu “Bhinneka Tunggal Ika, Tan Hana Dharma Mangrawa”.', 
+		'res://assets/img/koleksi/koleksi_sutasoma.png', 0, 1],
+		[5, '3-2', 'Kitab Negara Kertagama', 'Kitab Negarakertagama berkisah mengenai sejarah para raja Nusantara, baik raja Singasari maupun raja Majapahit.', 
+		'res://assets/img/koleksi/koleksi_negarakertagama.png', 0, 1],
 		[6, '4',   'Candi Surawana', 'Candi ini dibangun untuk memuliakan Bhre Wengker. Bhre Wengker adalah seorang raja Kerajaan Wengker yang berada dibawah kekuasaan Majapahit.', 
-		'res://assets/skeleton.png', 0, 1]
+		'res://assets/img/koleksi/koleksi_candisurawana.png', 0, 1]
 	]  setget , get_koleksi
 
 var jilid= [
@@ -61,12 +61,12 @@ var jilid= [
 
 var stage = [
 		# id, jilid, stageid, name, desc, score, done
-		[1, 1, '1',   'Candi Brahu', 'Dibangun pada abad ke-15 Masehi, bangunan megah yang dapatditemukan di Mojokerto, Jawa Timur.', '0', '-', 'icon'],
-		[2, 1, '2',   'Prasasti Singhasari', 'Sebuah prasasti bertarikh tahun 1351 Masehi yang ditulis dengan aksara jawa.', '0', '-', 'icon'],
-		[3, 1, '3',   'Candi Tikus', 'Dibangun sekitar abad 13 – 14 Masehi, bangunan unik yang berada di tengah sebuah kolam.', '0', '-', 'icon'],
-		[4, 1, '3-1', 'Kitab Sutasoma', 'Karya sastra yang ditulis oleh Empu Prapanca pada tahun 1365 Masehi.', '0', '-', 'icon'],
-		[5, 1, '3-2', 'Kitab Negarakertagama', 'Karya sastra Empu Tantular selama masa Kerajaan Majapahit.', '0', '-', 'icon'],
-		[6, 1, '4',   'Candi Suwarna', 'Sekitar abad ke-14 Masehi, bangunan yang melambangkan kemuliaan dibangun di Kabupaten Kediri, Jawa Timur.', '0', '-', 'icon']
+		[1, 1, '1',   'Candi Brahu', 'Dibangun pada abad ke-15 Masehi, bangunan megah yang dapatditemukan di Mojokerto, Jawa Timur.', '0', '-', 'res://assets/img/koleksi/koleksi_candibrahhu.png'],
+		[2, 1, '2',   'Prasasti Singhasari', 'Sebuah prasasti bertarikh tahun 1351 Masehi yang ditulis dengan aksara jawa.', '0', '-', 'res://assets/img/koleksi/koleksi_singhasari.png'],
+		[3, 1, '3',   'Candi Tikus', 'Dibangun sekitar abad 13 – 14 Masehi, bangunan unik yang berada di tengah sebuah kolam.', '0', '-', 'res://assets/img/koleksi/koleksi_canditikus.png'],
+		[4, 1, '3-1', 'Kitab Sutasoma', 'Karya sastra Empu Tantular selama masa Kerajaan Majapahit.', '0', '-', 'res://assets/img/koleksi/koleksi_sutasoma.png'],
+		[5, 1, '3-2', 'Kitab Negarakertagama', 'Karya sastra yang ditulis oleh Empu Prapanca pada tahun 1365 Masehi.', '0', '-', 'res://assets/img/koleksi/koleksi_negarakertagama.png'],
+		[6, 1, '4',   'Candi Suwarna', 'Sekitar abad ke-14 Masehi, bangunan yang melambangkan kemuliaan dibangun di Kabupaten Kediri, Jawa Timur.', '0', '-', 'res://assets/img/koleksi/koleksi_candisurawana.png']
 	]  setget , get_stage
 
 var item = [
@@ -78,15 +78,15 @@ var item = [
 		[3, 'Jam Penghenti Waktu', 'Jangan tanya sekarang pukul berapa, jam ini dapat menghentikan waktu selama 15 detik', 2200, 
 		'res://assets/img/item_time.png', 0],
 		[4, 'Odheng', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 1000, 
-		'res://assets/skeleton.png', 1],
+		'res://assets/img/material_odheng.png', 1],
 		[5, 'Sarong', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 1000, 
-		'res://assets/skeleton.png', 1],
+		'res://assets/img/material_pesean.png', 1],
 		[6, "Pese'an", 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 1000, 
-		'res://assets/skeleton.png', 1],
-		[7, 'Baju Adat Jawa Timur', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 1000, 
-		'res://assets/skeleton.png', 1],
+		'res://assets/img/material_sarong.png', 1],
+		[7, 'Baju Adat Jawa', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 50000, 
+		'res://assets/img/item_baju_jawa.png', 0],
 		[8, 'Kunci Warp Jilid 2', 'Menuju dimensi baru yang belum dikenali', 0,
-		'res://assets/skeleton.png', 1]
+		'res://assets/img/material_key2.png', 1]
 	]  setget , get_item
 
 var inventory = [
