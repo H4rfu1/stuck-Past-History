@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/UI/page/latar_koleksi.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/UI/button/back.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/UI/button/skip_press.png" type="Texture" id=6]
 [ext_resource path="res://script/Koleksi.gd" type="Script" id=7]
 [ext_resource path="res://scene/UI/koleksi_item.res" type="PackedScene" id=8]
+[ext_resource path="res://scene/Window/dialog_window.res" type="PackedScene" id=9]
 
 [node name="Koleksi" type="Control"]
 anchor_right = 1.0
@@ -134,6 +135,9 @@ margin_left = 332.0
 margin_top = 144.0
 margin_right = 396.0
 margin_bottom = 208.0
+
+[node name="dialog_window" parent="." instance=ExtResource( 9 )]
+visible = false
 
 [node name="transition" parent="." instance=ExtResource( 4 )]
 [connection signal="pressed" from="btn_back" to="." method="_on_return_to_menu"]

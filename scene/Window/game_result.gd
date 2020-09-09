@@ -7,6 +7,7 @@ const click_sound  = preload("res://scene/Music and Sounds/click.tscn")
 
 var first_complete = false
 var menang = false setget set_menang, get_menang
+var reward
 
 func _ready():
 	pass # Replace with function body.
@@ -16,13 +17,19 @@ func create(jenis, score = 0, waktu = 0, uang = 0, memo=""):
 	set_subject(jenis)
 	var jilid = GlobalVar.get_jilid()
 	var staged = GlobalVar.get_stage()
-	$Control/TextureRect/memo.text = memo
 	if(jenis == "menang"):
 		set_menang(true)
 		first_complete = stage.first_complete_stage(jilid, staged)
-		var drop = give_reward(jilid, staged)
-		if drop != null:
-			$Control/TextureRect/memo.text = str(item.get_item_byid(drop[0])[1])+' x'+str(drop[1])
+		give_reward(jilid, staged)
+		if(reward[0] != 0):
+			$Control/TextureRect/memo.text = str(item.get_item_byid(reward[0])[1])+' x'+str(reward[1])
+		else:
+			$Control/TextureRect/memo.text = ''
+		#if typeof(drop) == 21:
+		#	print(str(item.get_item_byid(drop[0])[1])+' x'+str(drop[1]))
+		#	$Control/TextureRect/memo.text = str(item.get_item_byid(drop[0])[1])+' x'+str(drop[1])
+		#else:
+		#	$Control/TextureRect/memo.text = memo
 		$Control/Score.text = str(score)
 		$Control/time.text = "Sisa Waktu "+str(waktu)
 		$Control/money.text = "+"+str(uang)
@@ -97,7 +104,5 @@ func give_reward(jilid, staged):
 		2:
 			pass
 	if (id != 0) :
-		item.add_item()
-		return [id, amount]
-	else: 
-		return null
+		item.add_item(id, amount)
+	reward = [id, amount]

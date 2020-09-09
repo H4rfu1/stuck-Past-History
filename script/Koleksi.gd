@@ -88,16 +88,27 @@ func render_page(pg):
 	for koleksi in get_split_record()[pg]:
 		var obj = koleksi_item.instance()
 		obj.name = "koleksi_"+str(koleksi[2])
+		var id = koleksi[0]
 		$Control/pg_1/VBoxContainer.add_child(obj)
 		var new_obj = "Control/pg_1/VBoxContainer/koleksi_"+str(koleksi[2])
 		var own = koleksi[5]
+		get_node(new_obj+"/icon").texture = load(koleksi[4])
 		if own >= 1:
 			get_node(new_obj+"/icon").set_modulate(Color(1,1,1,1))
 		else: 
 			get_node(new_obj+"/icon").set_modulate(Color(0,0,0,1))
 		get_node(new_obj+"/name").text = str(koleksi[2])
 		space_as_new_line(koleksi[2])
+		get_node(new_obj).connect("pressed", self, "_on_info_press", [id])
 		i += 1
+
+
+func _on_info_press(id):
+	$dialog_window.show()
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
+	var koleksi = item.get_koleksi_byid(id)
+	$dialog_window.create([koleksi[2]+"\n"+koleksi[3]])
 
 func space_as_new_line(string):
 	string = string.split(' ', false)
