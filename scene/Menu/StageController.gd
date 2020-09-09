@@ -52,6 +52,12 @@ func _on_return_to_menu():
 		goto_scene("StageSelector")
 
 ###Select Jilid###
+func _on_ch0():
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
+	goto_scene("Chapter/Ch0")
+	GlobalVar.set_jilid(0)
+
 func _on_ch1():
 	var clickSound = click_sound.instance()
 	get_tree().current_scene.add_child(clickSound)
@@ -66,7 +72,7 @@ func on_select_stage(button):
 	staged     = staged[1]
 	GlobalVar.set_stage(staged)
 	staged     = stage.get_stage_bynumber(GlobalVar.get_jilid(), staged)
-	print(staged)
+	print('staged',staged)
 	$StageInfo/Head/StageTitle.text = staged[3]
 	$StageInfo/Head/StageNum.text = str(staged[2])
 	$StageInfo/Head/StageDesc.text = staged[4]
@@ -171,7 +177,9 @@ func _on_btn_start(): #Masuk ke Permainan#
 	intro.stop()
 	var clickStart = click_start.instance()
 	get_tree().current_scene.add_child(clickStart)
-	goto_scene("Chapter/Ch1/1")
+	goto_scene("Chapter/Ch"+str(GlobalVar.get_jilid())+"/"+str(GlobalVar.get_stage()))
+	###goto_scene("Chapter/Ch1/1")
+	
 func _on_btn_info():
 	var clickSound = click_sound.instance()
 	get_tree().current_scene.add_child(clickSound)
@@ -206,3 +214,5 @@ func set_stateeq(args):
 	state_equip_box = args
 func get_stateeq():
 	return state_equip_box
+
+
