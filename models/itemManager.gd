@@ -77,11 +77,11 @@ func check_koleksi(id):
 		return true
 	else:
 		return false
-func add_koleksi(stage):
+func add_koleksi(jilid,stage):
 	_ready()
 	var clone = []
 	for record in get_all_koleksi():
-		if (record[1] == stage):
+		if (record[1] == stage && record[6] == jilid):
 			record[5] = 1
 		clone.append(record)
 	DB.saveJSON(clone, "koleksi")
@@ -89,7 +89,7 @@ func add_koleksi(stage):
 func get_koleksi_byid(id):
 	_ready()
 	for record in get_all_koleksi():
-		if (record[0] == id):
+		if (int(record[0]) == int(id)):
 			return record
 func get_koleksi_bystage(stage):
 	_ready()

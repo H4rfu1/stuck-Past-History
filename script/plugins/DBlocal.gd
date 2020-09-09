@@ -38,7 +38,7 @@ var setting = {
 	}  setget , get_setting
 
 var koleksi = [
-		# id, stageid, name, desc, icon,own, jilid
+		# id, stageid, name, desc, icon, own, jilid
 		[1, '1',   'Candi Brahu', 'Dibangun sekitar abad ke-15 M, Candi ini dibuat oleh Mpu Sendok yang memakai kultur Buddha. Bangunan ini berfungsi sebagai tempat pembakaran jenazah dari raja-raja Majapahit.', 
 		'res://assets/skeleton.png', 0, 1],
 		[2, '2',   'Prasasti Singhasari', 'Prasasti ini ditulis untuk mengenang pembangunan sebuah caitya atau sebuah bangunan/monumen untuk penghormatan para brahmana dan raja Krtanagara yang telah gugur saat terjadinya pemberontakan Jayakatwang di kerajaan Singhasari.', 
@@ -84,6 +84,8 @@ var item = [
 		[6, "Pese'an", 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 1000, 
 		'res://assets/skeleton.png', 1],
 		[7, 'Baju Adat Jawa Timur', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 1000, 
+		'res://assets/skeleton.png', 1],
+		[8, 'Kunci Warp Jilid 2', 'Menuju dimensi baru yang belum dikenali', 0,
 		'res://assets/skeleton.png', 1]
 	]  setget , get_item
 

@@ -47,6 +47,15 @@ func set_complete_stage(jilid, stage):
 	DB.saveJSON(clone, "stage")
 	return true
 
+func first_complete_stage(jilid, stage):
+	_ready()
+	var clone = []
+	for record in get_stage_data():
+		if (record[6] == 'berhasil'):
+			return false
+		else:
+			return true
+	return false
 
 func set_stage(args):
 	stage = args
