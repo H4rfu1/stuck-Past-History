@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://script/plugins/DBconnection.res" type="PackedScene" id=1]
 [ext_resource path="res://scene/transition.tscn" type="PackedScene" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/UI/button/stage/stage_pin.png" type="Texture" id=7]
 [ext_resource path="res://assets/UI/utility/inv.png" type="Texture" id=8]
 [ext_resource path="res://assets/btn_font.res" type="DynamicFont" id=9]
-[ext_resource path="res://assets/skeleton.png" type="Texture" id=10]
+[ext_resource path="res://assets/img/koleksi/koleksi_candibrahhu.png" type="Texture" id=10]
 [ext_resource path="res://assets/UI/window/card_stage.png" type="Texture" id=11]
 [ext_resource path="res://assets/btn_mini_font.res" type="DynamicFont" id=12]
 [ext_resource path="res://assets/UI/utility/title_jilid.png" type="Texture" id=13]
@@ -23,19 +23,24 @@
 [ext_resource path="res://assets/UI/window/card_equiped_item.png" type="Texture" id=21]
 [ext_resource path="res://assets/UI/utility/locked.png" type="Texture" id=22]
 [ext_resource path="res://assets/UI/window/card_select_item.png" type="Texture" id=23]
+[ext_resource path="res://assets/img/koleksi/koleksi_singhasari.png" type="Texture" id=24]
+[ext_resource path="res://assets/img/koleksi/koleksi_negarakertagama.png" type="Texture" id=25]
+[ext_resource path="res://assets/img/koleksi/koleksi_sutasoma.png" type="Texture" id=26]
+[ext_resource path="res://assets/img/koleksi/koleksi_candisurawana.png" type="Texture" id=27]
+[ext_resource path="res://assets/img/koleksi/koleksi_canditikus.png" type="Texture" id=28]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.164706, 0.909804, 0.745098, 1 )
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
 [sub_resource type="StyleBoxEmpty" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=5]
-
-[sub_resource type="StyleBoxEmpty" id=6]
-
-[sub_resource type="StyleBoxEmpty" id=7]
 
 [node name="Ch1" type="Control"]
 anchor_right = 1.0
@@ -125,7 +130,7 @@ margin_left = 64.0
 margin_top = 28.0
 margin_right = 154.0
 margin_bottom = 61.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -155,11 +160,12 @@ __meta__ = {
 }
 
 [node name="Artefact" type="TextureRect" parent="ScrollContainer/Control/MaskScroller/stage_1"]
-margin_left = 7.5946
-margin_top = -32.2438
-margin_right = 92.5946
-margin_bottom = 38.7562
+margin_left = 8.0
+margin_top = -32.0
+margin_right = 85.0
+margin_bottom = 32.0
 texture = ExtResource( 10 )
+expand = true
 stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
@@ -180,7 +186,7 @@ margin_left = 64.0
 margin_top = 28.0
 margin_right = 154.0
 margin_bottom = 61.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -214,7 +220,8 @@ margin_left = 7.5946
 margin_top = -32.2438
 margin_right = 92.5946
 margin_bottom = 38.7562
-texture = ExtResource( 10 )
+texture = ExtResource( 24 )
+expand = true
 stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
@@ -235,7 +242,7 @@ margin_left = 64.0
 margin_top = 28.0
 margin_right = 154.0
 margin_bottom = 61.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -269,7 +276,8 @@ margin_left = 7.5946
 margin_top = -32.2438
 margin_right = 92.5946
 margin_bottom = 38.7562
-texture = ExtResource( 10 )
+texture = ExtResource( 28 )
+expand = true
 stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
@@ -290,7 +298,7 @@ margin_left = 64.0
 margin_top = 28.0
 margin_right = 154.0
 margin_bottom = 61.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -324,7 +332,8 @@ margin_left = 7.5946
 margin_top = -32.2438
 margin_right = 92.5946
 margin_bottom = 38.7562
-texture = ExtResource( 10 )
+texture = ExtResource( 26 )
+expand = true
 stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
@@ -345,7 +354,7 @@ margin_left = 64.0
 margin_top = 28.0
 margin_right = 154.0
 margin_bottom = 61.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -379,7 +388,8 @@ margin_left = 7.5946
 margin_top = -32.2438
 margin_right = 92.5946
 margin_bottom = 38.7562
-texture = ExtResource( 10 )
+texture = ExtResource( 25 )
+expand = true
 stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
@@ -400,7 +410,7 @@ margin_left = 64.0
 margin_top = 28.0
 margin_right = 154.0
 margin_bottom = 61.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -434,7 +444,8 @@ margin_left = 7.5946
 margin_top = -32.2438
 margin_right = 92.5946
 margin_bottom = 38.7562
-texture = ExtResource( 10 )
+texture = ExtResource( 27 )
+expand = true
 stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
@@ -587,11 +598,11 @@ margin_left = 3.77462
 margin_top = 2.81097
 margin_right = 451.774
 margin_bottom = 71.811
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/disabled = SubResource( 7 )
-custom_styles/normal = SubResource( 7 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

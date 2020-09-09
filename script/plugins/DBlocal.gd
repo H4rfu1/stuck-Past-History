@@ -14,7 +14,7 @@ func unique():
 
 var default_pemain = {
 		v    = '0-beta1',#versi database
-		c    = 5000,
+		c    = 0,
 		slot = 1,
 		username = 'tamu',
 		uid  = '#'+unique()
@@ -61,6 +61,8 @@ var jilid= [
 
 var stage = [
 		# id, jilid, stageid, name, desc, score, done
+		[0, 0, '0-1', 'Panduan Awal', 'Bagai pribahasa tak kenal maka tak sayang, kamu harus tahu bagaimana cara Harul tidak mengusik sejarah.', '0', '-', 'icon' ],
+		[0, 0, '0-2', 'Perkakas Masa Depan', 'Tidak ada yang mengira bahwa komunikasi dengan toko masa depan masih terbuka. Apakah alat-alat masa depan dapat membantu?.', '0', '-', 'icon' ],
 		[1, 1, '1',   'Candi Brahu', 'Dibangun pada abad ke-15 Masehi, bangunan megah yang dapatditemukan di Mojokerto, Jawa Timur.', '0', '-', 'res://assets/img/koleksi/koleksi_candibrahhu.png'],
 		[2, 1, '2',   'Prasasti Singhasari', 'Sebuah prasasti bertarikh tahun 1351 Masehi yang ditulis dengan aksara jawa.', '0', '-', 'res://assets/img/koleksi/koleksi_singhasari.png'],
 		[3, 1, '3',   'Candi Tikus', 'Dibangun sekitar abad 13 – 14 Masehi, bangunan unik yang berada di tengah sebuah kolam.', '0', '-', 'res://assets/img/koleksi/koleksi_canditikus.png'],
@@ -77,13 +79,13 @@ var item = [
 		'res://assets/img/item_coat.png', 0],
 		[3, 'Jam Penghenti Waktu', 'Jangan tanya sekarang pukul berapa, jam ini dapat menghentikan waktu selama 15 detik', 2200, 
 		'res://assets/img/item_time.png', 0],
-		[4, 'Odheng', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 1000, 
+		[4, 'Odheng', 'Aksesoris kepala untuk laki-laki yang sarat akan makna juga sebagai simbolis', 1000, 
 		'res://assets/img/material_odheng.png', 1],
-		[5, 'Sarong', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 1000, 
-		'res://assets/img/material_pesean.png', 1],
-		[6, "Pese'an", 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 1000, 
+		[5, 'Sarong', 'Kain serupa sarung berwarna dan bermotif daerah yang dapat dikenakan sebagai pakaian', 1000, 
 		'res://assets/img/material_sarong.png', 1],
-		[7, 'Baju Adat Jawa', 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 50000, 
+		[6, "Pese'an", 'Baju kombinasi hitam sebagai rompi dan baju merah-putih pada bagian dalam', 1000, 
+		'res://assets/img/material_pesean.png', 1],
+		[7, "Baju Adat Jawa, Pese'an", 'Seperti penduduk lokal? Ya, Baju adat membuat penggunanya membaur dengan masyarakat', 50000, 
 		'res://assets/img/item_baju_jawa.png', 0],
 		[8, 'Kunci Warp Jilid 2', 'Menuju dimensi baru yang belum dikenali', 0,
 		'res://assets/img/material_key2.png', 1]

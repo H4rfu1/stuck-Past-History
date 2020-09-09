@@ -1,0 +1,655 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/norm_mini_font.res" type="DynamicFont" id=1]
+[ext_resource path="res://assets/UI/button/mini_close_press.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/button/mini_close.png" type="Texture" id=3]
+[ext_resource path="res://assets/UI/button/skip_press.png" type="Texture" id=4]
+[ext_resource path="res://assets/UI/button/skip.png" type="Texture" id=5]
+[ext_resource path="res://script/LatarBelakang.gd" type="Script" id=6]
+[ext_resource path="res://assets/img/latar belakang/latar_4.png" type="Texture" id=7]
+[ext_resource path="res://assets/img/latar belakang/karakter_muda.png" type="Texture" id=8]
+[ext_resource path="res://assets/img/latar belakang/karakter_tua.png" type="Texture" id=9]
+[ext_resource path="res://assets/img/latar belakang/mobil.png" type="Texture" id=10]
+[ext_resource path="res://assets/img/latar belakang/latar_1.png" type="Texture" id=11]
+[ext_resource path="res://assets/img/latar belakang/latar_2.png" type="Texture" id=12]
+[ext_resource path="res://assets/UI/page/swirl.jpg" type="Texture" id=13]
+[ext_resource path="res://assets/UI/page/portal.png" type="Texture" id=14]
+
+[sub_resource type="Animation" id=1]
+resource_name = "page_1"
+length = 4.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("scene_1:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -105.987, -0.25, 0, 0.25, 0, -10.7427, -0.25, 0, 0.25, 0, -105.987, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("scene_1:rect_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -62.6613, -0.25, 0, 0.25, 0, -11.8644, -0.25, 0, 0.25, 0, -62.6613, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "page_2"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("scene_2:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -101.637, -0.25, 0, 0.25, 0, -2.02057, -0.25, 0, 0.25, 0, -2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.5, 3 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("scene_2:rect_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -3.84348, -0.25, 0, 0.25, 0, -32.3162, -0.25, 0, 0.25, 0, -8, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.5, 3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("scene_2:rect_size:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 828, -0.25, 0, 0.25, 0, 762, -0.25, 0, 0.25, 0, 724, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.5, 3 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("scene_2:rect_size:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 552, -0.25, 0, 0.25, 0, 520, -0.25, 0, 0.25, 0, 495, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.5, 3 )
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "page_3"
+length = 5.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("scene_3/swirl:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 720, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("scene_3/swirl:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 473.262, -0.25, 0, 0.25, 0, 468.222, -0.25, 0, 0.25, 0, 337.19, -0.25, 0, 0.25, 0, 422.865, -0.25, 0, 0.25, 0, 473.262, -0.25, 0, 0.25, 0, 468.222, -0.25, 0, 0.25, 0, 337.19, -0.25, 0, 0.25, 0, 422.865, -0.25, 0, 0.25, 0, 473.262, -0.25, 0, 0.25, 0, 468.222, -0.25, 0, 0.25, 0, 337.19, -0.25, 0, 0.25, 0, 473.262, -0.25, 0, 0.25, 0, 422.865, -0.25, 0, 0.25, 0, 473.262, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.4, 2.8, 3.3, 3.8, 4.2, 4.6, 5, 5.3, 5.8 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("scene_3/swirl:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 312.708, -0.25, 0, 0.25, 0, 431.14, -0.25, 0, 0.25, 0, 320.267, -0.25, 0, 0.25, 0, 209.394, -0.25, 0, 0.25, 0, 312.708, -0.25, 0, 0.25, 0, 431.14, -0.25, 0, 0.25, 0, 320.267, -0.25, 0, 0.25, 0, 209.394, -0.25, 0, 0.25, 0, 312.708, -0.25, 0, 0.25, 0, 431.14, -0.25, 0, 0.25, 0, 320.267, -0.25, 0, 0.25, 0, 312.708, -0.25, 0, 0.25, 0, 209.394, -0.25, 0, 0.25, 0, 312.708, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.4, 2.8, 3.3, 3.8, 4.2, 4.6, 5, 5.3, 5.8 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("scene_3/portal:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 720, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 5 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("scene_3/portal:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0.33, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0, 0.33, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0, 0.33, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0, 0.33, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.8, 1.6, 2.5, 3.4, 4.3, 5 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("scene_3/portal:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0.33, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0, 0.33, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0, 0.33, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0, 0.33, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.8, 1.6, 2.5, 3.4, 4.3, 5 )
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "page_4"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("blits:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 1.1, 1.2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("blits:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 1, 1.1, 1.2, 1.3, 1.4, 1.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("blits:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 1, 1.1, 1.2, 1.3, 1.4, 1.5 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("blits:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 1, 1.1, 1.2, 1.3, 1.4, 1.5 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("scene_4:rect_position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( -146.745, -0.25, 0, 0.25, 0, -146.745, -0.25, 0, 0.25, 0, -86.4493, -0.25, 0, 0.25, 0, -19, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 1.4, 3 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("scene_4:rect_position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( -36.7755, -0.25, 0, 0.25, 0, -36.7755, -0.25, 0, 0.25, 0, -44.2246, -0.25, 0, 0.25, 0, -6, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 1.4, 3 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("scene_4:rect_size:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 1066, -0.25, 0, 0.25, 0, 1066, -0.25, 0, 0.25, 0, 920, -0.25, 0, 0.25, 0, 749, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 1.4, 3 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("scene_4:rect_size:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 702, -0.25, 0, 0.25, 0, 702, -0.25, 0, 0.25, 0, 605, -0.25, 0, 0.25, 0, 492, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 1.4, 3 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("scene_4:rect_rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -4.6589, -0.25, 0, 0.25, 0, 3.7396, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -4.6589, -0.25, 0, 0.25, 0, 3.7396, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -4.6589, -0.25, 0, 0.25, 0, 3.7396, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.5, 0.7, 0.9, 1.1, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2 )
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "page_3"
+length = 5.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("scene_3/timemachine:self_modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("scene_3/timemachine:self_modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("scene_3/timemachine:self_modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("scene_3/timemachine:self_modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("scene_3/timemachine:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0.0296559, -0.25, 0, 0.25, 0, 0.0978367, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("scene_3/timemachine:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0.0296559, -0.25, 0, 0.25, 0, 0.0978367, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("scene_3/timemachine:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 31.2209, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("scene_3/timemachine:position:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 460.39, -0.25, 0, 0.25, 0, 155.986, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("scene_3/timemachine:position:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 348.599, -0.25, 0, 0.25, 0, 301.509, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("scene_3/timemachine:modulate:r")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( -0.1, 0.7, 1.8, 2.2 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("scene_3/timemachine:modulate:g")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( -0.1, 0.7, 1.8, 2.2 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("scene_3/timemachine:modulate:b")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( -0.1, 0.7, 1.8, 2.2 )
+}
+tracks/12/type = "bezier"
+tracks/12/path = NodePath("scene_3/timemachine:modulate:a")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( -0.1, 0.7, 1.8, 2.2 )
+}
+tracks/13/type = "bezier"
+tracks/13/path = NodePath("scene_3/harul_old:modulate:r")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 2.1, 2.9, 3.5, 4.4 )
+}
+tracks/14/type = "bezier"
+tracks/14/path = NodePath("scene_3/harul_old:modulate:g")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 2.1, 2.9, 3.5, 4.4 )
+}
+tracks/15/type = "bezier"
+tracks/15/path = NodePath("scene_3/harul_old:modulate:b")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 2.1, 2.9, 3.5, 4.4 )
+}
+tracks/16/type = "bezier"
+tracks/16/path = NodePath("scene_3/harul_old:modulate:a")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 2.1, 2.9, 3.5, 4.4 )
+}
+tracks/17/type = "bezier"
+tracks/17/path = NodePath("scene_3/harul_young:modulate:r")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 3.5, 4.4 )
+}
+tracks/18/type = "bezier"
+tracks/18/path = NodePath("scene_3/harul_young:modulate:g")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 3.5, 4.4 )
+}
+tracks/19/type = "bezier"
+tracks/19/path = NodePath("scene_3/harul_young:modulate:b")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 3.5, 4.4 )
+}
+tracks/20/type = "bezier"
+tracks/20/path = NodePath("scene_3/harul_young:modulate:a")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 3.5, 4.4 )
+}
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 1, 1, 1, 0.647059 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Control" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -240.0
+margin_right = 360.0
+margin_bottom = 240.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scene_3" type="Control" parent="." groups=[
+"scene",
+]]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="swirl" type="Sprite" parent="scene_3"]
+position = Vector2( 473.262, 312.708 )
+scale = Vector2( 0.370976, 0.370976 )
+texture = ExtResource( 13 )
+
+[node name="portal" type="Sprite" parent="scene_3"]
+position = Vector2( 426.033, 330.408 )
+scale = Vector2( 0.33, 0.33 )
+texture = ExtResource( 14 )
+
+[node name="harul_young" type="Sprite" parent="scene_3"]
+position = Vector2( 355.792, 290.611 )
+scale = Vector2( 0.0663408, 0.0663408 )
+texture = ExtResource( 8 )
+
+[node name="harul_old" type="Sprite" parent="scene_3"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 360.25, 321.312 )
+scale = Vector2( 0.0663408, 0.0663408 )
+texture = ExtResource( 9 )
+
+[node name="timemachine" type="Sprite" parent="scene_3"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 155.986, 301.509 )
+scale = Vector2( 0.0978367, 0.0978367 )
+texture = ExtResource( 10 )
+
+[node name="scene_1" type="TextureRect" parent="." groups=[
+"scene",
+]]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -465.987
+margin_top = -302.661
+margin_right = 362.013
+margin_bottom = 249.339
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scene_2" type="TextureRect" parent="." groups=[
+"scene",
+]]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -461.637
+margin_top = -243.843
+margin_right = 366.364
+margin_bottom = 308.156
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scene_4" type="TextureRect" parent="." groups=[
+"scene",
+]]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -506.745
+margin_top = -276.776
+margin_right = 559.255
+margin_bottom = 425.224
+rect_pivot_offset = Vector2( 471.83, 299.799 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/page_1 = SubResource( 1 )
+anims/page_2 = SubResource( 2 )
+anims/page_3 = SubResource( 4 )
+anims/page_4 = SubResource( 3 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/page_3 = SubResource( 5 )
+
+[node name="blits" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="window" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -345.0
+margin_top = -112.0
+margin_right = 345.0
+margin_bottom = -11.0
+custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="window"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 21.0
+margin_top = 10.0
+margin_right = -17.0
+margin_bottom = -11.0
+custom_fonts/normal_font = ExtResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Normal Text"
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Next" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -79.0
+margin_top = 16.0
+margin_right = -27.0
+margin_bottom = 68.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Next2" type="TextureButton" parent="."]
+margin_left = 24.6942
+margin_top = 15.7145
+margin_right = 76.6942
+margin_bottom = 67.7145
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+[connection signal="pressed" from="Next" to="." method="_on_btn_skip_pressed"]
+[connection signal="pressed" from="Next2" to="." method="_on_btn_close_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

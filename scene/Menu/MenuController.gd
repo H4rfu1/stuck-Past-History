@@ -191,7 +191,7 @@ func render_toko_item(type):
 				else:
 					price = "Maxed"
 					#btn.disabled = true
-				get_node("Background/card/ScrollContainer/slot_timemachine/upgrade_"+item+"/tier").text = str(tier)
+				get_node("Background/card/ScrollContainer/slot_timemachine/upgrade_"+item+"/tier").text = "Tingkat: "+str(tier)
 				get_node("Background/card/ScrollContainer/slot_timemachine/upgrade_"+item+"/cost").text = str(price)
 			pass
 		"powerup":
@@ -201,7 +201,7 @@ func render_toko_item(type):
 			for power in item.get_all_item():
 				var obj = shop_item.instance()
 				obj.name = "power_"+str(power[1])
-				if power[5] == 1:
+				if (power[5] == 1 or power[3] >=50000):
 					obj.hide()
 				$Background/card/ScrollContainer/slot_powerup.add_child(obj)
 				var new_obj = "Background/card/ScrollContainer/slot_powerup/power_"+str(power[1])

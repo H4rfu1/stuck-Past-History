@@ -76,6 +76,15 @@ func give_reward(jilid, staged):
 	var id = 0
 	var amount = 0
 	match jilid:
+		0:
+			amount = 1
+			match staged:
+				'0-1':
+					if(first_complete):
+						id = 1
+				'0-2':
+					if(first_complete):
+						id = 1
 		1:
 			amount  = 1
 			match staged:

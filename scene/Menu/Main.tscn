@@ -251,7 +251,6 @@ __meta__ = {
 margin_left = 230.0
 margin_right = 301.0
 margin_bottom = 73.0
-disabled = true
 texture_normal = ExtResource( 12 )
 texture_pressed = ExtResource( 13 )
 texture_hover = ExtResource( 13 )
