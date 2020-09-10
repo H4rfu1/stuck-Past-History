@@ -250,7 +250,7 @@ func render_toko_item(type):
 				if own > 0:
 					get_node(new_obj+"/own").text = "Punya: "+ str(own)
 				else: 
-					get_node(new_obj+"/own").hide()
+					get_node(new_obj).hide()
 				get_node(new_obj+"/cost").hide()
 				get_node(new_obj+"/icon").texture = load(data_item[4])
 				get_node(new_obj).connect("pressed", self, "on_tap_toko_item", [obj])

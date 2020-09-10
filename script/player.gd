@@ -177,12 +177,14 @@ func aktifkanRadar():
 	direction.visible = true
 
 func aktifkanBajuAdat(asal):
+	$Sprite.texture = load('res://assets/Entities/player_jawa.png')
 	PlayerStats.set_baju(asal)
-	if PlayerStats.get_baju() == GlobalVar.get_baju():
-		print("baju sesuai")
-		.set_collision_layer_bit( 1, false )
-	else:
-		print("baju tak sesuai")
+	.set_collision_layer_bit( 1, false )
+	#if str(PlayerStats.get_baju()) == GlobalVar.get_baju():
+	#	print("baju sesuai")
+	#	.set_collision_layer_bit( 1, false )
+	#else:
+	#	print("baju tak sesuai")
 func nonAktifkanBajuAdat():
 	 .set_collision_layer_bit( 1, true )
 

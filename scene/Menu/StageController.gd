@@ -81,12 +81,13 @@ func on_select_stage(button):
 	var staged = button.split('_', false, 1)
 	staged     = staged[1]
 	if GlobalVar.get_mode() == "tutor_main" or (GlobalVar.get_mode() == "tutor_main2_play"):
-		if staged == "0-1":
-			get_node("tap2d/tap2").play("stop")
-			get_node("tap2d7/tap2").play("play")
-		else:
-			get_node("tap2d2/tap2").play("stop")
-			get_node("tap2d7/tap2").play("play")
+		if(get_node(".").name == "Ch0"):
+			if staged == "0-1":
+				get_node("tap2d/tap2").play("stop")
+				get_node("tap2d7/tap2").play("play")
+			else:
+				get_node("tap2d2/tap2").play("stop")
+				get_node("tap2d7/tap2").play("play")
 	GlobalVar.set_stage(staged)
 	staged     = stage.get_stage_bynumber(GlobalVar.get_jilid(), staged)
 	print('staged',staged)
@@ -215,13 +216,13 @@ func open_equip(slot):
 #################
 
 func _on_btn_start(): #Masuk ke Permainan#
-	if GlobalVar.get_mode() == "tutor_main":
-		get_node("tap2d6/tap2").play("stop")
-		GlobalVar.set_mode("0-1")
-	elif GlobalVar.get_mode() == "tutor_main2_play":
-		get_node("tap2d6/tap2").play("stop")
-		GlobalVar.set_mode("0-2")
-		
+	if(get_node(".").name == "Ch0"):
+		if GlobalVar.get_mode() == "tutor_main":
+			get_node("tap2d6/tap2").play("stop")
+			GlobalVar.set_mode("0-1")
+		elif GlobalVar.get_mode() == "tutor_main2_play":
+			get_node("tap2d6/tap2").play("stop")
+			GlobalVar.set_mode("0-2")
 	intro.stop()
 	var clickStart = click_start.instance()
 	get_tree().current_scene.add_child(clickStart)

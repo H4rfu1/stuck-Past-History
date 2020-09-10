@@ -44,7 +44,8 @@ func activate_item(id_equip):
 #				use_baju_adat(item_id)
 #			6 :#or "Baju Adat":
 #				use_baju_adat(item_id)
-		item.remove_item(id, 1)
+		if(item_id != 7):
+			item.remove_item(id, 1)
 	else:
 		use_radar()
 	GlobalVar.mod_lim_equip(id_equip,GlobalVar.get_lim_equip()[id_equip]-1)

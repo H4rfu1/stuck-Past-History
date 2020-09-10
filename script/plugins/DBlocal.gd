@@ -97,10 +97,17 @@ var inventory = [
 		[0, 0]
 	]  setget , get_inventory
 
-#var stage_detail = [
-#		#jilid, stage_id, [spawn_pos], [[green_pos]]
-#		[0, 0]
-#	]  setget , get_stage_detail
+var stage_detail = [
+		#jilid, stage_id, [spawn_pos], [[green_pos]]
+		{
+			jilid = 0,
+			stage = "0-1",
+			player_start = [0,0],
+			artefak_pos  = [0,0],
+			artefact_player_pos = [], #setpoin
+			artefact_tiles = []
+		}
+	]  setget , get_stage_detail
 
 func get_pemain():
 	return default_pemain
@@ -120,7 +127,8 @@ func get_item():
 	return item
 func get_inventory():
 	return inventory
-
+func get_stage_detail():
+	return stage_detail
 
 func path4(target: String)->String:
 	match target:
