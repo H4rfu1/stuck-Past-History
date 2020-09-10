@@ -33,16 +33,16 @@ func _on_lisensi_pressed():
 func _on_btn_sound_pressed():
 	var clickSound = click_sound.instance()
 	get_tree().current_scene.add_child(clickSound)
-	if GlobalVar.get_audio():
+	if get_sound():
 		AudioServer.set_bus_mute(0, not AudioServer.is_bus_mute(0))
 		GlobalVar.set_audio(false)
+		set_sound(false)
 		print("mute")
 	else:
 		AudioServer.set_bus_mute(0, not AudioServer.is_bus_mute(0))
 		GlobalVar.set_audio(true)
 		print("unmute")
-	var bol = get_sound()
-	set_sound(!bol)
+		set_sound(true)
 	icon_state()
 func _on_btn_control_pressed():
 	var clickSound = click_sound.instance()

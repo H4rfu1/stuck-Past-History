@@ -19,6 +19,8 @@ var equip_id = 0
 var equip_slot = 0
 
 func _ready():
+	if GlobalVar.get_mode() == "tutor_main":
+		get_node("tap2d/tap2").play("play")
 	if (!intro.playing and audio_game.playing):
 		audio_game.stop()
 		intro.play()
@@ -53,6 +55,8 @@ func _on_return_to_menu():
 
 ###Select Jilid###
 func _on_ch0():
+	if GlobalVar.get_mode() == "tutor_main":
+		get_node("tap2d/tap2").play("stop")
 	var clickSound = click_sound.instance()
 	get_tree().current_scene.add_child(clickSound)
 	goto_scene("Chapter/Ch0")
@@ -70,6 +74,13 @@ func on_select_stage(button):
 	get_tree().current_scene.add_child(clickSound)
 	var staged = button.split('_', false, 1)
 	staged     = staged[1]
+	if GlobalVar.get_mode() == "tutor_main":
+		if staged == "0-1":
+			get_node("tap2d/tap2").play("stop")
+			get_node("tap2d7/tap2").play("play")
+		else:
+			get_node("tap2d2/tap2").play("stop")
+			get_node("tap2d7/tap2").play("play")
 	GlobalVar.set_stage(staged)
 	staged     = stage.get_stage_bynumber(GlobalVar.get_jilid(), staged)
 	print('staged',staged)
@@ -174,6 +185,8 @@ func open_equip(slot):
 #################
 
 func _on_btn_start(): #Masuk ke Permainan#
+	if GlobalVar.get_mode() == "tutor_main":
+		get_node("tap2d6/tap2").play("stop")
 	intro.stop()
 	var clickStart = click_start.instance()
 	get_tree().current_scene.add_child(clickStart)
@@ -181,6 +194,9 @@ func _on_btn_start(): #Masuk ke Permainan#
 	###goto_scene("Chapter/Ch1/1")
 	
 func _on_btn_info():
+	if GlobalVar.get_mode() == "tutor_main":
+		get_node("tap2d7/tap2").play("stop")
+		get_node("tap2d8/tap2").play("play")
 	var clickSound = click_sound.instance()
 	get_tree().current_scene.add_child(clickSound)
 	var durasi = float(60/60)
@@ -214,5 +230,3 @@ func set_stateeq(args):
 	state_equip_box = args
 func get_stateeq():
 	return state_equip_box
-
-

@@ -33,6 +33,10 @@ func give_money(amount):
 	var pmoney = get_player_data()["c"]
 	DB.pushJSON(["c"], [pmoney+amount], "pemain")
 
+func up_tutor(bol):
+	var pmoney = get_player_data()["tutorial"]
+	DB.pushJSON(["tutorial"], [bol], "pemain")
+
 func add_slot():
 	var slot = get_player_data()["slot"]
 	DB.pushJSON(["slot"], [slot+1], "pemain")

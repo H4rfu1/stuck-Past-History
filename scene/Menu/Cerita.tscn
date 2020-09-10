@@ -15,7 +15,7 @@
 [ext_resource path="res://assets/UI/page/swirl.jpg" type="Texture" id=13]
 [ext_resource path="res://assets/UI/page/portal.png" type="Texture" id=14]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=6]
 resource_name = "page_1"
 length = 4.0
 loop = true
@@ -40,7 +40,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 2, 4 )
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=7]
 resource_name = "page_2"
 length = 3.0
 tracks/0/type = "bezier"
@@ -84,7 +84,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1.5, 3 )
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=8]
 resource_name = "page_3"
 length = 5.0
 loop = true
@@ -149,8 +149,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.8, 1.6, 2.5, 3.4, 4.3, 5 )
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "page_4"
+[sub_resource type="Animation" id=9]
 length = 3.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("blits:color:r")
@@ -457,7 +456,7 @@ tracks/20/keys = {
 "times": PoolRealArray( 3.5, 4.4 )
 }
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 1, 1, 1, 0.647059 )
 corner_radius_top_left = 15
 corner_radius_top_right = 15
@@ -498,6 +497,7 @@ scale = Vector2( 0.33, 0.33 )
 texture = ExtResource( 14 )
 
 [node name="harul_young" type="Sprite" parent="scene_3"]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 355.792, 290.611 )
 scale = Vector2( 0.0663408, 0.0663408 )
 texture = ExtResource( 8 )
@@ -509,9 +509,10 @@ scale = Vector2( 0.0663408, 0.0663408 )
 texture = ExtResource( 9 )
 
 [node name="timemachine" type="Sprite" parent="scene_3"]
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 155.986, 301.509 )
-scale = Vector2( 0.0978367, 0.0978367 )
+modulate = Color( 1, 1, 1, 0.0464665 )
+position = Vector2( 460.39, 348.599 )
+rotation = 0.544908
+scale = Vector2( 0.0296559, 0.0296559 )
 texture = ExtResource( 10 )
 
 [node name="scene_1" type="TextureRect" parent="." groups=[
@@ -573,10 +574,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/page_1 = SubResource( 1 )
-anims/page_2 = SubResource( 2 )
-anims/page_3 = SubResource( 4 )
-anims/page_4 = SubResource( 3 )
+anims/page_1 = SubResource( 6 )
+anims/page_2 = SubResource( 7 )
+anims/page_3 = SubResource( 8 )
+anims/page_4 = SubResource( 9 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 anims/page_3 = SubResource( 5 )
@@ -598,7 +599,7 @@ margin_left = -345.0
 margin_top = -112.0
 margin_right = 345.0
 margin_bottom = -11.0
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -613,7 +614,6 @@ margin_bottom = -11.0
 custom_fonts/normal_font = ExtResource( 1 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Normal Text"
-fit_content_height = true
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false

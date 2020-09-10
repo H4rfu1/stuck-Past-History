@@ -24,6 +24,9 @@ onready var intro = get_node("/root/Intro")
 var escape_awal = false
 
 func _ready():
+	if GlobalVar.get_mode() == "tutor_main":
+		get_node("tap2d/tap2").play("play")
+		pass
 	if(!Intro.playing):
 		intro.play()
 	_load_conf()
@@ -56,6 +59,7 @@ func _starter():
 # Button Press Action #
 #######################
 func _on_press_Main():
+	get_node("tap2d/tap2").play("stop")
 	var clickSound = click_sound.instance()
 	get_tree().current_scene.add_child(clickSound)
 	goto_scene("StageSelector")

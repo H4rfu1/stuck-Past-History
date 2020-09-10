@@ -17,7 +17,8 @@ var default_pemain = {
 		c    = 0,
 		slot = 1,
 		username = 'tamu',
-		uid  = '#'+unique()
+		uid  = '#'+unique(),
+		tutorial = false
 	} setget , get_pemain
 
 var upgrade_price = {

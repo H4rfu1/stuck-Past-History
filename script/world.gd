@@ -35,6 +35,16 @@ var artefact_player_pos = [2,3]
 #	print(object)
 #	print(from)
 func _ready():
+	GlobalVar.set_mode("0-1")
+	if GlobalVar.get_mode() == "0-1":
+		$CanvasLayer/slide/tap2.play("play")
+		$CanvasLayer/slide2/tap2.play("play")
+		$CanvasLayer/slide3/tap2.play("play")
+		$CanvasLayer/slide4/tap2.play("play")
+	timerStage.paused = true
+	$CanvasLayer/dialog_window.show()
+	$CanvasLayer/dialog_window.create(["Petunjuk: \n1. Nyawa player, akan berkurang apabila tertangkap penduduk asli dan terkena jebakan\n2. Batas waktu menyelesaikan misi\n3. Kontroler pergerakan player\n4. Pause game dan pengaturan","Petunjuk: \nikuti garis bantu\nsetelah masuk dalam area artefak, lewati seluruh block photo untuk menyelesaikan misi\nHati-hati dengan jebakan dan penduduk sekitar"])
+	
 	var audio = "not played"
 	stats.status = "ongoing"
 	GlobalVar.set_baju(tipe_baju)
@@ -44,7 +54,6 @@ func _ready():
 	var mob = get_node("Ysort/Mob")
 	for node in mob.get_children():
 		node.set_physics_process(true)
-	
 	
 	#set player health
 	stats.set_health(health)
@@ -87,6 +96,11 @@ func _process(delta):
 	if (getZoneState()):
 		player_on_artefact_zone()
 		artefact_zone_checker()
+	
+	#animation 0-1_play
+	if GlobalVar.get_mode() == "0-1_play":
+		$Direction.visible = true
+		timerStage.paused = false
 
 func _on_player_collided(collision):
 	if collision.collider is TileMap:
