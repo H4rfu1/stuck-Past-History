@@ -21,9 +21,11 @@ var equip_slot = 0
 
 func _ready():
 	if GlobalVar.get_mode() == "tutor_main" or (GlobalVar.get_mode() == "tutor_main2_play"  and scene == "stageSelector"):
-		get_node("tap2d/tap2").play("play")
+		if(get_node(".").name == "Ch0"):
+			get_node("tap2d/tap2").play("play")
 	elif GlobalVar.get_mode() == "tutor_main2_play":
-		get_node("tap2d3/tap2").play("play")
+		if(get_node(".").name == "Ch0"):
+			get_node("tap2d3/tap2").play("play")
 #		get_node("tap2d2/tap2").play("play")
 	if (!intro.playing and audio_game.playing):
 		audio_game.stop()

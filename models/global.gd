@@ -11,7 +11,14 @@ var baju_sekarang = "" setget set_baju, get_baju
 var gametime = 60 setget set_gametime, get_gametime
 var mode = "tutor_main" setget set_mode, get_mode
 
-var item = load("res://models/itemManager.gd").new()
+var item   = load("res://models/itemManager.gd").new()
+var player = load("res://models/playerManager.gd").new()
+
+func _ready():
+	if (player.get_player_data()['tutorial']  == true) :
+		set_mode('tutor_main')
+	else:
+		set_mode('')
 
 func init_limit_equip():
 	var radar = item.get_item_tier('radar')

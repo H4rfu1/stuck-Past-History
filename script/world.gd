@@ -156,6 +156,7 @@ func artefact_zone_checker():
 					GlobalVar.set_mode("tutor_main2")
 				if GlobalVar.get_mode() == "0-2":
 					GlobalVar.set_mode("selesai_tutor")
+					player_data.tutorial_selesai()
 				$Ysort/player.hurtbox.set_collision_layer_bit( 2, false)
 				$Ysort/player.set_physics_process(false)
 				for node in mob.get_children():

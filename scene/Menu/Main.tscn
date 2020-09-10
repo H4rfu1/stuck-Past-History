@@ -401,11 +401,19 @@ text = "Apakah yakin akan keluar dari aplikasi?"
 align = 1
 valign = 1
 
-[node name="tap2d" parent="." instance=ExtResource( 31 )]
-position = Vector2( 534.411, 88.0897 )
+[node name="tutorial" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="tap2d2" parent="." instance=ExtResource( 31 )]
-position = Vector2( 419.853, 238.823 )
+[node name="tap2d" parent="tutorial" instance=ExtResource( 31 )]
+position = Vector2( -182.759, 86.8121 )
+
+[node name="tap2d2" parent="tutorial" instance=ExtResource( 31 )]
+position = Vector2( -304.831, 250.627 )
 [connection signal="button_up" from="VBoxContainer/btn_main" to="." method="_on_press_Main"]
 [connection signal="button_up" from="VBoxContainer/btn_mesinw" to="." method="_on_press_MesinWaktu"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/btn_toko" to="." method="_on_press_Toko"]

@@ -836,14 +836,22 @@ __meta__ = {
 [node name="CraftingMenu" parent="." instance=ExtResource( 32 )]
 visible = false
 
-[node name="tap2d" parent="." instance=ExtResource( 33 )]
-position = Vector2( 462.66, 161.543 )
+[node name="tutorial" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="tap2d2" parent="." instance=ExtResource( 33 )]
-position = Vector2( 360.564, 407.089 )
+[node name="tap2d" parent="tutorial" instance=ExtResource( 33 )]
+position = Vector2( -257.34, 161.543 )
 
-[node name="tap2d3" parent="." instance=ExtResource( 33 )]
-position = Vector2( 37.478, 42.6473 )
+[node name="tap2d2" parent="tutorial" instance=ExtResource( 33 )]
+position = Vector2( -359.436, 407.089 )
+
+[node name="tap2d3" parent="tutorial" instance=ExtResource( 33 )]
+position = Vector2( -682.522, 42.6473 )
 [connection signal="pressed" from="Background/card/btn_rakit" to="." method="_open_crafting"]
 [connection signal="button_up" from="Background/btn_group/btn_inventory" to="." method="_on_toko_inventory"]
 [connection signal="button_up" from="Background/btn_group/btn_powerup" to="." method="_on_toko_powerup"]

@@ -29,11 +29,11 @@ func _ready():
 		audio_game.stop()
 		intro.play()
 	if GlobalVar.get_mode() == "tutor_main" or GlobalVar.get_mode() == "tutor_main2_play":
-		get_node("tap2d/tap2").play("play")
+		get_node("tutorial/tap2d/tap2").play("play")
 	elif GlobalVar.get_mode() == "tutor_main2":
-		get_node("tap2d2/tap2").play("play")
+		get_node("tutorial/tap2d2/tap2").play("play")
 	elif GlobalVar.get_mode() == "toko":
-		get_node("tap2d/tap2").play("play")
+		get_node("tutorial/tap2d/tap2").play("play")
 	if(!Intro.playing):
 		intro.play()
 	_load_conf()
@@ -66,7 +66,7 @@ func _starter():
 # Button Press Action #
 #######################
 func _on_press_Main():
-	get_node("tap2d/tap2").play("stop")
+	get_node("tutorial/tap2d/tap2").play("stop")
 	var clickSound = click_sound.instance()
 	get_tree().current_scene.add_child(clickSound)
 	goto_scene("StageSelector")
@@ -78,7 +78,7 @@ func _on_press_MesinWaktu():
 func _on_press_Toko():
 	GlobalVar.set_toko("powerup")
 	if GlobalVar.get_mode() == "tutor_main2":
-		get_node("tap2d2/tap2").play("stop")
+		get_node("tutorial/tap2d2/tap2").play("stop")
 		GlobalVar.set_mode("toko")
 	var clickSound = click_sound.instance()
 	get_tree().current_scene.add_child(clickSound)
@@ -101,7 +101,7 @@ func _on_press_Setting():
 	$setting_window.visible = true
 func _on_return_to_menu():
 	if GlobalVar.get_mode() == "toko":
-		get_node("tap2d3/tap2").play("stop")
+		get_node("tutorial/tap2d3/tap2").play("stop")
 		GlobalVar.set_mode("tutor_main2_play")
 	var clickSound = click_sound.instance()
 	get_tree().current_scene.add_child(clickSound)
@@ -166,8 +166,8 @@ func _on_cancel_purchase():
 
 func _on_confirm_buy_pressed():
 	if GlobalVar.get_mode() == "toko":
-		get_node("tap2d3/tap2").play("play")
-		get_node("tap2d2/tap2").play("stop")
+		get_node("tutorial/tap2d3/tap2").play("play")
+		get_node("tutorial/tap2d2/tap2").play("stop")
 	var cart = get_shop_cart() #[type, id/ name, cost, amount]
 	var cost = cart[2] * cart[3]
 	var pmoney = get_player()["c"]
@@ -259,8 +259,8 @@ func render_toko_item(type):
 
 func on_tap_toko_item(itm):
 	if GlobalVar.get_mode() == "toko":
-		get_node("tap2d/tap2").play("stop")
-		get_node("tap2d2/tap2").play("play")
+		get_node("tutorial/tap2d/tap2").play("stop")
+		get_node("tutorial/tap2d2/tap2").play("play")
 	var clickSound = click_sound.instance()
 	get_tree().current_scene.add_child(clickSound)
 	$PurchaseBox/Card/upgrade_arrow.hide()

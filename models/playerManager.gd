@@ -47,6 +47,10 @@ func player_change_name():
 	DB.pushJSON(["username"], [new_name], "pemain")
 	$window/username.text = new_name + get_player()["uid"]
 
+func tutorial_selesai():
+	_ready()
+	DB.pushJSON(["tutorial"], [false], "pemain")
+	#$window/username.text = new_name + get_player()["uid"]
 
 func get_setting_data():
 	_ready()

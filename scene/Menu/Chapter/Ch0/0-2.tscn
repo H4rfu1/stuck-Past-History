@@ -877,10 +877,14 @@ position = Vector2( 683.689, 42.2363 )
 position = Vector2( 506.367, 419.941 )
 
 [node name="dialog_window" parent="CanvasLayer" instance=ExtResource( 25 )]
-margin_left = 378.346
-margin_top = 97.1018
-margin_right = 378.346
-margin_bottom = 97.1017
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -175.862
+margin_top = -127.295
+margin_right = 544.138
+margin_bottom = 352.705
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="ColorRect" parent="CanvasLayer/dialog_window" index="0"]
