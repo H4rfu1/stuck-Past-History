@@ -403,6 +403,9 @@ valign = 1
 
 [node name="tap2d" parent="." instance=ExtResource( 31 )]
 position = Vector2( 534.411, 88.0897 )
+
+[node name="tap2d2" parent="." instance=ExtResource( 31 )]
+position = Vector2( 419.853, 238.823 )
 [connection signal="button_up" from="VBoxContainer/btn_main" to="." method="_on_press_Main"]
 [connection signal="button_up" from="VBoxContainer/btn_mesinw" to="." method="_on_press_MesinWaktu"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/btn_toko" to="." method="_on_press_Toko"]

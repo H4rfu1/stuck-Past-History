@@ -38,8 +38,6 @@ func _on_btn_skip_pressed():
 		set_page(get_page()+1)
 		if(len(message) == get_page()):
 			_on_btn_close_pressed()
-			if GlobalVar.get_mode() == "0-1_play":
-				GlobalVar.set_mode("tutor_main2")
 		else:
 			if GlobalVar.get_mode() == "0-1":
 				get_parent().get_node("slide/tap2").play("stop")
@@ -55,7 +53,7 @@ func _on_btn_skip_pressed():
 	
 
 func _on_btn_close_pressed():
-	if GlobalVar.get_mode() == "tutor_main" || GlobalVar.get_mode() == "tutor_main2":
+	if GlobalVar.get_mode() == "tutor_main" || GlobalVar.get_mode() == "tutor_main2_play":
 		get_parent().get_node("tap2d8/tap2").play("stop")
 		get_parent().get_node("tap2d6/tap2").play("play")
 	var clickSound = click_sound.instance()

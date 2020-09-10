@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://script/line.gd" type="Script" id=1]
 [ext_resource path="res://assets/Tilemap/color_tiles_red.tres" type="TileSet" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://scene/Enemies/Mob.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scene/Enemies/trap.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scene/World/TreePalm.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scene/Window/dialog_window.res" type="PackedScene" id=25]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -666,7 +667,6 @@ font_data = SubResource( 41 )
 [node name="world" type="Node2D"]
 script = ExtResource( 4 )
 tipe_baju = "normal"
-zona = "tutorial_1"
 
 [node name="TileBase" type="TileMap" parent="."]
 tile_set = SubResource( 40 )
@@ -873,6 +873,24 @@ position = Vector2( 123.788, 350.11 )
 [node name="tap_1" parent="CanvasLayer" instance=ExtResource( 20 )]
 position = Vector2( 683.689, 42.2363 )
 
+[node name="tap2d2" parent="CanvasLayer" instance=ExtResource( 20 )]
+position = Vector2( 506.367, 419.941 )
+
+[node name="dialog_window" parent="CanvasLayer" instance=ExtResource( 25 )]
+margin_left = 378.346
+margin_top = 97.1018
+margin_right = 378.346
+margin_bottom = 97.1017
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="ColorRect" parent="CanvasLayer/dialog_window" index="0"]
+visible = false
+
+[node name="btn_close" parent="CanvasLayer/dialog_window/window" index="0"]
+visible = false
+
 [node name="TimerStage" type="Timer" parent="."]
 one_shot = true
 [connection signal="collided" from="Ysort/player" to="." method="_on_player_collided"]
+
+[editable path="CanvasLayer/dialog_window"]

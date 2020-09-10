@@ -59,7 +59,15 @@ func _btn_oke():
 	var jilid = GlobalVar.get_jilid()
 	var staged = GlobalVar.get_stage()
 	get_tree().current_scene.add_child(clickSound)
-	if(get_menang()):
+	if (get_menang() and GlobalVar.get_mode() == "tutor_main2"):
+		get_tree().change_scene("res://scene/Menu/Main.tscn")
+	elif ((get_menang() == false) and GlobalVar.get_mode() == "tutor_main2"):
+		get_tree().change_scene("res://scene/Menu/Chapter/Ch0/0-1.tscn")
+	elif (get_menang() and GlobalVar.get_mode() == "selesai_tutor"):
+		get_tree().change_scene("res://scene/Menu/StageSelector.tscn")
+	elif ((get_menang() == false) and GlobalVar.get_mode() == "0-2"):
+		get_tree().change_scene("res://scene/Menu/Chapter/Ch0/0-2.tscn")
+	elif(get_menang()):
 		get_tree().change_scene("res://scene/Menu/Synthesis.tscn")
 	else:
 		get_tree().change_scene("res://scene/Menu/Chapter/Ch"+str(GlobalVar.get_jilid())+".tscn")

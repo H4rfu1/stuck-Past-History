@@ -9,6 +9,7 @@ const shop_item     = preload("res://scene/UI/shop_item.res")
 const click_sound = preload("res://scene/Music and Sounds/click.tscn")
 const click_start = preload("res://scene/Music and Sounds/Start.tscn")
 
+export var scene = ""
 
 onready var intro = get_node("/root/Intro")
 onready var audio_game = get_node("/root/GamePlay")
@@ -19,8 +20,11 @@ var equip_id = 0
 var equip_slot = 0
 
 func _ready():
-	if GlobalVar.get_mode() == "tutor_main":
+	if GlobalVar.get_mode() == "tutor_main" or (GlobalVar.get_mode() == "tutor_main2_play"  and scene == "stageSelector"):
 		get_node("tap2d/tap2").play("play")
+	elif GlobalVar.get_mode() == "tutor_main2_play":
+		get_node("tap2d3/tap2").play("play")
+#		get_node("tap2d2/tap2").play("play")
 	if (!intro.playing and audio_game.playing):
 		audio_game.stop()
 		intro.play()
@@ -55,7 +59,7 @@ func _on_return_to_menu():
 
 ###Select Jilid###
 func _on_ch0():
-	if GlobalVar.get_mode() == "tutor_main":
+	if GlobalVar.get_mode() == "tutor_main" or (GlobalVar.get_mode() == "tutor_main2_play"  and scene == "stageSelector"):
 		get_node("tap2d/tap2").play("stop")
 	var clickSound = click_sound.instance()
 	get_tree().current_scene.add_child(clickSound)
@@ -74,7 +78,7 @@ func on_select_stage(button):
 	get_tree().current_scene.add_child(clickSound)
 	var staged = button.split('_', false, 1)
 	staged     = staged[1]
-	if GlobalVar.get_mode() == "tutor_main":
+	if GlobalVar.get_mode() == "tutor_main" or (GlobalVar.get_mode() == "tutor_main2_play"):
 		if staged == "0-1":
 			get_node("tap2d/tap2").play("stop")
 			get_node("tap2d7/tap2").play("play")
@@ -93,6 +97,22 @@ func on_select_stage(button):
 
 var escape_awal = false
 func _on_deselect_stage():
+#	if GlobalVar.get_mode() == "tutor_main":
+#		get_node("tap2d/tap2").play("play")
+#		get_node("tap2d2/tap2").play("stop")
+#		get_node("tap2d4/tap2").play("stop")
+#		get_node("tap2d5/tap2").play("stop")
+#		get_node("tap2d6/tap2").play("stop")
+#		get_node("tap2d7/tap2").play("stop")
+#		get_node("tap2d8/tap2").play("stop")
+#	elif GlobalVar.get_mode() == "tutor_main2_play":
+#		get_node("tap2d3/tap2").play("play")
+#		get_node("tap2d2/tap2").play("stop")
+#		get_node("tap2d4/tap2").play("stop")
+#		get_node("tap2d5/tap2").play("stop")
+#		get_node("tap2d6/tap2").play("stop")
+#		get_node("tap2d7/tap2").play("stop")
+#		get_node("tap2d8/tap2").play("stop")
 	if escape_awal:
 		var clickSound = click_sound.instance()
 		get_tree().current_scene.add_child(clickSound)
@@ -147,6 +167,9 @@ func render_powerup():
 func select_powerup(itm):
 	var clickSound = click_sound.instance()
 	get_tree().current_scene.add_child(clickSound)
+	if GlobalVar.get_mode() == "tutor_main2_play":
+		get_node("tap2d4/tap2").play("stop")
+		get_node("tap2d5/tap2").play("play")
 	var obj = itm.name.split('_', false, 1)
 	obj = obj[1]
 	$EquipBox/Card/itemname.text = item.get_item_byname(obj)[1]
@@ -155,6 +178,11 @@ func select_powerup(itm):
 	
 
 func open_equip(slot):
+	var clickSound = click_sound.instance()
+	get_tree().current_scene.add_child(clickSound)
+	if GlobalVar.get_mode() == "tutor_main2_play":
+		get_node("tap2d3/tap2").play("stop")
+		get_node("tap2d4/tap2").play("play")
 	$EquipBox.show()
 	$Deselect.show()
 	$EquipBox/Card/unlock/not_enough.hide()
@@ -187,6 +215,11 @@ func open_equip(slot):
 func _on_btn_start(): #Masuk ke Permainan#
 	if GlobalVar.get_mode() == "tutor_main":
 		get_node("tap2d6/tap2").play("stop")
+		GlobalVar.set_mode("0-1")
+	elif GlobalVar.get_mode() == "tutor_main2_play":
+		get_node("tap2d6/tap2").play("stop")
+		GlobalVar.set_mode("0-2")
+		
 	intro.stop()
 	var clickStart = click_start.instance()
 	get_tree().current_scene.add_child(clickStart)
@@ -194,7 +227,7 @@ func _on_btn_start(): #Masuk ke Permainan#
 	###goto_scene("Chapter/Ch1/1")
 	
 func _on_btn_info():
-	if GlobalVar.get_mode() == "tutor_main":
+	if GlobalVar.get_mode() == "tutor_main"  or (GlobalVar.get_mode() == "tutor_main2_play"):
 		get_node("tap2d7/tap2").play("stop")
 		get_node("tap2d8/tap2").play("play")
 	var clickSound = click_sound.instance()
@@ -204,8 +237,11 @@ func _on_btn_info():
 	$dialog_window.create(["Durasi permainan: "+str(durasi)+" menit \nPetunjuk: \n1.Gunakan tombol kendali untuk menggerakkan karakter\n2.Hindari interaksi dengan penduduk lokal agar tidak mengubah jejak sejarah\n3. Temukan artefak/ peninggalan sejarah disetiap permainan\n 4. Saat menemukan artefak/ peninggalan sejarah, potret objek tersebut dengan berlari menenuhi seluruh kotak yang tersedia\n5. Pastikan agar tidak terlalu lama pada berdiri pada kotak pengambilan foto"])
 
 func _on_confirm_equip():
-	var clickSound = click_sound.instance()
-	get_tree().current_scene.add_child(clickSound)
+#	var clickSound = click_sound.instance()
+#	get_tree().current_scene.add_child(clickSound)
+	if GlobalVar.get_mode() == "tutor_main2_play":
+		get_node("tap2d2/tap2").play("play")
+		get_node("tap2d5/tap2").play("stop")
 	if(get_stateeq()):
 		pass
 		var temp = GlobalVar.get_equip()

@@ -17,6 +17,7 @@ export var health = 3
 export var tipe_baju = "jawa"
 var time = 0
 var stats = PlayerStats
+var status = true
 
 onready var timerStage = $TimerStage
 
@@ -35,15 +36,18 @@ var artefact_player_pos = [2,3]
 #	print(object)
 #	print(from)
 func _ready():
-	GlobalVar.set_mode("0-1")
 	if GlobalVar.get_mode() == "0-1":
 		$CanvasLayer/slide/tap2.play("play")
 		$CanvasLayer/slide2/tap2.play("play")
 		$CanvasLayer/slide3/tap2.play("play")
 		$CanvasLayer/slide4/tap2.play("play")
-	timerStage.paused = true
-	$CanvasLayer/dialog_window.show()
-	$CanvasLayer/dialog_window.create(["Petunjuk: \n1. Nyawa player, akan berkurang apabila tertangkap penduduk asli dan terkena jebakan\n2. Batas waktu menyelesaikan misi\n3. Kontroler pergerakan player\n4. Pause game dan pengaturan","Petunjuk: \nikuti garis bantu\nsetelah masuk dalam area artefak, lewati seluruh block photo untuk menyelesaikan misi\nHati-hati dengan jebakan dan penduduk sekitar"])
+		timerStage.paused = true
+		$CanvasLayer/dialog_window.show()
+		$CanvasLayer/dialog_window.create(["Petunjuk: \n1. Nyawa player, akan berkurang apabila tertangkap penduduk asli dan terkena jebakan\n2. Batas waktu menyelesaikan misi\n3. Kontroler pergerakan player\n4. Pause game dan pengaturan","Petunjuk: \nikuti garis bantu\nsetelah masuk dalam area artefak, lewati seluruh block photo untuk menyelesaikan misi\nHati-hati dengan jebakan dan penduduk sekitar"])
+	elif GlobalVar.get_mode() == "0-2":
+		$CanvasLayer/tap2d2/tap2.play("play")
+		$CanvasLayer/dialog_window.show()
+		$CanvasLayer/dialog_window.create(["Petunjuk: \nTap untuk menggunakan skill.\nSama seperti stage sebelumnya, potret setiap sisi untuk menyelesaikan misi.\nHati-hati jangan sampai tertangkap penduduk dan terkena jebakan"])
 	
 	var audio = "not played"
 	stats.status = "ongoing"
@@ -96,7 +100,9 @@ func _process(delta):
 	if (getZoneState()):
 		player_on_artefact_zone()
 		artefact_zone_checker()
-	
+	if(timerStage.time_left < 50 and status == true and GlobalVar.get_mode() == "0-2"):
+		$CanvasLayer/tap2d2/tap2.play("stop")
+		status = false
 	#animation 0-1_play
 	if GlobalVar.get_mode() == "0-1_play":
 		$Direction.visible = true
@@ -146,12 +152,15 @@ func artefact_zone_checker():
 				var health = PlayerStats.get_heath()
 				var score  = (50*health)+(10*time)
 				var coin   = (arteract_tiles_amount*15*time)+(50*health)
-				
-				$CanvasLayer/game_result2.create("menang", score, rtime, 500)
+				if GlobalVar.get_mode() == "0-1_play":
+					GlobalVar.set_mode("tutor_main2")
+				if GlobalVar.get_mode() == "0-2":
+					GlobalVar.set_mode("selesai_tutor")
+				$Ysort/player.hurtbox.set_collision_layer_bit( 2, false)
 				$Ysort/player.set_physics_process(false)
 				for node in mob.get_children():
 					node.set_physics_process(false)
-				
+				$CanvasLayer/game_result2.create("menang", score, rtime, 500)
 	green = 0
 
 func artefact_zone_blocker(cpos):
@@ -231,6 +240,7 @@ func _on_timerStage_timeout():
 	get_tree().current_scene.add_child(Timeout)
 	$CanvasLayer/game_result2.create("waktu_habis", 9000, "0:11", 500)
 	$Ysort/player.set_physics_process(false)
+	$Ysort/player.hurtbox.set_collision_layer_bit( 2, false)
 	stats.status = "timeout"
 	for node in mob.get_children():
 		node.set_physics_process(false)
