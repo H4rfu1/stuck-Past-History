@@ -14,7 +14,7 @@ func unique():
 
 var default_pemain = {
 		v    = '0-beta1',#versi database
-		c    = 0,
+		c    = 1,
 		slot = 1,
 		username = 'tamu',
 		uid  = '#'+unique(),
@@ -102,10 +102,54 @@ var stage_detail = [
 		{
 			jilid = 0,
 			stage = "0-1",
+			type = 'jawa',
 			player_start = [0,0],
 			artefak_pos  = [0,0],
-			artefact_player_pos = [], #setpoin
-			artefact_tiles = []
+			artefact_player_pos = [2,3], #setpoin
+			artefact_tiles = [
+							[1,0], [2,0], [3,0],
+							[1,1], [3,1],
+							[1,2], [3,2] ]
+		},
+		{
+			jilid = 0,
+			stage = "0-2",
+			type = 'jawa',
+			player_start = [0,0],
+			artefak_pos  = [0,0],
+			artefact_player_pos = [2,3], #setpoin
+			artefact_tiles = [
+							[1,0], [2,0], [3,0],
+							[1,1], [3,1],
+							[1,2], [3,2] ]
+		},
+		{
+			jilid = 1,
+			stage = "1",
+			type = 'jawa',
+			player_start = [0,0],
+			artefak_pos  = [0,0],
+			artefact_player_pos = [17,4], #setpoin
+			artefact_tiles = [
+							[14,1], [15,1], [16,1], [17,1],
+							[14,2], [17,2],
+							[14,3], [17,3],
+							[14,4], [15,4],[16,4]
+							 ]
+		},
+		{
+			jilid = 1,
+			stage = "2",
+			type = 'jawa',
+			player_start = [0,0],
+			artefak_pos  = [0,0],
+			artefact_player_pos = [17,4], #setpoin
+			artefact_tiles = [
+							[14,1], [15,1], [16,1], [17,1],
+							[14,2], [17,2],
+							[14,3], [17,3],
+							[14,4], [15,4],[16,4]
+							 ]
 		}
 	]  setget , get_stage_detail
 
@@ -150,4 +194,6 @@ func path4(target: String)->String:
 			return "user://item.json"
 		"inventory":
 			return "user://inventory.json"
+		"stage_detail":
+			return "user://stage_detail.json"
 	return "null :("

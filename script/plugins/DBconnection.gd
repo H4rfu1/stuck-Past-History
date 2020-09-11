@@ -108,4 +108,7 @@ func createJSON(kind)->void:
 		"inventory":
 			data = local.get_inventory().duplicate(true)
 			saveJSON(local.get_inventory(),"inventory")
+		"stage_detail":
+			data = local.get_stage_detail().duplicate(true)
+			saveJSON(local.get_stage_detail(),"stage_detail")
 	pass

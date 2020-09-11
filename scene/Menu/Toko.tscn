@@ -845,7 +845,7 @@ __meta__ = {
 }
 
 [node name="tap2d" parent="tutorial" instance=ExtResource( 33 )]
-position = Vector2( -257.34, 161.543 )
+position = Vector2( -189.534, 171.078 )
 
 [node name="tap2d2" parent="tutorial" instance=ExtResource( 33 )]
 position = Vector2( -359.436, 407.089 )

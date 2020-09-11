@@ -6,6 +6,7 @@ export var ACCELERATION = 300
 export var MAX_SPEED = 50
 export var FRICTION = 200
 export var WANDER_TARGET_RANGE = 4
+var direction = Vector2.ZERO
 
 enum {
 	IDLE,
@@ -36,6 +37,8 @@ func _physics_process(delta):
 	match state:
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+			animationState.travel("Idle")
+			animationTree.set("parameters/Idle/blend_position", direction)
 			seek_player()
 			if wanderController.get_time_left() == 0:
 				update_wander()
@@ -58,11 +61,17 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 func accelerate_towards_point(point, delta):
-	var direction = Vector2.ZERO
 	direction = global_position.direction_to(point)
+	direction = direction.normalized()
 	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
-	animationTree.set("parameters/Idle/blend_position", direction)
-	#animationTree.set("parameters/Run/blend_position", direction)
+	if direction != Vector2.ZERO:
+		animationState.travel("Run")
+		animationTree.set("parameters/Idle/blend_position", direction)
+		animationTree.set("parameters/Run/blend_position", direction)
+	else:
+		animationState.travel("Idle")
+		animationTree.set("parameters/Idle/blend_position", direction)
+		
 
 func seek_player():
 	if playerDetectionZone.can_see_player():

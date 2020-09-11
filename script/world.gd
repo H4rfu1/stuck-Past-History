@@ -1,7 +1,8 @@
 extends Node2D
 
-var player_data = load('res://models/playerManager.gd').new()
-var use_equip   = load('res://script/UseEquip.gd').new()
+var player_data  = load('res://models/playerManager.gd').new()
+var stage_detail = load('res://models/detailStage.gd').new()
+var use_equip    = load('res://script/UseEquip.gd').new()
 
 #audio
 const timeout = preload("res://scene/Music and Sounds/gong.tscn")
@@ -24,18 +25,34 @@ onready var timerStage = $TimerStage
 onready var audio_game = get_node("/root/GamePlay")
 
 var artefactzone = false setget setZoneState, getZoneState
-var artefact_tiles = [
-	[1,0], [2,0], [3,0],
-	[1,1], [3,1],
-	[1,2], [3,2] ]
-var artefact_player_pos = [2,3]
+var artefact_tiles setget set_a_tiles
+var artefact_player_pos setget set_p_pos
+#var artefact_tiles = [
+#	[1,0], [2,0], [3,0],
+#	[1,1], [3,1],
+#	[1,2], [3,2] ]
+#var artefact_player_pos = [2,3]
 #func _draw():
 #	var object = get_node("Ysort/Stone/StaticBody2D").global_position
 #	var from =  get_node("Ysort/player").global_position
 #	draw_line(Vector2(322.44101, -42.426399), Vector2(500, 500), Color(255, 0, 0), 1)
 #	print(object)
 #	print(from)
+func set_p_pos(args):
+	artefact_player_pos = args
+func get_p_pos():
+	return artefact_player_pos
+func set_a_tiles(args):
+	artefact_tiles = args
+func get_a_tiles():
+	return artefact_tiles
+
 func _ready():
+	set_a_tiles(stage_detail.get_tiles_artefact())
+	set_p_pos(stage_detail.get_player_artefact())
+	print('ptil',artefact_tiles)
+	print('pptil',artefact_player_pos)
+	stage_detail.get_player_artefact()
 	if GlobalVar.get_mode() == "0-1":
 		$CanvasLayer/slide/tap2.play("play")
 		$CanvasLayer/slide2/tap2.play("play")
@@ -111,7 +128,6 @@ func _process(delta):
 func _on_player_collided(collision):
 	if collision.collider is TileMap:
 		var tile_pos = collision.collider.world_to_map($Ysort/player.position)
-		print(collision.normal)
 		tile_pos -= collision.normal  # Colliding tile
 		var tile = collision.collider.get_cellv(tile_pos)
 		if tile < 8 and tile > 0:
@@ -131,6 +147,7 @@ func player_on_artefact_zone():
 func artefact_zone_checker():
 	var arteract_tiles_amount = artefact_tiles.size()
 	var green = 0
+	print('green', green)
 	for t in artefact_tiles:
 		t = Vector2(t[0], t[1])
 		var tile = $TileZone.get_cellv(t)

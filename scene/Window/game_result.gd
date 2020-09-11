@@ -89,7 +89,7 @@ func give_reward(jilid, staged):
 			match staged:
 				'0-1':
 					if(first_complete):
-						id = 1
+						id = 2
 				'0-2':
 					if(first_complete):
 						id = 1
