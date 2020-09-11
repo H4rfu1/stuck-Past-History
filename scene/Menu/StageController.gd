@@ -29,6 +29,8 @@ func _ready():
 #		get_node("tap2d2/tap2").play("play")
 	if (!intro.playing and audio_game.playing):
 		audio_game.stop()
+		audio_game.stop()
+		intro.play()
 		intro.play()
 		intro.play()
 	_starter()
@@ -236,7 +238,7 @@ func _on_btn_info():
 		get_node("tap2d8/tap2").play("play")
 	var clickSound = click_sound.instance()
 	get_tree().current_scene.add_child(clickSound)
-	var durasi = float(60/60)
+	var durasi = float(GlobalVar.get_gametime()/60)
 	$dialog_window.show()
 	$dialog_window.create(["Durasi permainan: "+str(durasi)+" menit \nPetunjuk: \n1.Gunakan tombol kendali untuk menggerakkan karakter\n2.Hindari interaksi dengan penduduk lokal agar tidak mengubah jejak sejarah\n3. Temukan artefak/ peninggalan sejarah disetiap permainan\n 4. Saat menemukan artefak/ peninggalan sejarah, potret objek tersebut dengan berlari menenuhi seluruh kotak yang tersedia\n5. Pastikan agar tidak terlalu lama pada berdiri pada kotak pengambilan foto"])
 

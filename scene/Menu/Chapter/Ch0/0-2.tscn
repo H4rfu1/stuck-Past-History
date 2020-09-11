@@ -801,13 +801,19 @@ position = Vector2( 220.249, -9.34389 )
 [node name="StaticBody2D13" parent="Ysort/Stone" instance=ExtResource( 11 )]
 position = Vector2( 157.511, -9.34389 )
 
+[node name="StaticBody2D14" parent="Ysort/Stone" instance=ExtResource( 14 )]
+position = Vector2( 845, 284 )
+
+[node name="StaticBody2D15" parent="Ysort/Stone" instance=ExtResource( 15 )]
+position = Vector2( 925, 262 )
+
 [node name="Mob" type="YSort" parent="Ysort"]
 
 [node name="Mob" parent="Ysort/Mob" instance=ExtResource( 22 )]
 position = Vector2( 327.462, 486.267 )
 
 [node name="Mob2" parent="Ysort/Mob" instance=ExtResource( 22 )]
-position = Vector2( 943.675, 289.999 )
+position = Vector2( 1062.68, 322.999 )
 
 [node name="Mob3" parent="Ysort/Mob" instance=ExtResource( 12 )]
 position = Vector2( 1042.81, 622.494 )

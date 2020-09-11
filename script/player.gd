@@ -8,7 +8,7 @@ const trap_hurt = preload("res://scene/Music and Sounds/sound_trap.tscn")
 const mob_hurt = preload("res://scene/Music and Sounds/sound_mob.tscn")
 
 export var ACCELERATION = 500
-export var MAX_SPEED = 80
+export var MAX_SPEED = 100
 export var ROLL_SPEED = 120
 export var FRICTION = 500
 

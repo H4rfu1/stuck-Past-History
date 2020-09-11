@@ -8,7 +8,7 @@ var stage = "1" setget set_stage, get_stage
 var audio = true setget set_audio, get_audio
 var radar_duration = 3 setget set_radar, get_radar
 var baju_sekarang = "" setget set_baju, get_baju
-var gametime = 60 setget set_gametime, get_gametime
+var gametime = 120 setget set_gametime, get_gametime
 var mode = "tutor_main" setget set_mode, get_mode
 
 var item   = load("res://models/itemManager.gd").new()

@@ -53,6 +53,8 @@ func _ready():
 	print('ptil',artefact_tiles)
 	print('pptil',artefact_player_pos)
 	stage_detail.get_player_artefact()
+	if($CanvasLayer.has_node("dialog_window")):
+		$CanvasLayer/dialog_window.hide()
 	if GlobalVar.get_mode() == "0-1":
 		$CanvasLayer/slide/tap2.play("play")
 		$CanvasLayer/slide2/tap2.play("play")

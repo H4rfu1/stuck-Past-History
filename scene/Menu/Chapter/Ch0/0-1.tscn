@@ -800,6 +800,12 @@ position = Vector2( 220.249, -9.34389 )
 [node name="StaticBody2D13" parent="Ysort/Stone" instance=ExtResource( 11 )]
 position = Vector2( 157.511, -9.34389 )
 
+[node name="StaticBody2D14" parent="Ysort/Stone" instance=ExtResource( 15 )]
+position = Vector2( 897.706, 305.122 )
+
+[node name="StaticBody2D15" parent="Ysort/Stone" instance=ExtResource( 14 )]
+position = Vector2( 820.408, 277.77 )
+
 [node name="Mob" type="YSort" parent="Ysort"]
 
 [node name="Mob" parent="Ysort/Mob" instance=ExtResource( 22 )]

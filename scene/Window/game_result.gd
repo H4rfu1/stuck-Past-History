@@ -67,7 +67,7 @@ func _btn_oke():
 		get_tree().change_scene("res://scene/Menu/StageSelector.tscn")
 	elif ((get_menang() == false) and GlobalVar.get_mode() == "0-2"):
 		get_tree().change_scene("res://scene/Menu/Chapter/Ch0/0-2.tscn")
-	elif(get_menang()):
+	elif(get_menang() == true):
 		get_tree().change_scene("res://scene/Menu/Synthesis.tscn")
 	else:
 		get_tree().change_scene("res://scene/Menu/Chapter/Ch"+str(GlobalVar.get_jilid())+".tscn")
