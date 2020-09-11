@@ -141,6 +141,7 @@ func _on_CrackHit_body_entered(body):
 	emit_signal('collided', body)
 
 func aktifkanTasRoket(): #interator
+	$EnergyAnimationPlayer.play("Start")
 	var timerT = Timer.new()
 	timerT.set_wait_time( 10 )
 	timerT.connect("timeout",self,"_on_timerT_timeout") 
@@ -189,6 +190,7 @@ func nonAktifkanBajuAdat():
 	 .set_collision_layer_bit( 1, true )
 
 func _on_timerT_timeout():
+	$EnergyAnimationPlayer.play("Stop")
 	.set_collision_mask_bit( 0, true )
 	.set_collision_layer_bit( 7, true )
 
