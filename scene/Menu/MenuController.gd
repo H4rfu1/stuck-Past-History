@@ -25,9 +25,6 @@ onready var audio_game = get_node("/root/GamePlay")
 var escape_awal = false
 
 func _ready():
-	for i in range (12, 22):
-		for j in range (63, 72):
-			print("[",j,",",i,"]",",")
 	if (!intro.playing and audio_game.playing):
 		audio_game.stop()
 		intro.play()

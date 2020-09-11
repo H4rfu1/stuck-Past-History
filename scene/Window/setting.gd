@@ -15,7 +15,7 @@ func _ready():
 	set_setting(DB.readJSON("setting"))
 	set_player (DB.readJSON("pemain"))
 	set_sound(get_setting()['sound'])
-	set_control(get_setting()['sound'])
+	set_control(get_setting()['control'])
 	$window/name.text = get_player()["username"]
 	$window/username.text = get_player()["username"] + get_player()["uid"]
 	icon_state()

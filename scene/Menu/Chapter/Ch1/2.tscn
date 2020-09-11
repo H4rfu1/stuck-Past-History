@@ -916,7 +916,7 @@ position = Vector2( 2210.66, 3557.95 )
 [node name="Mob" type="YSort" parent="Ysort"]
 
 [node name="Mob" parent="Ysort/Mob" instance=ExtResource( 22 )]
-position = Vector2( 1188.03, 1325.07 )
+position = Vector2( 2249.41, 1167.06 )
 
 [node name="Mob4" parent="Ysort/Mob" instance=ExtResource( 22 )]
 position = Vector2( 2217.41, 2366.52 )
