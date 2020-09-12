@@ -131,6 +131,7 @@ anims/main_page = SubResource( 1 )
 
 [node name="swirl" type="Sprite" parent="Background"]
 position = Vector2( 496.807, 363.664 )
+scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 21 )
 
 [node name="portal" type="Sprite" parent="Background"]
