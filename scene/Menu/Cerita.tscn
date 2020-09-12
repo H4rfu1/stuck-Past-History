@@ -488,7 +488,6 @@ __meta__ = {
 
 [node name="swirl" type="Sprite" parent="scene_3"]
 position = Vector2( 473.262, 312.708 )
-scale = Vector2( 0.370976, 0.370976 )
 texture = ExtResource( 13 )
 
 [node name="portal" type="Sprite" parent="scene_3"]
@@ -509,10 +508,10 @@ scale = Vector2( 0.0663408, 0.0663408 )
 texture = ExtResource( 9 )
 
 [node name="timemachine" type="Sprite" parent="scene_3"]
-modulate = Color( 1, 1, 1, 0.0464665 )
-position = Vector2( 460.39, 348.599 )
-rotation = 0.544908
-scale = Vector2( 0.0296559, 0.0296559 )
+modulate = Color( 1, 1, 1, 0.162838 )
+position = Vector2( 448.278, 346.725 )
+rotation = 0.523226
+scale = Vector2( 0.0323687, 0.0323687 )
 texture = ExtResource( 10 )
 
 [node name="scene_1" type="TextureRect" parent="." groups=[
@@ -523,10 +522,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -465.987
-margin_top = -302.661
-margin_right = 362.013
-margin_bottom = 249.339
+margin_left = -445.156
+margin_top = -291.551
+margin_right = 382.844
+margin_bottom = 260.449
 texture = ExtResource( 11 )
 expand = true
 stretch_mode = 6
@@ -556,7 +555,6 @@ __meta__ = {
 [node name="scene_4" type="TextureRect" parent="." groups=[
 "scene",
 ]]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
