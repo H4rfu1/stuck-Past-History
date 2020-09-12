@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://scene/Enemies/Mob_jawa_female.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scene/Player/player.tscn" type="PackedScene" id=2]
@@ -9,11 +9,10 @@
 [ext_resource path="res://scene/World/koleksi_brahu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/Tilemap/color_tiles_red.tres" type="TileSet" id=8]
 [ext_resource path="res://script/world.gd" type="Script" id=9]
-[ext_resource path="res://assets/UI/joystick/key_arrowPress.png" type="Texture" id=10]
+[ext_resource path="res://scene/UI/Keypad-1.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scene/Window/game_result.res" type="PackedScene" id=11]
 [ext_resource path="res://scene/UI/Joystick.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scene/Enemies/Mob.tscn" type="PackedScene" id=13]
-[ext_resource path="res://assets/UI/joystick/key_arrow.png" type="Texture" id=14]
 [ext_resource path="res://scene/World/TreePalm.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scene/World/Stone2.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scene/World/Stone1.tscn" type="PackedScene" id=17]
@@ -860,45 +859,7 @@ __meta__ = {
 [node name="Joystick" parent="CanvasLayer" instance=ExtResource( 12 )]
 position = Vector2( 120.33, 355.333 )
 
-[node name="Keypad" type="Control" parent="CanvasLayer"]
-anchor_left = 0.166
-anchor_top = 0.742
-anchor_right = 0.166
-anchor_bottom = 0.742
-margin_left = -119.52
-margin_top = -99.16
-margin_right = 119.48
-margin_bottom = 123.84
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Right" type="TouchScreenButton" parent="CanvasLayer/Keypad"]
-position = Vector2( 44.9488, 71.045 )
-normal = ExtResource( 14 )
-pressed = ExtResource( 10 )
-action = "ui_left"
-
-[node name="Up" type="TouchScreenButton" parent="CanvasLayer/Keypad"]
-position = Vector2( 143.216, 22.067 )
-rotation = 1.5708
-normal = ExtResource( 14 )
-pressed = ExtResource( 10 )
-action = "ui_up"
-
-[node name="Down" type="TouchScreenButton" parent="CanvasLayer/Keypad"]
-position = Vector2( 94.7575, 169.652 )
-rotation = -1.5708
-normal = ExtResource( 14 )
-pressed = ExtResource( 10 )
-action = "ui_down"
-
-[node name="Left" type="TouchScreenButton" parent="CanvasLayer/Keypad"]
-position = Vector2( 193.218, 72.105 )
-scale = Vector2( -1, 1 )
-normal = ExtResource( 14 )
-pressed = ExtResource( 10 )
-action = "ui_right"
+[node name="Keypad" parent="CanvasLayer" instance=ExtResource( 10 )]
 
 [node name="game_result2" parent="CanvasLayer" instance=ExtResource( 11 )]
 visible = false

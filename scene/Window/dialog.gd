@@ -53,9 +53,11 @@ func _on_btn_skip_pressed():
 	
 
 func _on_btn_close_pressed():
-	if GlobalVar.get_mode() == "tutor_main" || GlobalVar.get_mode() == "tutor_main2_play":
-		get_parent().get_node("tap2d8/tap2").play("stop")
-		get_parent().get_node("tap2d6/tap2").play("play")
+	#print(get_parent().name)
+	if (get_parent().name != "setting_window"):
+		if GlobalVar.get_mode() == "tutor_main" || GlobalVar.get_mode() == "tutor_main2_play":
+			get_parent().get_node("tap2d8/tap2").play("stop")
+			get_parent().get_node("tap2d6/tap2").play("play")
 	var clickSound = click_sound.instance()
 	get_tree().current_scene.add_child(clickSound)
 	$".".visible = false

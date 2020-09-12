@@ -24,7 +24,7 @@ func _ready():
 func _on_btn_credit_pressed():
 	var clickSound = click_sound.instance()
 	get_tree().current_scene.add_child(clickSound)
-	$dialog_window.create(["Game ini dibuat oleh Kelompok Tapesoft, Universitas Jember \nOur Teams: \nHigh concept: M Amri Zaman \nMain programmer: M Fahrul Hafidz \nArtist & programmer: Hartawan Bahari M "])
+	$dialog_window.create(["Game ini dibuat oleh Kelompok Tapesoft, Universitas Jember \nOur Teams: \nHigh concept: M Amri Zaman \nMain programmer: M Fahrul Hafidz \nArtist & programmer: Hartawan Bahari M ", ["Sound Free License:\nFreesound - Rhidesmas\nFreesound - TreasureSounds\nFreesound - Peaceful Break"]])
 
 func _on_lisensi_pressed():
 	$dialog_window.create(["???\nComing soon"])

@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/UI/joystick/key_arrow.png" type="Texture" id=1]
+[ext_resource path="res://assets/UI/joystick/key_arrowPress.png" type="Texture" id=2]
+
+[node name="Keypad" type="Control"]
+anchor_left = 0.166
+anchor_top = 0.742
+anchor_right = 0.166
+anchor_bottom = 0.742
+margin_left = -94.4657
+margin_top = -95.2691
+margin_right = 130.534
+margin_bottom = 126.731
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2( 24.7323, 45.2878 )
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+action = "ui_left"
+
+[node name="Up" type="TouchScreenButton" parent="."]
+position = Vector2( 149.567, -17.7984 )
+rotation = 1.5708
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+action = "ui_up"
+
+[node name="Down" type="TouchScreenButton" parent="."]
+position = Vector2( 86, 171.03 )
+rotation = -1.5708
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+action = "ui_down"
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2( 211.056, 108.781 )
+rotation = 3.14159
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+action = "ui_right"
