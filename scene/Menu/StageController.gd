@@ -20,6 +20,12 @@ var equip_id = 0
 var equip_slot = 0
 
 func _ready():
+	if player.get_player_data()['tutorial']  == true and scene == "stageSelector":
+		$jilid_1.disabled = true
+		$jilid_1.modulate = Color(0.5,0.5,0.5)
+	elif player.get_player_data()['tutorial']  == false and scene == "stageSelector":
+		$jilid_1.disabled = false
+		$jilid_1.modulate = Color(1,1,1)
 	if GlobalVar.get_mode() == "tutor_main" or (GlobalVar.get_mode() == "tutor_main2_play"  and scene == "stageSelector"):
 		if(get_node(".").name == "Ch0" or get_node(".").name == "StageSelector" ):
 			get_node("tap2d/tap2").play("play")
