@@ -1,6 +1,6 @@
 extends Control
 onready var Page = load("res://scene/Menu/MenuController.gd").new()
-
+var player = load("res://models/playerManager.gd").new()
 
 func _ready():
 	$tape.show()
@@ -15,4 +15,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$AnimationPlayer.play("game_logo")
 		$wave.play()
 	else:
-		get_tree().change_scene("res://scene/Menu/Main.tscn")
+		if player.get_player_data()['tutorial']  == true:
+			get_tree().change_scene("res://scene/Menu/Cerita.tscn")
+		else:
+			get_tree().change_scene("res://scene/Menu/Main.tscn")

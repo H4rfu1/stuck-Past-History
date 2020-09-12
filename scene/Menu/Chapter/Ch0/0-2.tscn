@@ -813,7 +813,7 @@ position = Vector2( 925, 262 )
 position = Vector2( 327.462, 486.267 )
 
 [node name="Mob2" parent="Ysort/Mob" instance=ExtResource( 22 )]
-position = Vector2( 1062.68, 322.999 )
+position = Vector2( 1010.42, 341.175 )
 
 [node name="Mob3" parent="Ysort/Mob" instance=ExtResource( 12 )]
 position = Vector2( 1042.81, 622.494 )

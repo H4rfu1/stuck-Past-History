@@ -3,10 +3,13 @@ extends KinematicBody2D
 #const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 
 export var ACCELERATION = 500
-export var MAX_SPEED = 80
+export var MAX_SPEED = 75
 export var FRICTION = 200
 export var WANDER_TARGET_RANGE = 4
 var direction = Vector2.ZERO
+var ngejar = true
+
+const pentung = preload("res://scene/Effects/pentung.tscn")
 
 enum {
 	IDLE,
@@ -52,8 +55,12 @@ func _physics_process(delta):
 		CHASE:
 			var player = playerDetectionZone.player
 			if player != null:
+				if ngejar == true:
+					get_node("pentung/anim").play("play")
+					ngejar = false
 				accelerate_towards_point(player.global_position, delta)
 			else:
+				ngejar = true
 				state = IDLE
 
 	if softCollision.is_colliding():
