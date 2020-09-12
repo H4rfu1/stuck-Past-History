@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Music and Sounds/270640__hoerspielwerkstatt-hef__alarm3.wav" type="AudioStream" id=1]
+[ext_resource path="res://script/sound.gd" type="Script" id=2]
+
+[node name="warning" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+volume_db = -8.0
+autoplay = true
+script = ExtResource( 2 )

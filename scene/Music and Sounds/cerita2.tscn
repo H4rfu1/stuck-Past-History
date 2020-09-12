@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/Music and Sounds/349676__foolboymedia__peaceful-break_bag2.ogg" type="AudioStream" id=1]
+
+[node name="cerita2" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+autoplay = true
