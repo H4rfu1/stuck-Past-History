@@ -488,6 +488,7 @@ __meta__ = {
 
 [node name="swirl" type="Sprite" parent="scene_3"]
 position = Vector2( 473.262, 312.708 )
+scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 13 )
 
 [node name="portal" type="Sprite" parent="scene_3"]
@@ -498,13 +499,13 @@ texture = ExtResource( 14 )
 [node name="harul_young" type="Sprite" parent="scene_3"]
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 355.792, 290.611 )
-scale = Vector2( 0.0663408, 0.0663408 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 8 )
 
 [node name="harul_old" type="Sprite" parent="scene_3"]
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 360.25, 321.312 )
-scale = Vector2( 0.0663408, 0.0663408 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 9 )
 
 [node name="timemachine" type="Sprite" parent="scene_3"]
