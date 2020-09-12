@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/Enemies/trap.png" type="Texture" id=1]
+
+[node name="range" type="Sprite"]
+modulate = Color( 0.956863, 0.937255, 0.0470588, 0.184314 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 1 )

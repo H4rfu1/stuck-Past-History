@@ -58,9 +58,11 @@ func _physics_process(delta):
 				if ngejar == true:
 					get_node("pentung/anim").play("play")
 					ngejar = false
+					$range.visible = true
 				accelerate_towards_point(player.global_position, delta)
 			else:
 				ngejar = true
+				$range.visible = false
 				state = IDLE
 
 	if softCollision.is_colliding():

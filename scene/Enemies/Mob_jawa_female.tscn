@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/Shadows/SmallShadow.png" type="Texture" id=1]
 [ext_resource path="res://assets/Entities/mob_jawa_female.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://script/Hitbox.gd" type="Script" id=11]
 [ext_resource path="res://scene/Enemies/WanderController.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scene/Effects/pentung.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scene/Effects/range.tscn" type="PackedScene" id=14]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.22745
@@ -36,6 +37,9 @@ height = 10.2695
 [node name="Mob" type="KinematicBody2D"]
 collision_layer = 16
 script = ExtResource( 3 )
+
+[node name="range" parent="." instance=ExtResource( 14 )]
+visible = false
 
 [node name="Shadow Spriter" type="Sprite" parent="."]
 position = Vector2( 2.21912, 24.2494 )
