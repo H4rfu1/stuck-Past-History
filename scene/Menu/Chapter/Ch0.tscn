@@ -372,7 +372,6 @@ __meta__ = {
 }
 
 [node name="StageInfo" type="TextureRect" parent="."]
-visible = false
 anchor_left = 0.791
 anchor_right = 1.0
 anchor_bottom = 1.0

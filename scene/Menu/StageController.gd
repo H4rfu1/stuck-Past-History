@@ -226,6 +226,7 @@ func open_equip(slot):
 
 func _on_btn_start(): #Masuk ke Permainan#
 	if(get_node(".").name == "Ch0"):
+		get_node("tap2d6").position = get_node("StageInfo/Contain/Action/btn_start").rect_position
 		if GlobalVar.get_mode() == "tutor_main":
 			get_node("tap2d6/tap2").play("stop")
 			GlobalVar.set_mode("0-1")
